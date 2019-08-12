@@ -1,0 +1,13 @@
+<div fxLayout="row" fxLayoutAlign="space-between start" class="secondary-text mat-caption">
+  <div fxFlex="1 1 auto" *ngIf="docInfo.category">Category: {{ docInfo.category }}</div>
+  <div fxFlex="1 1 auto" class="align-right" *ngIf="docInfo.date">
+    Last Update: {{ docInfo.date }}
+  </div>
+</div>
+<h1 *ngIf="docInfo.title">{{ docInfo.title }}</h1>
+<div class="doc-info-box secondary-text mat-caption">
+  <div fxFlex="1 1 auto" *ngIf="docInfo.tag">
+    <span class="middle-align"><mat-icon fontSet="fa" fontIcon="fa-tags" inline></mat-icon></span>
+    <span> {{ docInfo.tag.join(' ') }}</span>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+@import '../../../variables';
+
+.toc-container {
+  position: fixed;
+  width: 13%;
+  top: 76px;
+  right: 0;
+  bottom: 12px;
+  padding-left: 8px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.toc-title {
+  font-weight: 700;
+  width: 80%;
+  padding-left: 4px;
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+}
+
+ul.toc-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 8px 0;
+  border-left: 1px solid mat-color($karen-md-primary);
+
+  li {
+    padding: 3px 0;
+
+    &.h3,
+    &.h4,
+    &.h5,
+    &.h6 {
+      padding-left: 1em;
+    }
+
+    a {
+      color: mat-color($foreground, text);
+      text-decoration: none;
+    }
+
+    &:hover a {
+      color: mat-color($karen-md-primary);
+    }
+  }
+}

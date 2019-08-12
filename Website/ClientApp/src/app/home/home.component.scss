@@ -1,0 +1,36 @@
+h1 {
+  margin-top: 8px;
+  margin-bottom: 0px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 48px 0 24px 0;
+
+  &:first-child {
+    margin-top: 24px;
+  }
+}
+
+h3 {
+  margin: 16px 0;
+}
+
+.about-me {
+  text-align: center;
+}
+
+.avatar {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  // Makes `<img>` tags behave like `background-size: cover`. Not supported
+  // in IE, but we're using it as a progressive enhancement.
+  object-fit: cover;
+
+  margin-left: auto;
+  margin-right: auto;
+}

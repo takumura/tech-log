@@ -1,0 +1,20 @@
+<div fxLayout="column" class="doc-container" [@openClose]="isOpen ? 'open' : 'closed'">
+  <!-- <p *ngIf="!docInfo">loading...</p> -->
+  <ng-container *ngIf="docInfo && docInfo?.toc === 'none'">
+    <app-doc-header [docInfo]="docInfo"></app-doc-header>
+    <div fxFlex class="doc-body" [innerHTML]="docInfo?.safeBody" appRouteTransformer></div>
+  </ng-container>
+  <ng-container *ngIf="docInfo && docInfo?.toc !== 'none'">
+    <div fxLayout="row">
+      <div fxFlex="1 1 85%" fxFlex.lt-md="1 1 100%">
+        <div fxLayout="column">
+          <app-doc-header [docInfo]="docInfo"></app-doc-header>
+          <div fxFlex class="doc-body" [innerHTML]="docInfo?.safeBody" appRouteTransformer></div>
+        </div>
+      </div>
+      <div fxFlex="1 1 15%" fxHide.lt-md>
+        <app-document-toc [tocList]="tocList" appRouteTransformer></app-document-toc>
+      </div>
+    </div>
+  </ng-container>
+</div>

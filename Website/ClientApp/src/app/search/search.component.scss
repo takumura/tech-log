@@ -1,0 +1,37 @@
+.search-container {
+  margin: 24px 16px;
+}
+
+.search-form {
+  width: 400px;
+  max-width: 90%;
+}
+
+.nav-item-date {
+  float: right;
+}
+
+.nav-item-title {
+  white-space: initial;
+  line-height: 22px;
+  // text-overflow: initial;
+}
+
+.search-result .mat-expansion-panel-header-title,
+.search-result .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.search-result .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+h3 {
+  margin-top: 2em;
+  margin-bottom: 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
