@@ -6,7 +6,7 @@ category: 'Angular'
 
 ## 実施した手順
 
-まず初めに[githubの公式リポジトリ](https://github.com/angular-schule/angular-cli-ghpages)を確認しました。
+まず初めに[angular-cli-ghpagesのgithubリポジトリ](https://github.com/angular-schule/angular-cli-ghpages)を確認しました。
 
 Prerequisitesに`Angular project created via Angular CLI v8.3.0-next.0 or greate`と書かれているのを発見。うまくいかないかもしれないが、とりあえずAngular CLI v7系のまま設定を実施しました。
 
@@ -23,16 +23,51 @@ Installed packages for tooling via npm.
 The package that you are trying to add does not support schematics. You can try using a different version of the package or contact the package author to add ng-add support.
 ```
 
-最終分は赤字だが無視して進めます。
+警告などが出ている（auditは今後の課題）が、今回は無視して進めます。
 
 ```bash
 PS C:\Repos\github\tech-log\Website\ClientApp> ng build --prod --base-href "https://takumura.github.io/tech-log/"
 ```
 
-`Website/ClientApp`以下にdistが作成されたことを確認して、dry-runを実行
+dry-runによる予行でどのように動くか実験。
 
 ```bash
-PS C:\Repos\github\tech-log\Website\ClientApp> ngh --dry-run
+PS C:\Repos\github\tech-log\Website\ClientApp> npx angular-cli-ghpages --dry-run
+*** Dry-run: No changes are applied at all.
+*** Dry-run / SKIPPED: cleaning of the cache directory
+*** Dry-run / SKIPPED: copying of index.html to 404.html
+*** Dry-run / SKIPPED: publishing to "C:\Repos\github\tech-log\Website\ClientApp\dist" with the following options: { dir: 'C:\\Repos\\github\\tech-log\\Website\\ClientApp\\dist',
+  repo:
+   'undefined: current working directory (which must be a git repo in this case) will be used to commit & push',
+  message: 'Auto-generated commit',
+  branch: 'gh-pages',
+  user:
+   'undefined: local or gloabl git username & email properties will be taken',
+  noSilent: 'undefined: logging is in silent mode by default',
+  noDotfiles: 'undefined: dotfiles are included by default',
+  dryRun: true,
+  cname: 'undefined: no CNAME file will be created' }
+*** Successfully published!
+```
+
+問題なさそうなので本実行。
+
+```bash
+PS C:\Repos\github\tech-log\Website\ClientApp> npx angular-cli-ghpages
+*** Successfully published!
+```
+
+<https://takumura.github.io/tech-log/> にアクセスすると、見事にサイトが表示されていました。fetchでのjsonデータ取得や、ページ遷移なども問題なく動作しています。素晴らしい！
+
+## パブリッシュスクリプトの作成
+
+prodオプション付きのビルドを実行し、生成されたdistフォルダ以下をorigin/gh-pagesにpushするスクリプトを作成しました。
+
+### publish-to-ghpages.ps1
+
+```bash
+ng build --prod --base-href "https://takumura.github.io/tech-log/"
+npx angular-cli-ghpages
 ```
 
 ## 作業時に参照した情報

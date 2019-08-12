@@ -17,4 +17,5 @@ category: 'todo'
 ## サイトの更新
 
 -   [angular-cli-ghpages](https://github.com/angular-schule/angular-cli-ghpages)トライアル
+-   VSCodeのgitアクセス設定
 -   PWA化
