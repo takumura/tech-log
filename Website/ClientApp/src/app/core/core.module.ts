@@ -14,6 +14,7 @@ import { LoadingBarComponent } from './loading-bar/loading-bar.component';
 import { LoadingBarService } from './loading-bar/loading-bar.service';
 import { MarkdownService } from './markdown/markdown.service';
 import { NavComponent } from './nav/nav.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [LoadingBarComponent, NavComponent],
@@ -26,6 +27,7 @@ import { NavComponent } from './nav/nav.component';
     MatToolbarModule,
     MatSidenavModule,
     RouterModule,
+    SharedModule,
   ],
   exports: [LoadingBarComponent, NavComponent],
   providers: [LoadingBarService, MarkdownService],

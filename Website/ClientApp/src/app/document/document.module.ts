@@ -6,23 +6,17 @@ import { RouterModule } from '@angular/router';
 
 import { DocumentComponent } from './document.component';
 import { DocumentTocComponent } from './doc-toc/document-toc.component';
-import { RouteTransformerDirective } from './shared/route-transformer.directive';
 import { DocumentHeaderComponent } from './doc-header/document-header.component';
 import { DocumentRoutingModule } from './document-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [
-    DocumentComponent,
-    DocumentHeaderComponent,
-    DocumentTocComponent,
-    RouteTransformerDirective,
-  ],
-  imports: [CommonModule, FlexLayoutModule, MatIconModule, RouterModule],
+  declarations: [DocumentComponent, DocumentHeaderComponent, DocumentTocComponent],
+  imports: [CommonModule, FlexLayoutModule, MatIconModule, RouterModule, SharedModule],
   exports: [
     DocumentComponent,
     DocumentHeaderComponent,
     DocumentTocComponent,
-    RouteTransformerDirective,
     DocumentRoutingModule,
   ],
 })
