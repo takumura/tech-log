@@ -34,7 +34,7 @@ OpenSSH Authentication Agentサービスは無効状態でした。サービス�
 Putty(Pageant)が利用している秘密鍵(.ppk)はOpenSSHと互換性のない独自形式です。ssh clientで利用するためにはOpenSSH形式に変換してあげる必要があります。
 
 1.  SourceTreeのメニューから`SSH キーの生成/インポート`を選択\
-    <img src="assets/images/git-ssh-configuration-1.png" alt="puttygen.exe" title="puttygen.exe">
+    <img src="assets/images/git-ssh-configuration/git-ssh-configuration-1.png" alt="puttygen.exe" title="puttygen.exe">
 
 2.  Loadボタンを押して、githubの秘密鍵(.ppk)を読み込み、メニュの`Conversions` > `Export OpenSSH key`を選択。OpenSSh形式の秘密鍵: `id_rsa`を生成
 3.  作成した`id_ras`ファイルを`c:\Users\<username>\.ssh`フォルダに配置
@@ -61,6 +61,19 @@ Putty(Pageant)が利用している秘密鍵(.ppk)はOpenSSHと互換性のな�
 これまで通りSourceTreeも併用していきたいので、鍵の管理フォルダを`c:\Users\<username>\.ssh`に変更しました。
 
 そして、これまで鍵長2048でキーを作成していることに気が付いたので、鍵長4096のキーにすべて置き換えることにしました。
+
+Bitbucket用、Github用に別々のキーを作成して管理していましたが、今回はAzure DevOpsを含めた3つのgitリポジトリへのアクセスを、共通した1つの鍵で管理することにしました。
+
+```cmd
+.ssh> dir
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----       2019/08/15     14:11           3311 id_rsa
+-a----       2019/08/15     14:10           2719 id_rsa.ppk
+-a----       2019/08/15     15:13            739 id_rsa.pub
+-a----       2019/08/15     15:49           4377 known_hosts
+```
 
 ## 作業時に参照した情報
 
