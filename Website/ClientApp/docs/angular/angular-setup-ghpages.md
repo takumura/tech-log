@@ -54,10 +54,16 @@ PS C:\Repos\github\tech-log\Website\ClientApp> npx angular-cli-ghpages --dry-run
 
 ```bash
 PS C:\Repos\github\tech-log\Website\ClientApp> npx angular-cli-ghpages
+```
+
+初回は`Permission denied (publickey)`エラーが発生してpushに失敗。[Git: githubへのssh接続をSourceTreeからwindows 10標準のssh clientに切り替える](docs/env/git-ssh-configuration){.internal-link}の対応を実施してから再チャレンジ。
+
+```bash
+PS C:\Repos\github\tech-log\Website\ClientApp> npx angular-cli-ghpages
 *** Successfully published!
 ```
 
-<https://takumura.github.io/tech-log/> にアクセスすると、見事にサイトが表示されていました。fetchでのjsonデータ取得や、ページ遷移なども問題なく動作しています。素晴らしい！
+無事成功。<https://takumura.github.io/tech-log/> にアクセスすると、見事にサイトが表示されていました。fetchでのjsonデータ取得や、ページ遷移なども問題なく動作しています。素晴らしい！
 
 ## パブリッシュスクリプトの作成
 
