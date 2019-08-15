@@ -35,11 +35,14 @@ export class SearchComponent implements OnInit, OnDestroy {
         takeUntil(this.onDestroy),
       )
       .subscribe(term => {
+        this.loadingBarService.show();
         this.docIndex = null;
         this.getDocuments(term);
       });
 
-    this.search(this.searchValue);
+    // initial search
+    this.loadingBarService.show();
+    this.getDocuments(this.searchValue);
   }
 
   ngOnDestroy() {
@@ -51,6 +54,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   }
 
   clearSearchInput() {
+    this.loadingBarService.show();
     this.searchValue = '';
     this.search(this.searchValue);
   }
@@ -65,7 +69,10 @@ export class SearchComponent implements OnInit, OnDestroy {
           this.docIndex = categorizedList;
           this.loadingBarService.hide();
         },
-        err => console.error('MarkdownService', err),
+        err => {
+          console.error('MarkdownService', err);
+          this.loadingBarService.hide();
+        },
       );
   }
 
