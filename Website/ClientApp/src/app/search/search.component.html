@@ -43,10 +43,18 @@
           <ng-container *ngFor="let item of docs.docs">
             <a mat-list-item routerLink="/docs/{{ item.docRef }}" class="nav-item">
               <p matLine>
-                <span class="mat-caption secondary-text nav-item-date">
-                  {{ item.content.date }}
-                </span>
-                <span class="nav-item-title">{{ item.content.title }}</span>
+                <ng-container *ngIf="isHandset$ | async">
+                  <div matLine class="mat-caption secondary-text">
+                    {{ item.content.date }}
+                  </div>
+                  <span class="nav-item-title">{{ item.content.title }}</span>
+                </ng-container>
+                <ng-container *ngIf="!(isHandset$ | async)">
+                  <span class="mat-caption secondary-text nav-item-date">
+                    {{ item.content.date }}
+                  </span>
+                  <span class="nav-item-title">{{ item.content.title }}</span>
+                </ng-container>
               </p>
               <p *ngIf="item.content.tag" matLine>
                 <span class="mat-caption secondary-text">

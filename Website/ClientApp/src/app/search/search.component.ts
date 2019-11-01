@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Location } from '@angular/common';
-import { Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, takeUntil } from 'rxjs/operators';
+import { Subject, Observable } from 'rxjs';
+import { debounceTime, distinctUntilChanged, takeUntil, map } from 'rxjs/operators';
 
 import { MarkdownService, DocumentIndex } from '../core/markdown/markdown.service';
 import { LoadingBarService } from '../core/loading-bar/loading-bar.service';
@@ -13,6 +14,10 @@ import { SearchResult } from './search.model';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit, OnDestroy {
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(map(result => result.matches));
+
   docIndex: SearchResult[] | null;
   searchValue = '';
   searchSubject = new Subject<string>();
@@ -20,6 +25,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   private onDestroy = new Subject();
 
   constructor(
+    private breakpointObserver: BreakpointObserver,
     private markdownService: MarkdownService,
     private location: Location,
     private loadingBarService: LoadingBarService,
