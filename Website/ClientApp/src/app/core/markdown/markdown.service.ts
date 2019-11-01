@@ -45,9 +45,8 @@ export class MarkdownService {
           docInfo.toc = 'h2,h3';
         }
 
-        docInfo.safeBody = this.sanitizer.bypassSecurityTrustHtml(
-          processor.processSync(docInfo.body).contents,
-        );
+        docInfo.bodyHtml = processor.processSync(docInfo.body).contents;
+        // docInfo.safeBody = this.sanitizer.bypassSecurityTrustHtml(docInfo.bodyHtml);
         return docInfo;
       }),
     );
@@ -94,7 +93,8 @@ export interface DocumentInfo {
   tag: string[];
   toc: string;
   body: string;
-  safeBody: SafeHtml;
+  bodyHtml: string;
+  // safeBody: SafeHtml;
 }
 
 export interface DocumentIndex {

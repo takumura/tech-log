@@ -1,4 +1,12 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -8,6 +16,7 @@ import { DocumentInfo, MarkdownService } from '../core/markdown/markdown.service
 import { LoadingBarService } from '../core/loading-bar/loading-bar.service';
 import { TocItem } from './doc-toc/document-toc.model';
 import { defaultRouteAnimation } from '../core/animations';
+import postscribe from 'postscribe';
 
 @Component({
   selector: 'app-document',
@@ -16,6 +25,9 @@ import { defaultRouteAnimation } from '../core/animations';
   animations: [defaultRouteAnimation],
 })
 export class DocumentComponent implements OnInit, OnDestroy, AfterViewInit {
+  @ViewChild('mdContent')
+  mdContentRef: ElementRef;
+
   docInfo: DocumentInfo | null;
   tocList: TocItem[] | null;
   isOpen: boolean = true;
@@ -29,6 +41,7 @@ export class DocumentComponent implements OnInit, OnDestroy, AfterViewInit {
     private location: Location,
     private route: ActivatedRoute,
     private loadingBarService: LoadingBarService,
+    private cdRef: ChangeDetectorRef,
   ) {}
 
   ngOnInit() {
@@ -80,11 +93,25 @@ export class DocumentComponent implements OnInit, OnDestroy, AfterViewInit {
       .subscribe(
         doc => {
           this.docInfo = doc;
+
+          // detect change to update virtual DOM
+          // and allow to access mdContentRef
+          this.cdRef.detectChanges();
+          this.mdContentRef.nativeElement.innerHTML = this.docInfo.bodyHtml;
+
+          this.showGist();
           this.generateToc();
           this.routeChangeSubject.next();
         },
         err => console.error('MarkdownService', err),
       );
+  }
+
+  private showGist() {
+    var gists = this.mdContentRef.nativeElement.querySelectorAll('div.gist');
+    for (let i = 0; i < gists.length; i++) {
+      postscribe(gists[i], gists[i].innerHTML);
+    }
   }
 
   private generateToc() {
@@ -105,7 +132,7 @@ export class DocumentComponent implements OnInit, OnDestroy, AfterViewInit {
   private findTocHeadings(toc: string): HTMLHeadingElement[] | null {
     if (this.docInfo) {
       const tmpDiv = document.createElement('div');
-      tmpDiv.innerHTML = this.docInfo.safeBody.toString();
+      tmpDiv.innerHTML = this.docInfo.bodyHtml;
 
       const headings = tmpDiv.querySelectorAll(toc);
       const skipNoTocHeadings = (heading: HTMLHeadingElement) =>

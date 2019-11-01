@@ -9,7 +9,8 @@
       <div fxFlex="1 1 85%" fxFlex.lt-md="1 1 100%">
         <div fxLayout="column">
           <app-doc-header [docInfo]="docInfo"></app-doc-header>
-          <div fxFlex class="doc-body" [innerHTML]="docInfo?.safeBody" appRouteTransformer></div>
+          <!-- <div  fxFlex class="doc-body" [innerHTML]="docInfo?.safeBody" appRouteTransformer></div> -->
+          <div #mdContent fxFlex class="doc-body" appRouteTransformer></div>
         </div>
       </div>
       <div fxFlex="1 1 15%" fxHide.lt-md>

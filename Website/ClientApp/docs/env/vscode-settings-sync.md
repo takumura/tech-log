@@ -61,4 +61,6 @@ gistには、以下の5つのファイルが登録されていました。
 -   keybindingsMac.json
 -   settings.json
 
-<script src="https://gist.github.com/takumura/bbff68078afb2d0846773965d1678c7c.js"></script>
+<div class="gist">
+	<script src="https://gist.github.com/takumura/bbff68078afb2d0846773965d1678c7c.js"></script>
+</div>
