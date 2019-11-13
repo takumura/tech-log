@@ -45,20 +45,15 @@ export class DocumentComponent implements OnInit, OnDestroy, AfterViewInit {
   ) {}
 
   ngOnInit() {
-    this.routeChangeSubject
-      .pipe(
-        debounceTime(100),
-        takeUntil(this.onDestroy),
-      )
-      .subscribe(_ => {
-        if (this.fragment) {
-          this.scrollToAnchor(decodeURI(this.fragment));
-        } else {
-          this.scrollToTop();
-        }
-        this.isOpen = true;
-        this.loadingBarService.hide();
-      });
+    this.routeChangeSubject.pipe(debounceTime(100), takeUntil(this.onDestroy)).subscribe(_ => {
+      if (this.fragment) {
+        this.scrollToAnchor(decodeURI(this.fragment));
+      } else {
+        this.scrollToTop();
+      }
+      this.isOpen = true;
+      this.loadingBarService.hide();
+    });
 
     this.route.fragment.pipe(takeUntil(this.onDestroy)).subscribe(fragment => {
       this.fragment = fragment;
@@ -108,10 +103,10 @@ export class DocumentComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   private showGist() {
-    var gists = this.mdContentRef.nativeElement.querySelectorAll('div.gist');
-    for (let i = 0; i < gists.length; i++) {
-      postscribe(gists[i], gists[i].innerHTML);
-    }
+    const gists = this.mdContentRef.nativeElement.querySelectorAll('div.gist');
+    gists.forEach(gist => {
+      postscribe(gist, gist.innerHTML);
+    });
   }
 
   private generateToc() {

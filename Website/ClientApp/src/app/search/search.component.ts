@@ -35,11 +35,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.path = this.location.normalize('assets/json/index.json');
 
     this.searchSubject
-      .pipe(
-        debounceTime(1000),
-        distinctUntilChanged(),
-        takeUntil(this.onDestroy),
-      )
+      .pipe(debounceTime(1000), distinctUntilChanged(), takeUntil(this.onDestroy))
       .subscribe(term => {
         this.loadingBarService.show();
         this.docIndex = null;

@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 
 import { SearchComponent } from './search.component';
 import { SearchRoutingModule } from './search-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [SearchComponent],
@@ -27,6 +28,7 @@ import { SearchRoutingModule } from './search-routing.module';
     MatListModule,
     RouterModule,
     SearchRoutingModule,
+    SharedModule,
   ],
   exports: [SearchComponent],
 })

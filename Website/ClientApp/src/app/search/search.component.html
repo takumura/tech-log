@@ -31,39 +31,22 @@
   </div>
   <p *ngIf="!docIndex">loading...</p>
   <mat-accordion multi="true" *ngIf="docIndex" class="search-result">
-    <mat-expansion-panel *ngFor="let docs of docIndex">
+    <mat-expansion-panel *ngFor="let searchResults of docIndex">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          <h3>{{ docs.category }}</h3>
+          <h3>{{ searchResults.category }}</h3>
         </mat-panel-title>
-        <mat-panel-description> {{ docs.count }} docs </mat-panel-description>
+        <mat-panel-description> {{ searchResults.count }} docs </mat-panel-description>
       </mat-expansion-panel-header>
       <ng-template matExpansionPanelContent>
         <mat-nav-list>
-          <ng-container *ngFor="let item of docs.docs">
-            <a mat-list-item routerLink="/docs/{{ item.docRef }}" class="nav-item">
-              <p matLine>
-                <ng-container *ngIf="isHandset$ | async">
-                  <div matLine class="mat-caption secondary-text">
-                    {{ item.content.date }}
-                  </div>
-                  <span class="nav-item-title">{{ item.content.title }}</span>
-                </ng-container>
-                <ng-container *ngIf="!(isHandset$ | async)">
-                  <span class="mat-caption secondary-text nav-item-date">
-                    {{ item.content.date }}
-                  </span>
-                  <span class="nav-item-title">{{ item.content.title }}</span>
-                </ng-container>
-              </p>
-              <p *ngIf="item.content.tag" matLine>
-                <span class="mat-caption secondary-text">
-                  <mat-icon fontSet="fa" fontIcon="fa-tags" inline></mat-icon>
-                  {{ item.content.tag.join(' ') }}
-                </span>
-              </p>
-            </a>
-            <mat-divider></mat-divider>
+          <ng-container *ngFor="let item of searchResults.docs">
+            <ng-container *ngIf="isHandset$ | async">
+              <doc-list-template-short [item]="item"></doc-list-template-short>
+            </ng-container>
+            <ng-container *ngIf="!(isHandset$ | async)">
+              <doc-list-template [item]="item"></doc-list-template>
+            </ng-container>
           </ng-container>
         </mat-nav-list>
       </ng-template>

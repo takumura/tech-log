@@ -1,0 +1,29 @@
+@import '../../../variables';
+
+::ng-deep .mat-list-item-content {
+  min-height: 48px;
+}
+
+.nav-item {
+  min-height: 48px;
+  height: auto;
+
+  .nav-item-date {
+    float: right;
+  }
+
+  .nav-item-category {
+    color: mat-color($karen-md-primary, darker);
+  }
+
+  .nav-item-title {
+    white-space: normal;
+    line-height: 24px;
+  }
+
+  .nav-item-tag {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
