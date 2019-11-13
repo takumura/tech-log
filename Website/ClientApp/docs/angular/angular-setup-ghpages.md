@@ -1,8 +1,11 @@
 ---
 title: 'angular-cli-ghpagesを利用する'
-date: '2019-08-12'
+date: '2019-11-14'
 category: 'Angular'
+tag: ["deploy", "github pages"]
 ---
+
+Angular 7でangular-cli-ghpagesライブラリを利用して、github pagesを簡単に更新できるようなので、その設定方法などを調べました。
 
 ## 実施した手順
 

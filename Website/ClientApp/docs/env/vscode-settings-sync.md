@@ -1,6 +1,6 @@
 ---
 title: 'VSCode: Settings Syncで環境設定を共有する'
-date: '2019-08-31'
+date: '2019-11-01'
 category: '環境設定'
 tag: ["vscode", "git", "settings.json"]
 ---
