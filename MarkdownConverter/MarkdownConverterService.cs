@@ -194,9 +194,7 @@
                 filePath = outputDir.FullName;
             }
 
-            string markdownExt = ".md";
-            var extention = file.Extension.ToLower();
-            if (extention != markdownExt)
+            if (IsExcluded())
             {
                 logger.LogTrace($"skip file: {file.FullName}");
                 return null;
@@ -218,6 +216,27 @@
             await WriteFileIfRequiredAsync(jsonFullName, json.ToString(Formatting.None)).ConfigureAwait(false);
 
             return json;
+
+            bool IsExcluded()
+            {
+                // exclude if the target file is not markdown document
+                string markdownExt = ".md";
+                var extention = file.Extension.ToLower();
+                if (extention != markdownExt)
+                {
+                    return true;
+                }
+
+                // exclude the incomplete  markdown document which starts from underscore: "_"
+                var isTempFile = file.Name.StartsWith("_");
+                if (isTempFile)
+                {
+                    return true;
+                }
+
+                // finally return false, it's markdown document to be converted to json
+                return false;
+            }
         }
 
         JObject ParseMarkdownContent(string text)
