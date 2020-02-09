@@ -1,12 +1,4 @@
-import {
-  AfterViewInit,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -130,8 +122,7 @@ export class DocumentComponent implements OnInit, OnDestroy, AfterViewInit {
       tmpDiv.innerHTML = this.docInfo.bodyHtml;
 
       const headings = tmpDiv.querySelectorAll(toc);
-      const skipNoTocHeadings = (heading: HTMLHeadingElement) =>
-        !/(?:no-toc|notoc)/i.test(heading.className);
+      const skipNoTocHeadings = (heading: HTMLHeadingElement) => !/(?:no-toc|notoc)/i.test(heading.className);
       return Array.prototype.filter.call(headings, skipNoTocHeadings);
     } else {
       return null;
