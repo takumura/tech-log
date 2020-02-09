@@ -19,7 +19,7 @@ const routes: Routes = [
       // scrollPositionRestoration: 'top',
       // anchorScrolling: 'enabled',
       // scrollOffset: [0, 72],
-      onSameUrlNavigation: 'reload',
+      onSameUrlNavigation: 'ignore',
     }),
   ],
   exports: [RouterModule],
