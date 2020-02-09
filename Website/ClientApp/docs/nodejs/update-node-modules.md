@@ -50,6 +50,8 @@ fstream 適用時 = found 622 vulnerabilities (2 low, 7 moderate, 612 high, 1 cr
 js-yaml 適用時 = found 617 vulnerabilities (2 low, 4 moderate, 610 high, 1 critical) in 42979 scanned packages
 handlebars 適用時 = found 616 vulnerabilities (2 low, 6 moderate, 608 high) in 42978 scanned packages
 lodash 適用時 = found 588 vulnerabilities (2 low, 7 moderate, 578 high, 1 critical) in 42979 scanned packages
+lodash.mergewith 適用時 = found 574 vulnerabilities (2 low, 3 moderate, 569 high) in 42978 scanned packages
+mixin-deep 適用時 = found 387 vulnerabilities (2 low, 3 moderate, 382 high) in 42978 scanned packages
 ```
 
 残りは Angular のアップグレード後に確認しようと思いました。
