@@ -1,15 +1,15 @@
 ---
-title: 'scoopでWindowsアプリを管理する'
-date: '2019-11-01'
-category: '環境設定'
-tag: ["tool", "scoop",]
+title: "scoopでWindowsアプリを管理する"
+date: "2019-11-01"
+category: "環境設定"
+tag: ["tool", "scoop"]
 ---
 
-scoopを利用して、開発環境の自動セットアップ、および最新版への定期的なアップデートなどの管理を上手に行えるのか試してみます。
+scoop を利用して、開発環境の自動セットアップ、および最新版への定期的なアップデートなどの管理を上手に行えるのか試してみます。
 
 ## インストール
 
-まず初めに[公式サイト]](<https://scoop.sh/>)と[GitHubリポジトリ](https://github.com/lukesampson/scoop)を確認しました。インストールはPowerShellスクリプトで行うと書いてあるので、その通りに実行しました。
+まず初めに[公式サイト](https://scoop.sh/)と[GitHub リポジトリ](https://github.com/lukesampson/scoop)を確認しました。インストールは PowerShell スクリプトで行うと書いてあるので、その通りに実行しました。
 
 ```ps
 > Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
@@ -25,11 +25,11 @@ Scoop was installed successfully!
 Type 'scoop help' for instructions.
 ```
 
-ログインしているアカウントのユーザフォルダ以下に`scoop`フォルダが作成されました。scoopで管理されるAppはこのフォルダ以下に配置されるようです。
+ログインしているアカウントのユーザフォルダ以下に`scoop`フォルダが作成されました。scoop で管理される App はこのフォルダ以下に配置されるようです。
 
-## Bucketの設定
+## Bucket の設定
 
-デフォルトではmain backetが利用可能です。`bucket add`コマンドにより、bucketを追加することができます。追加可能なbucketは`scoop\apps\scoop\current\buckets.json`で設定されており、`bucket known`コマンドで見る事もできます。
+デフォルトでは main backet が利用可能です。`bucket add`コマンドにより、bucket を追加することができます。追加可能な bucket は`scoop\apps\scoop\current\buckets.json`で設定されており、`bucket known`コマンドで見る事もできます。
 
 ```ps
 > scoop bucket known
@@ -45,7 +45,7 @@ games
 jetbrains
 ```
 
-以前から利用しているAppがextrasにありそうだったので、追加しました。
+以前から利用している App が extras にありそうだったので、追加しました。
 
 ```ps
 > scoop bucket add extras
@@ -53,7 +53,7 @@ Checking repo... ok
 The extras bucket was added successfully.
 ```
 
-gitがインストールされていないとbucketの追加に失敗します。その場合はgitを先にインストールします。
+git がインストールされていないと bucket の追加に失敗します。その場合は git を先にインストールします。
 
 ```ps
 scoop install git
@@ -63,7 +63,7 @@ scoop install git
 
 ### scoop search
 
-指定したAppがBucket(collections of apps)にあるか検索する。
+指定した App が Bucket(collections of apps)にあるか検索する。
 
 ```ps
 > scoop search nodejs
@@ -86,7 +86,7 @@ scoop install git
 
 ### scoop install
 
-指定したAppをインストールする。
+指定した App をインストールする。
 
 ```ps
 > scoop install 7zip
@@ -107,7 +107,7 @@ Creating shortcut for 7-Zip (7zFM.exe)
 
 ## scoop update
 
-`scoop udpate`コマンドでscoop自体とインストール可能なAppの情報（app manifest）を更新できます。セミコロンで続けて`scoop update *`とすることで、インストール済みのすべてのAppに対して、バージョンアップのチェックおよびAppの更新ができます。
+`scoop udpate`コマンドで scoop 自体とインストール可能な App の情報（app manifest）を更新できます。セミコロンで続けて`scoop update *`とすることで、インストール済みのすべての App に対して、バージョンアップのチェックおよび App の更新ができます。
 
 ```ps
 > scoop update; scoop update *
@@ -128,7 +128,7 @@ Latest versions for all apps are installed! For more information try 'scoop stat
 
 ## アンインストール
 
-追加でインストールするAppは`C:\Apps`以下にまとめるルールにしていたので、scoopをインストールし直すことにします。
+追加でインストールする App は`C:\Apps`以下にまとめるルールにしていたので、scoop をインストールし直すことにします。
 
 ```ps
 > scoop uninstall scoop
@@ -143,7 +143,7 @@ Couldn't remove ~\scoop\apps: 項目 C:\Users\takum\scoop\apps\7zip\19.00\7-zip.
 へのアクセスが拒否されました。
 ```
 
-7zipインストール後にエクスプローラ統合の設定をしたために`7-zip.dll`が削除できなくなっていました。設定を解除して再起動後、アンインストールをやり直します。
+7zip インストール後にエクスプローラ統合の設定をしたために`7-zip.dll`が削除できなくなっていました。設定を解除して再起動後、アンインストールをやり直します。
 
 ```ps
 scoop uninstall scoop
@@ -157,9 +157,9 @@ Scoop has been uninstalled.
 
 今度は正常にアンインストール処理が完走しました。
 
-## カスタムディレクトリにscoopをインストール
+## カスタムディレクトリに scoop をインストール
 
-公式wikiの[Installing Scoop to Custom Directory](https://github.com/lukesampson/scoop/wiki/Quick-Start#installing-scoop-to-custom-directory)を参考にして、`C:\Apps\scoop`以下にscoopをインストールします。
+公式 wiki の[Installing Scoop to Custom Directory](https://github.com/lukesampson/scoop/wiki/Quick-Start#installing-scoop-to-custom-directory)を参考にして、`C:\Apps\scoop`以下に scoop をインストールします。
 
 ```ps
 $env:SCOOP='C:\Apps\scoop'
@@ -167,9 +167,9 @@ $env:SCOOP='C:\Apps\scoop'
 Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
 ```
 
-## App Manifestについて
+## App Manifest について
 
-公式が提供していないApp Manifestは自分で作ることも可能です。詳細な方法は[Creating an app manifest](https://github.com/lukesampson/scoop/wiki/Creating-an-app-manifest)に書かれています。
+公式が提供していない App Manifest は自分で作ることも可能です。詳細な方法は[Creating an app manifest](https://github.com/lukesampson/scoop/wiki/Creating-an-app-manifest)に書かれています。
 
 ## 関連項目
 
