@@ -17,11 +17,12 @@ export class RouteTransformerDirective {
   public onClick(event) {
     if (event.target.tagName === 'A') {
       if (event.target.classList && event.target.classList[0] === 'internal-link') {
-        const targetPath = event.target.href.replace(this.baseUrl, '/');
         if (event.target.hash) {
-          this.router.navigate([targetPath], { fragment: event.target.hash.slice(1) });
+          this.router.navigate([event.target.pathname], {
+            fragment: event.target.hash.slice(1),
+          });
         } else {
-          this.router.navigate([targetPath]);
+          this.router.navigate([event.target.pathname]);
         }
         event.preventDefault();
       } else if (event.target.classList && event.target.classList[0] === 'internal-anchor') {
