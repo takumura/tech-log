@@ -18,7 +18,7 @@ tag: ["gist", "embed", "PostScribe"]
 ```html
 gistの表示デモ。class="gist"のdivでgistのembedスクリプトを囲います
 <div class="gist">
-	<script src="https://gist.github.com/takumura/bbff68078afb2d0846773965d1678c7c.js"></script>
+  <script src="https://gist.github.com/takumura/bbff68078afb2d0846773965d1678c7c.js"></script>
 </div>
 ```
 
@@ -125,5 +125,5 @@ postscribe(
 
 ## 関連項目
 
--   [postscribe - Github](https://github.com/krux/postscribe)
--   [VSCode: Settings Syncで環境設定を共有する](docs/env/vscode-settings-sync){.internal-link}
+- [postscribe - Github](https://github.com/krux/postscribe)
+- [VSCode: Settings Syncで環境設定を共有する](docs/env/vscode-settings-sync){.internal-link}

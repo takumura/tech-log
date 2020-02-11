@@ -1,21 +1,21 @@
 ---
-title: 'Git: githubへのssh接続をSourceTreeからwindows 10標準のssh clientに切り替える'
-date: '2019-08-15'
-category: '環境設定'
+title: "Git: githubへのssh接続をSourceTreeからwindows 10標準のssh clientに切り替える"
+date: "2019-08-15"
+category: "環境設定"
 tag: ["git", "vscode", "openssh", "windows10"]
 ---
 
 ## 経緯
 
--   これまではSourceTreeを利用してGithub, Bitbucketのリモートリポジトリを操作していました
--   接続にはsshを利用し、SourceTreeに付属のPuttyおよびPageantで鍵の運用をしていました
--   [angular-cli-ghpagesを利用する](docs/angular/angular-setup-ghpages){.internal-link}の作業で、origin/gh-pagesにpushする処理でエラーが発生
--   VSCodeをPutty(Pageant)を連携する方法を調べたが見つからず、ssh clientの利用方法を見直す必要がありました
+- これまではSourceTreeを利用してGithub, Bitbucketのリモートリポジトリを操作していました
+- 接続にはsshを利用し、SourceTreeに付属のPuttyおよびPageantで鍵の運用をしていました
+- [angular-cli-ghpagesを利用する](docs/angular/angular-setup-ghpages){.internal-link}の作業で、origin/gh-pagesにpushする処理でエラーが発生
+- VSCodeをPutty(Pageant)を連携する方法を調べたが見つからず、ssh clientの利用方法を見直す必要がありました
 
 ## 環境
 
--   Windows 10 May 2019 Update(バージョン1903)
--   SourceTree 3.1.3
+- Windows 10 May 2019 Update(バージョン1903)
+- SourceTree 3.1.3
 
 ## 実施した手順
 
@@ -33,11 +33,11 @@ OpenSSH Authentication Agentサービスは無効状態でした。サービス�
 
 Putty(Pageant)が利用している秘密鍵(.ppk)はOpenSSHと互換性のない独自形式です。ssh clientで利用するためにはOpenSSH形式に変換してあげる必要があります。
 
-1.  SourceTreeのメニューから`SSH キーの生成/インポート`を選択\
+1. SourceTreeのメニューから`SSH キーの生成/インポート`を選択\
     <img src="assets/images/git-ssh-configuration/git-ssh-configuration-1.png" alt="puttygen.exe" title="puttygen.exe">
 
-2.  Loadボタンを押して、githubの秘密鍵(.ppk)を読み込み、メニュの`Conversions` > `Export OpenSSH key`を選択。OpenSSh形式の秘密鍵: `id_rsa`を生成
-3.  作成した`id_ras`ファイルを`c:\Users\<username>\.ssh`フォルダに配置
+2. Loadボタンを押して、githubの秘密鍵(.ppk)を読み込み、メニュの`Conversions` > `Export OpenSSH key`を選択。OpenSSh形式の秘密鍵: `id_rsa`を生成
+3. 作成した`id_ras`ファイルを`c:\Users\<username>\.ssh`フォルダに配置
 
 1.で実行されるツール(puttygen.exe)は、私の環境では`c:\Users\<username>\AppData\Local\SourceTree\app-3.1.3\tools\putty\puttygen.exe`にありました。
 
@@ -77,5 +77,5 @@ Mode                LastWriteTime         Length Name
 
 ## 作業時に参照した情報
 
--   [PuTTYを卒業してWindows 10標準のssh client（ベータ）に切り替えた](http://www.freia.jp/taka/blog/windows-native-ssh-client/index.html)
--   [Use SSH key authentication](https://docs.microsoft.com/en-us/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops)
+- [PuTTYを卒業してWindows 10標準のssh client（ベータ）に切り替えた](http://www.freia.jp/taka/blog/windows-native-ssh-client/index.html)
+- [Use SSH key authentication](https://docs.microsoft.com/en-us/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops)

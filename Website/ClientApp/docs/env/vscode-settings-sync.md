@@ -1,7 +1,7 @@
 ---
-title: 'VSCode: Settings Syncで環境設定を共有する'
-date: '2019-11-01'
-category: '環境設定'
+title: "VSCode: Settings Syncで環境設定を共有する"
+date: "2019-11-01"
+category: "環境設定"
 tag: ["vscode", "git", "settings.json"]
 ---
 
@@ -15,23 +15,23 @@ tag: ["vscode", "git", "settings.json"]
 
 ```plaintext
 Shortcuts
-	1. Upload Key : Shift + Alt + U
-	2. Download Key : Shift + Alt + D
+    1. Upload Key : Shift + Alt + U
+    2. Download Key : Shift + Alt + D
 
 Configure Settings Sync
-	Settings Sync Configuration page will be opened automatically on code start and requires two things to setup:
+    Settings Sync Configuration page will be opened automatically on code start and requires two things to setup:
 
-	1. GitHub Token
-	2. GitHub Gist Id
+    1. GitHub Token
+    2. GitHub Gist Id
 
-	GitHub Token needs to be retrived by your GitHub account while Settings Sync creates GIST if you are first time user.
+    GitHub Token needs to be retrived by your GitHub account while Settings Sync creates GIST if you are first time user.
 
-	Following are the steps you need to perform to configure.
+    Following are the steps you need to perform to configure.
 
-	- Click on Login with GitHub .
-	- Login GitHub on Browser and close the browser tab once you get Success message.
-	- If you are using Settings Sync first time GIST will be created automatically when you upload your settings.
-	- If you already have GitHub Gist, new window will be opened to allow you to select the GitHub Gist or Skip to create new Gist.
+    - Click on Login with GitHub .
+    - Login GitHub on Browser and close the browser tab once you get Success message.
+    - If you are using Settings Sync first time GIST will be created automatically when you upload your settings.
+    - If you already have GitHub Gist, new window will be opened to allow you to select the GitHub Gist or Skip to create new Gist.
 ```
 
   \
@@ -55,12 +55,12 @@ Settings Syncは`couldSettings`という名前のシークレットgistを自動
 
 gistには、以下の5つのファイルが登録されていました。
 
--   cloudSettings
--   extensions.json
--   keybindings.json
--   keybindingsMac.json
--   settings.json
+- cloudSettings
+- extensions.json
+- keybindings.json
+- keybindingsMac.json
+- settings.json
 
 <div class="gist">
-	<script src="https://gist.github.com/takumura/bbff68078afb2d0846773965d1678c7c.js"></script>
+    <script src="https://gist.github.com/takumura/bbff68078afb2d0846773965d1678c7c.js"></script>
 </div>

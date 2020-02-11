@@ -41,7 +41,7 @@ export class MarkdownService {
 
     return this.http.get<DocumentInfo>(this.baseUrl + path).pipe(
       map(result => {
-		// this.baseUrl + pathにアクセスすると、docInfo型のデータがjsonで取得できる。それをそのまま代入。
+        // this.baseUrl + pathにアクセスすると、docInfo型のデータがjsonで取得できる。それをそのまま代入。
         docInfo = result;
 
         // set default toc
@@ -49,10 +49,10 @@ export class MarkdownService {
           docInfo.toc = "h2,h3";
         }
 
-		// docInfo.bodyはmarkdown形式のデータ。processor.processSync処理でhtmlに変換される
-		docInfo.bodyHtml = processor.processSync(docInfo.body).contents;
+        // docInfo.bodyはmarkdown形式のデータ。processor.processSync処理でhtmlに変換される
+        docInfo.bodyHtml = processor.processSync(docInfo.body).contents;
 
-		// bypassSecurityTrustHtmlはhtmlデータをSafeHTMLという特別な型に変換する
+        // bypassSecurityTrustHtmlはhtmlデータをSafeHTMLという特別な型に変換する
         docInfo.safeBody = this.sanitizer.bypassSecurityTrustHtml(docInfo.bodyHtml);
         return docInfo;
       }),
@@ -171,18 +171,18 @@ export class DocumentComponent implements OnInit, OnDestroy, AfterViewInit {
       .pipe(takeUntil(this.onDestroy))
       .subscribe(
         doc => {
-		  this.docInfo = doc;
+          this.docInfo = doc;
 
-		  // 初期画面は<ng-container *ngIf="docInfo>の条件設定により
-		  // #mdContentを持つelementがまだ画面にない。
-		  //
-		  // this.docInfoをセットした後に、ChangeDetectorRef.detectChanges()することで
-		  // 仮想DOMの内容が更新され、<ng-container *ngIf="docInfo>内のelementに
-		  // アクセスすることができるようになる。
-		  this.changeDetector.detectChanges();
+          // 初期画面は<ng-container *ngIf="docInfo>の条件設定により
+          // #mdContentを持つelementがまだ画面にない。
+          //
+          // this.docInfoをセットした後に、ChangeDetectorRef.detectChanges()することで
+          // 仮想DOMの内容が更新され、<ng-container *ngIf="docInfo>内のelementに
+          // アクセスすることができるようになる。
+          this.changeDetector.detectChanges();
 
-		  // mdRef(#mdContentを持つdiv)のnativeElementにアクセスすることで
-		  // JQueryやjavascriptで過去に行っていたような、htmlタグの操作が可能になる。
+          // mdRef(#mdContentを持つdiv)のnativeElementにアクセスすることで
+          // JQueryやjavascriptで過去に行っていたような、htmlタグの操作が可能になる。
           this.mdRef.nativeElement.innerHTML = doc.bodyHtml;
         },
         err => console.error("MarkdownService", err),
@@ -196,7 +196,7 @@ export class DocumentComponent implements OnInit, OnDestroy, AfterViewInit {
 
 ## 関連項目
 
--   [セキュリティ - angular.jp](https://angular.jp/guide/security#bypass-security-apis)
--   [ElementRef - angular.jp](https://angular.jp/api/core/ElementRef)
--   [\[Angular\]変数のバインドで、htmlタグを埋め込む](https://akamist.com/blog/archives/2223)
--   [AngularでビューにHTML文書を「バインド」するには？（Property Binding）](https://www.atmarkit.co.jp/ait/articles/1702/13/news127.html)
+- [セキュリティ - angular.jp](https://angular.jp/guide/security#bypass-security-apis)
+- [ElementRef - angular.jp](https://angular.jp/api/core/ElementRef)
+- [\[Angular\]変数のバインドで、htmlタグを埋め込む](https://akamist.com/blog/archives/2223)
+- [AngularでビューにHTML文書を「バインド」するには？（Property Binding）](https://www.atmarkit.co.jp/ait/articles/1702/13/news127.html)

@@ -1,7 +1,7 @@
 ---
-title: 'Windowsの環境セットアップ'
-date: '2019-11-08'
-category: '環境設定'
+title: "Windowsの環境セットアップ"
+date: "2019-11-08"
+category: "環境設定"
 tag: ["setup", "tool", "install",]
 ---
 
@@ -103,6 +103,6 @@ VHD（仮想ハードディスク）ファイルの管理ツール。Scoopを利
 
 ## 関連項目
 
--   [Example Setup Scripts](https://github.com/lukesampson/scoop/wiki/Example-Setup-Scripts)
--   [Chrome.json](https://github.com/Ash258/scoop-Ash258/blob/master/bucket/Chrome.json)
--   [SimpleVHDManager.json](https://github.com/Ash258/scoop-Ash258/blob/master/bucket/SimpleVHDManager.json)
+- [Example Setup Scripts](https://github.com/lukesampson/scoop/wiki/Example-Setup-Scripts)
+- [Chrome.json](https://github.com/Ash258/scoop-Ash258/blob/master/bucket/Chrome.json)
+- [SimpleVHDManager.json](https://github.com/Ash258/scoop-Ash258/blob/master/bucket/SimpleVHDManager.json)

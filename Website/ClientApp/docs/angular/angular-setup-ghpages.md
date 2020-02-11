@@ -1,7 +1,7 @@
 ---
-title: 'angular-cli-ghpagesを利用する'
-date: '2019-11-14'
-category: 'Angular'
+title: "angular-cli-ghpagesを利用する"
+date: "2019-11-14"
+category: "Angular"
 tag: ["deploy", "github pages"]
 ---
 
@@ -72,7 +72,7 @@ PS C:\Repos\github\tech-log\Website\ClientApp> npx angular-cli-ghpages
 
 prodオプション付きのビルドを実行し、生成されたdistフォルダ以下をorigin/gh-pagesにpushするスクリプトを作成しました。
 
-### publish-to-ghpages.ps1
+**publish-to-ghpages.ps1**
 
 ```bash
 ng build --prod --base-href "https://takumura.github.io/tech-log/"
@@ -81,6 +81,6 @@ npx angular-cli-ghpages
 
 ## 作業時に参照した情報
 
--   [Deploying an Angular App to Github Pages](https://alligator.io/angular/deploying-angular-app-github-pages/)
--   [Angular-CLIで作成したアプリをGithub Pagesにデプロイする](https://prokatsu.com/angular-cli_github-pages_deploy/)
--   [AngularのプロジェクトをGithub Pagesに公開する](https://choco14t.hatenablog.com/entry/2018/07/07/144504)
+- [Deploying an Angular App to Github Pages](https://alligator.io/angular/deploying-angular-app-github-pages/)
+- [Angular-CLIで作成したアプリをGithub Pagesにデプロイする](https://prokatsu.com/angular-cli_github-pages_deploy/)
+- [AngularのプロジェクトをGithub Pagesに公開する](https://choco14t.hatenablog.com/entry/2018/07/07/144504)
