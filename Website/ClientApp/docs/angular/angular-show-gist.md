@@ -2,7 +2,7 @@
 title: "Angularでgistを表示する"
 date: "2019-11-14"
 category: "Angular"
-tag: ["gist", "embed", "PostScribe"]
+tag: ["gist", "embed", "postscribe"]
 ---
 
 [Angularで動的にHTMLタグをコンポーネントに埋め込む](docs/angular/angular-embed-html-tag){.internal-link}により、htmlを埋め込むことができたが、その中にscriptタグが含まれていた場合、表示させただけではscriptが実行されません。JQueryでいうところの`$()`に相当する、画面描画後にscriptを実行する処理が必要になります。

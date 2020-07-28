@@ -2,7 +2,7 @@
 title: "node_modulesを更新する"
 date: "2020-02-09"
 category: "Nodejs"
-tag: ["npm", "Dependabot"]
+tag: ["npm", "dependabot"]
 ---
 
 Githubで管理している Node.jsアプリケーションで、依存packageのバージョンにセキュリティリスクがある場合に、Dependabotが警告してくれました。この警告を解消する手順を確認します。
