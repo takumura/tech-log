@@ -1,6 +1,6 @@
 ---
 title: "NuxtJSにStorybookを導入する"
-date: "2020-07-30"
+date: "2021-01-04"
 category: "Vue"
 tag:
   - vue
