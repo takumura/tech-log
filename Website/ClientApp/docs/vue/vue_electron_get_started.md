@@ -384,22 +384,19 @@ export default {
 この状態で`yarn dev:main`を実行したところ、tsconfig.jsonが見つからないエラーが発生しました。
 
 ``` ps
-> yarn dev
+> yarn dev:main
 yarn run v1.22.4
-$ npm-run-all -p dev:main dev:electron
 $ cross-env NODE_ENV=development tsc -p src/main/tsconfig.json
 
 error TS5058: The specified path does not exist: 'src/main/tsconfig.json'.
 error Command failed with exit code 1.
 info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 ERROR: "dev:main" exited with 1.
-error Command failed with exit code 1.
-info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 ```
 
 tsconfig.jsonを`src/main`以下に配置して再実行します。
 
-``` json
+``` js
 // tsconfig.json
 {
   "compilerOptions": {
@@ -560,10 +557,10 @@ WARNING in asset size limit: The following asset(s) exceed the recommended size 
 This can impact web performance.
 Assets:
   45a7178.js (521 KiB)
-i Generating output directory: nuxt-build/                                                                    23:30:41
-i Generating pages                                                                                            23:30:41
-√ Generated route "/"                                                                                         23:30:41
-√ Client-side fallback created: 200.html                                                                      23:30:41
+i Generating output directory: nuxt-build/
+i Generating pages
+√ Generated route "/"
+√ Client-side fallback created: 200.html
 $ cross-env NODE_ENV=production electron-builder --win
   • electron-builder  version=22.9.1 os=10.0.19041
   • loaded configuration  file=C:\Repos\github\nuxt-electron-example\electron-builder.yml

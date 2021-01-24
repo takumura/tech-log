@@ -75,7 +75,7 @@ Vuex store自体はtypescriptで書けるのですが、component等から利用
 Typed VuexのNuxt用モジュールを[公式サイトの手順](https://typed-vuex.roe.dev/getting-started-nuxt)に従い導入しました。
 
 ```ps
-> yarn add nuxt-typed-vuex
+> yarn add --dev nuxt-typed-vuex
 ```
 
 ``` ts
