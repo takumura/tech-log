@@ -17,7 +17,7 @@ NuxtJS + Electron を使って、デスクトップで動くオレオレ Todo �
 
 storybookの構成として、`preview.js`にvuexを利用するための設定が必要なのですが、[前回の時点](#todo)で既に含めていました。
 
-``` js
+``` ts
 ...
 import Vuex from 'vuex'
 ...
@@ -53,7 +53,7 @@ export const getters: GetterTree<TaskState, RootState> = {
 
 同様にtask componentを作成。
 
-``` vue
+``` ts
 <template>
   <v-list>
     <v-list-item v-for="task in getTasks" :key="task.name">
@@ -82,7 +82,7 @@ export default {
 
 このcomponentのstoryは以下のような記述で動くようになりました。テスト用のmock storeがポイントだと思います。今後mock storeが煩雑に感じてきたら、全コンポーネント共通の汎用mock storeを作ることになりそうです。
 
-```js
+``` ts
 import Task from '../../components/Task'
 import Vuex from 'vuex'
 

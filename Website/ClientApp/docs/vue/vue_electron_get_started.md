@@ -1,6 +1,6 @@
 ---
 title: "NuxtJS + Electronのアプリ開発環境を構築する"
-date: "2021-01-11"
+date: "2021-01-24"
 category: "Vue"
 tag:
   - vue

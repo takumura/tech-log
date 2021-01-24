@@ -20,7 +20,7 @@ NuxtJS + Electron を使って、デスクトップで動くオレオレ Todo �
 
 ### yarn のアップグレード
 
-```ps
+``` ps
 > yarn -v
 1.22.0
 
@@ -41,7 +41,7 @@ Done!
 
 デフォルトの設定でlinting toolなどお好みで選択できます。何度かプロジェクトを作って試してみた結果、以下の設定に落ち着きました。
 
-```ps
+``` ps
 > yarn create nuxt-app nuxt-components-storybook
 
 > yarn create nuxt-app nuxt-components-storybook
@@ -99,7 +99,7 @@ Done in 502.43s.
 
 install 完了時メッセージに従い`yarn dev`を実行すると、localhost:3000 でサイトが起動しました。
 
-```ps
+``` ps
 > yarn dev
 yarn run v1.22.4
 $ nuxt-ts
@@ -134,14 +134,14 @@ No issues found.                                    12:44:32
 
 storybook cliを利用することで、各フレームワーク/ツール向けの初期設定ができるようです。`@storybook/cli`をdevDependencies に追加、初期化コマンドを実行します。
 
-```ps
+``` ps
 yarn add --dev @storybook/cli
 yarn sb init --type vue
 ```
 
 プロジェクト直下に`.storybook`フォルダと`stories`フォルダが作成され、`.storybook/main.js`といくつかのサンプルストーリーも作成されました。project.json には storybook 起動用 script が追加されており、実行するとデフォルトブラウザが起動し、localhost:6006 で storybook のサイトが表示されました。
 
-```ps
+``` ps
 yarn storybook
 ```
 
@@ -149,7 +149,7 @@ yarn storybook
 
 [Nuxt + Vuetify の構成で Storybook を導入する](https://almond.milk200.cc/blog/2020/06/01/storybook.html)の設定を参考にして、`preview.js`と`webpack.config.js`を調整しました。
 
-```js
+``` ts
 // .storybook/webpack.config.js
 const path = require('path')
 const rootPath = path.resolve(__dirname, '../')
@@ -173,7 +173,7 @@ module.exports = ({ config }) => {
 }
 ```
 
-```js
+``` ts
 // .storybook/preview.js
 import { addDecorator } from '@storybook/vue'
 import Vue from 'vue'
@@ -225,7 +225,7 @@ export const parameters = {
 
 `Logo.vue`と`WeatherCard.vue`（テスト用に[Nuxt + Vuetify の構成で Storybook を導入する](https://almond.milk200.cc/blog/2020/06/01/storybook.html)のcomponentを借用）向けにストーリーを作成しました。
 
-``` js
+``` ts
 // Logo.stories.js
 import { storiesOf } from '@storybook/vue'
 import Logo from '@/components/Logo.vue'
@@ -248,7 +248,7 @@ storiesOf('Components/Default', module).add(
 )
 ```
 
-``` js
+``` ts
 // WeatherCard.stories.js
 import WeatherCard from '../components/WeatherCard.vue'
 

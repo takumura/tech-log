@@ -1,6 +1,6 @@
 ---
 title: "NuxtJS + Typescriptで正しく型推論させる"
-date: "2020-12-31"
+date: "2021-01-24"
 category: "Vue"
 tag:
   - vue
