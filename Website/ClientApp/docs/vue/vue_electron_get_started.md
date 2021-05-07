@@ -1,6 +1,6 @@
 ---
 title: "NuxtJS + Electronのアプリ開発環境を構築する"
-date: "2021-01-24"
+date: "2021-05-07"
 category: "Vue"
 tag:
   - vue
@@ -125,6 +125,10 @@ NuxtJSに必要なconfigファイルは`.babelrc`、`nuxt.config.js`、`tsconfig
 
 次にElectronのメイン処理を行う`index.ts`を`src/main`以下に作成しました。
 
+後でわかったことなのですが、`process.env.NODE_ENV === 'development'`の場合、electron実行時に`nuxt.ready()`で非同期処理の完了を待たないと、vuexのstoreが使用できない（webpack処理が完了していないのかstoreのjsが一切見当たらない状態でした）問題がありました。また`process.env.NODE_ENV === 'development'`の場合、`nuxt.ready()`で非同期処理の完了を待ってしまうといつまでもwindowが表示されませんでした。
+
+試行錯誤した結果、以下のような実装になりました
+
 ``` ts
 // index.ts
 import nuxtConfig from '../renderer/nuxt.config'
@@ -137,72 +141,79 @@ const electron = require('electron')
 nuxtConfig.rootDir = path.resolve('src/renderer')
 // @ts-ignore
 const isDev = nuxtConfig.dev
-
-const nuxt = new Nuxt(nuxtConfig)
-const builder = new Builder(nuxt)
-const server = http.createServer(nuxt.render)
-
 let _NUXT_URL_ = ''
 
+const nuxt = new Nuxt(nuxtConfig)
 if (isDev) {
-  builder.build().catch((err: any) => {
-    console.error(err)
-    process.exit(1)
+  nuxt.ready().then((n: { render: any }) => {
+    const builder = new Builder(n)
+    const server = http.createServer(n.render)
+
+    builder.build().catch((err: any) => {
+      console.error(err)
+      process.exit(1)
+    })
+    server.listen()
+    _NUXT_URL_ = `http://localhost:${server.address().port}`
+    console.log(`Nuxt working on ${_NUXT_URL_}`)
+
+    createElectronApp()
   })
-  server.listen()
-  _NUXT_URL_ = `http://localhost:${server.address().port}`
-  console.log(`Nuxt working on ${_NUXT_URL_}`)
 } else {
   _NUXT_URL_ = 'file://' + path.resolve(__dirname, '../../dist/nuxt-build/index.html')
+  createElectronApp()
 }
 
-let win: any = null
-const app = electron.app
-const newWin = () => {
-  win = new electron.BrowserWindow({
-    width: 1400,
-    height: 1000,
-    webPreferences: {
-      nodeIntegration: false,
-      contextIsolation: false,
-      preload: path.resolve(path.join(__dirname, 'preload.js')),
-      webSecurity: false,
-    },
-  })
+function createElectronApp() {
+  let win: any = null
+  const app = electron.app
+  const newWin = () => {
+    win = new electron.BrowserWindow({
+      width: 1400,
+      height: 1000,
+      webPreferences: {
+        nodeIntegration: false,
+        contextIsolation: false,
+        preload: path.resolve(path.join(__dirname, 'preload.js')),
+        webSecurity: false,
+      },
+    })
 
-  win.on('closed', () => (win = null))
+    win.on('closed', () => (win = null))
 
-  if (isDev) {
-    const { default: installExtension, VUEJS_DEVTOOLS } = require('electron-devtools-installer')
+    if (isDev) {
+      const { default: installExtension, VUEJS_DEVTOOLS } = require('electron-devtools-installer')
 
-    installExtension(VUEJS_DEVTOOLS.id)
-      .then((name: any) => {
-        console.log(`Added Extension:  ${name}`)
-        win.webContents.openDevTools()
-      })
-      .catch((err: any) => console.log('An error occurred: ', err))
-
-    const pollServer = () => {
-      http
-        .get(_NUXT_URL_, (res: any) => {
-          if (res.statusCode === 200) {
-            win.loadURL(_NUXT_URL_)
-          } else {
-            console.log('restart poolServer')
-            setTimeout(pollServer, 300)
-          }
+      installExtension(VUEJS_DEVTOOLS.id)
+        .then((name: any) => {
+          console.log(`Added Extension:  ${name}`)
+          win.webContents.openDevTools()
         })
-        .on('error', pollServer)
-    }
+        .catch((err: any) => console.log('An error occurred: ', err))
 
-    pollServer()
-  } else {
-    return win.loadURL(_NUXT_URL_)
+      const pollServer = () => {
+        http
+          .get(_NUXT_URL_, (res: any) => {
+            if (res.statusCode === 200) {
+              win.loadURL(_NUXT_URL_)
+            } else {
+              console.log('restart poolServer')
+              setTimeout(pollServer, 300)
+            }
+          })
+          .on('error', pollServer)
+      }
+
+      pollServer()
+    } else {
+      return win.loadURL(_NUXT_URL_)
+    }
   }
+
+  app.on('ready', newWin)
+  app.on('window-all-closed', () => app.quit())
+  app.on('activate', () => win === null && newWin())
 }
-app.on('ready', newWin)
-app.on('window-all-closed', () => app.quit())
-app.on('activate', () => win === null && newWin())
 ```
 
 記述中いくつかのエラーが発生したため、`.eslintrc.js`を修正しました。
