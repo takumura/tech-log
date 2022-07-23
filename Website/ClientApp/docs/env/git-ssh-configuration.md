@@ -1,8 +1,8 @@
 ---
 title: "Git: githubへのssh接続をSourceTreeからwindows 10標準のssh clientに切り替える"
-date: "2019-08-15"
+date: "2022-07-23"
 category: "環境設定"
-tag: ["git", "vscode", "openssh", "windows10"]
+tag: ["git", "vscode", "openssh", "windows10", "windows 11"]
 ---
 
 ## 経緯
@@ -75,7 +75,18 @@ Mode                LastWriteTime         Length Name
 -a----       2019/08/15     15:49           4377 known_hosts
 ```
 
+## 環境変数の追加
+
+後日、Windows 11でgit for windowsをscoopでインストール後にOpenSSH Agentの設定を行ったのですが、gitコマンドでremoteへアクセス時に登録したはずのパスフレーズを毎回聞かれるようになってしまいました。
+
+`コントロールパネル` > `ユーザアカウント` > `環境変数の変更`から、ユーザ環境変数`GIT_SSH`を追加して解決しました。
+
+- variable: GIT_SSH
+- value: C:\Windows\System32\OpenSSH\ssh.exe
+
+
 ## 作業時に参照した情報
 
 - [PuTTYを卒業してWindows 10標準のssh client（ベータ）に切り替えた](http://www.freia.jp/taka/blog/windows-native-ssh-client/index.html)
 - [Use SSH key authentication](https://docs.microsoft.com/en-us/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops)
+- [Why git can't remember my passphrase under Windows - stackoverflow](https://stackoverflow.com/questions/370030/why-git-cant-remember-my-passphrase-under-windows
