@@ -77,7 +77,7 @@ Mode                LastWriteTime         Length Name
 
 ## 環境変数の追加
 
-後日、Windows 11でgit for windowsをscoopでインストール後にOpenSSH Agentの設定を行ったのですが、gitコマンドでremoteへアクセス時に登録したはずのパスフレーズを毎回聞かれるようになってしまいました。
+後日、Windows 11でgit for windowsをscoopを使ってインストール後にOpenSSH Agentの設定を行ったのですが、登録したはずのパスフレーズがうまく利用されない問題が発生しました。gitコマンドでremoteへアクセス時に毎回再入力ダイアログが表示されます。
 
 `コントロールパネル` > `ユーザアカウント` > `環境変数の変更`から、ユーザ環境変数`GIT_SSH`を追加して解決しました。
 
@@ -89,4 +89,4 @@ Mode                LastWriteTime         Length Name
 
 - [PuTTYを卒業してWindows 10標準のssh client（ベータ）に切り替えた](http://www.freia.jp/taka/blog/windows-native-ssh-client/index.html)
 - [Use SSH key authentication](https://docs.microsoft.com/en-us/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops)
-- [Why git can't remember my passphrase under Windows - stackoverflow](https://stackoverflow.com/questions/370030/why-git-cant-remember-my-passphrase-under-windows
+- [Why git can't remember my passphrase under Windows - stackoverflow](https://stackoverflow.com/questions/370030/why-git-cant-remember-my-passphrase-under-windows)
