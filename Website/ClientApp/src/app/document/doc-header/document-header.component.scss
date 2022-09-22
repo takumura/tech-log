@@ -1,8 +1,0 @@
-@import '~@angular/material/theming';
-@import '../../../variables';
-
-.doc-info-box {
-  border-bottom: 1px solid map_get($mat-grey, 300);
-  padding: 8px 2px 0 2px;
-  margin-bottom: 8px;
-}
