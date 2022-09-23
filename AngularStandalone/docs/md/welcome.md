@@ -1,7 +1,7 @@
 ---
 title: "Welcome"
 date: "2022-09-22"
-category: "misc"
+category: "none"
 toc: "none"
 ---
 
