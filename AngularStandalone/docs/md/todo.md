@@ -8,7 +8,7 @@ toc: "none"
 ## 記事ストック
 
 - [x] [angular-cli-ghpages](https://github.com/angular-schule/angular-cli-ghpages)のセットアップ
-  - Angular v13以降の設定の仕方について追記する
+  - [x] Angular v13以降の設定の仕方について追記する
 - [ ] 開発マシンの構成を標準化
 - [ ] Windows 11のセットアップ
 - [ ] .NET 6 + Angular v14でTech Logを書き換えて得た知識をまとめる
