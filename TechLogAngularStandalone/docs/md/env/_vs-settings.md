@@ -2,7 +2,9 @@
 title: "Visual Studioの設定"
 date: "2020-02-29"
 category: "環境設定"
-tag: ["Visual Studio"]
+tag:
+  - 環境設定
+  - Visual Studio
 ---
 
 Visual Studioをインストール後に実施する設定変更について記録しておきます。標準の設定をほぼそのまま使っていますが念のため。

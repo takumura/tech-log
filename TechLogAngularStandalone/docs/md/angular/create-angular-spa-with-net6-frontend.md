@@ -2,7 +2,9 @@
 title: ".NET6とAngular v13でSPAサイトを作る（フロントエンド）"
 date: "2022-01-07"
 category: "csharp"
-tag: ["net6","angular v13"]
+tag:
+  - net6
+  - angular
 ---
 
 本サイトは自作のwebサイト生成エンジンで生成されています。自作エンジンは2019年に.NET Core 2.1とAngular v7で開発しました。
@@ -211,8 +213,8 @@ UPDATE .eslintrc.json (1098 bytes)
 以前からmarkdown⇒htmlへの変換処理はクライアント(angular)側で行っていました。
 
 - バックエンド側でfrontmatter付きmarkdownをmarkdown記法のままjsonに変換
-    - 変換元mdファイルと1対1対応するjsonファイル
-    - すべてのjsonファイルをまとめたindex.json
+  - 変換元mdファイルと1対1対応するjsonファイル
+  - すべてのjsonファイルをまとめたindex.json
 - 検索画面ではindex.jsonを利用してサーチを実施
 - 個々のドキュメントページはurlから対象のjsonファイルを取得
 - clientはmarkdown部分をjsonから抜き出して、[unified(remark, rehype)](https://unifiedjs.com/)を利用してhtmlに変換
@@ -229,24 +231,26 @@ UPDATE .eslintrc.json (1098 bytes)
 後半のunifiedによる変換処理について、remarkのmarkdownパーサーエンジンが[micromark](https://github.com/micromark/micromark)に置き換わるという大きな変更が起きていたようです。その影響で、以前使っていたプラグインが使えなくなるといった影響が出ていました。この機会に使用するプラグインの厳選を行いました。
 
 - remark-parse
-    - 標準plugin。markdownをmdast(syntax tree)に変換
+  - 標準plugin。markdownをmdast(syntax tree)に変換
 - [remark-attr](https://github.com/arobase-che/remark-attr)
-    - markdownに記述したattributeを変換後のhtmlに付与。cssクラスをセットする等の用途で使用していたが、micromarkの移行により利用不可になった。
-    - https://github.com/arobase-che/remark-attr/issues/22
+  - markdownに記述したattributeを変換後のhtmlに付与。cssクラスをセットする等の用途で使用していたが、micromarkの移行により利用不可になった。
+  - <https://github.com/arobase-che/remark-attr/issues/22>
 - remark-rehype
-    - 標準plugin。mdastをhastに変換
+  - 標準plugin。mdastをhastに変換
 - rehype-raw
-    - 標準plugin: markdown内のhtmlタグをsyntax treeのnodeに含める
+  - 標準plugin: markdown内のhtmlタグをsyntax treeのnodeに含める
 - rehype-slug
-    - 標準plugin。Hタグにidを付与
+  - 標準plugin。Hタグにidを付与
 - rehype-autolink-headings
-    - 標準plugin。Hタグへのlinkを作成
+  - 標準plugin。Hタグへのlinkを作成
 - rehype-External-Links
-    - 今回新たに採用。標準plugin。外部サイトへのリンクを制御。target="_blank"を付与するのに使用
+  - 今回新たに採用。標準plugin。外部サイトへのリンクを制御。target="_blank"を付与するのに使用
 - rehype-attrs
-    - remarkAttrの代わりに採用。markdownに記述したattributeを変換後のhtmlに付与。cssクラスをセットする等の用途で使用
+  - remarkAttrの代わりに採用。markdownに記述したattributeを変換後のhtmlに付与。cssクラスをセットする等の用途で使用
+
 - rehype-highlight
-    - 
+
+  -
 
 ``` ts
 const processor = unified()
@@ -257,7 +261,7 @@ const processor = unified()
       .use(rehypeSlug)
       .use(rehypeAutolinkHeadings)
       .use(rehypeExternalLinks, {target: '_blank', rel: ['noopener']})
-      .use(rehypeAttrs, { properties: 'attr' }) // 
+      .use(rehypeAttrs, { properties: 'attr' }) //
       // .use(highlight)
       .use(rehypeStringify); // 標準plugin: hastをhtmlに変換
     const html = String(processor.processSync(document.content.body));

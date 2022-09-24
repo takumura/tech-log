@@ -3,10 +3,10 @@ title: "NuxtJS + Electronアプリで、セキュアなプロセス間通信を�
 date: "2021-05-10"
 category: "Vue"
 tag:
-- vue
-- nuxtjs
-- electron
-- electron-store
+  - vue
+  - nuxtjs
+  - electron
+  - electron-store
 ---
 
 electronアプリでは脆弱性対応のため、ローカルファイルシステムやOSの処理をNuxtJS側（レンダラープロセス）では行わず、メインプロセス側で実行することが推奨されています。

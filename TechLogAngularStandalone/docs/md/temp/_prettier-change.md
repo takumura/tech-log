@@ -2,7 +2,11 @@
 title: "Prettierの設定方法について"
 date: "2020-02-09"
 category: "Angular"
-tag: ["lint", "prettier", "markdown", "editorconfig"]
+tag:
+  - lint
+  - prettier
+  - markdown
+  - editorconfig
 ---
 
 何かおかしい。要チェック

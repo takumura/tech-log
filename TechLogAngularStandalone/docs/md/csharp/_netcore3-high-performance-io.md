@@ -1,8 +1,10 @@
 ---
 title: ".NET Coreでハイパフォーマンスなファイル入出力処理"
 date: "2020-02-29"
-category: "C#"
-tag: ["high performance"]
+category: "csharp"
+tag:
+  - csharp
+  - performance
 ---
 
 C#7以降、パフォーマンス向上に寄与する機能が色々追加されましたが、その内容を確認できていませんでした。

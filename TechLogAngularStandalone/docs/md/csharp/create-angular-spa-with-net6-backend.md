@@ -2,7 +2,10 @@
 title: ".NET6とAngular v13でSPAサイトを作る（バックエンド）"
 date: "2022-01-06"
 category: "csharp"
-tag: ["net6","angular v13"]
+tag:
+  - csharp
+  - net6
+  - angular
 ---
 
 本サイトは自作のwebサイト生成エンジンで生成されています。自作エンジンは2019年に.NET Core 2.1とAngular v7で開発しました。

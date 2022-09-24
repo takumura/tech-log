@@ -2,7 +2,9 @@
 title: "Angularのプリレンダリングについて"
 date: "2020-02-15"
 category: "Angular"
-tag: ["prerender"]
+tag:
+  - angular
+  - prerender
 ---
 
 [angular-prerender](https://github.com/chrisguttandin/angular-prerender)という気になるツールを見かけたので、使ったらどうなるのか試してみます。

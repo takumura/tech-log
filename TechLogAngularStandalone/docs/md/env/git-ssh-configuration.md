@@ -2,7 +2,13 @@
 title: "Git: githubへのssh接続をSourceTreeからwindows 10標準のssh clientに切り替える"
 date: "2022-07-23"
 category: "環境設定"
-tag: ["git", "vscode", "openssh", "windows10", "windows 11"]
+tag:
+  - 環境設定
+  - git
+  - vscode
+  - openssh
+  - windows 10
+  - windows 11
 ---
 
 ## 経緯
@@ -83,7 +89,6 @@ Mode                LastWriteTime         Length Name
 
 - variable: GIT_SSH
 - value: C:\Windows\System32\OpenSSH\ssh.exe
-
 
 ## 作業時に参照した情報
 

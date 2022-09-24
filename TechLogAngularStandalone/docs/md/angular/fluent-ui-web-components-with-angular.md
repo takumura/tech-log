@@ -2,7 +2,9 @@
 title: "AngularプロジェクトへのFluent UI導入検討"
 date: "2022-01-07"
 category: "csharp"
-tag: ["fluent ui","angular"]
+tag:
+  - fluent ui
+  - angular
 ---
 
 これまでずっとデザインシステムに[Angular Material](https://material.angular.io/)を使ってきたのですが、今回は新しいものということで、最近MS OfficeやTeamsで見かける[Fluent UIのAngularでも使えるWeb Component](https://docs.microsoft.com/en-us/fluent-ui/web-components/integrations/angular)の導入を検討しました。

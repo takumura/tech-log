@@ -2,7 +2,10 @@
 title: "新しいAngularテンプレートのVisualStudioデバッグエラー: デバッグアダプターを起動できませんでした"
 date: "2022-09-23"
 category: "Angular"
-tag: ["Visual Studio", "Angular", "esproj"]
+tag:
+  - Visual Studio
+  - angular
+  - esproj
 ---
 
 [ASP.NET Coreの新しいAngular template](https://learn.microsoft.com/ja-jp/visualstudio/javascript/tutorial-asp-net-core-with-angular?view=vs-2022)を使って作成したプロジェクトを試しています。

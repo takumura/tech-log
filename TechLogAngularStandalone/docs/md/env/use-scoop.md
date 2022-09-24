@@ -2,7 +2,11 @@
 title: "scoopでWindowsアプリを管理する"
 date: "2019-11-01"
 category: "環境設定"
-tag: ["tool", "scoop"]
+tag:
+  - 環境設定
+  - tool
+  - scoop
+  - install
 ---
 
 scoopを利用して、開発環境の自動セットアップ、および最新版への定期的なアップデートなどの管理を上手に行えるのか試してみます。

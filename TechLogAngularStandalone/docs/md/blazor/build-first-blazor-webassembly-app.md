@@ -2,7 +2,9 @@
 title: "Blazor WebAssemblyアプリを作成する"
 date: "2020-05-05"
 category: "Blazor"
-tag: ["overview", "webassembly", "demo"]
+tag:
+  - blazor
+  - webassembly
 ---
 
 NET5でproduction readyになる予定のBlazor WebAssemblyの情報収集と、空のアプリ作成を作成してみる。

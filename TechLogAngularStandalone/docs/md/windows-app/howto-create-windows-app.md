@@ -3,9 +3,10 @@ title: "Windowsデスクトップ向けポータブルアプリケーション�
 date: "2020-02-23"
 category: "windows app"
 tag:
-- uwp
-- msix
-- electron
+  - windows app
+  - uwp
+  - msix
+  - electron
 ---
 
 作業時間や手順を管理するためのWindows10向けデスクトップアプリケーションを作りたくなりました。2020/2月時点で、どんな開発方法があるのか確認しました。

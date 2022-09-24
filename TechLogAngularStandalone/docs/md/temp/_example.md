@@ -2,7 +2,8 @@
 title: "Markdown Example"
 date: "2019-05-06"
 category: "Markdown"
-tag: ["template"]
+tag:
+  - template
 ---
 
 Picked up sample markdown syntax document from [Markdown Cheatsheet - Markdown Here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
@@ -89,14 +90,14 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 + Or pluses
 ```
 
-1.  First ordered list item
-2.  Another item
+1. First ordered list item
+2. Another item
 
 - Unordered sub-list.
 
-1.  Actual numbers don't matter, just that it's a number
-2.  Ordered sub-list
-3.  And another item.
+1. Actual numbers don't matter, just that it's a number
+2. Ordered sub-list
+3. And another item.
 
     You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
 

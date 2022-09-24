@@ -2,7 +2,10 @@
 title: "Angularで動的にHTMLタグをコンポーネントに埋め込む"
 date: "2019-11-14"
 category: "Angular"
-tag: ["html", "embed"]
+tag:
+  - angular
+  - html
+  - embed
 ---
 
 Angularでは、データバインドを利用したテキストの埋め込み時にセキュリティ上の考慮がなされています。具体的には、scriptやhtmlは自動的にエスケープ処理され、原則的にはhtmlタグを埋め込めないようになっています。

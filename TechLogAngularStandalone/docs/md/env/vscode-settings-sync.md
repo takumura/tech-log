@@ -2,7 +2,11 @@
 title: "VSCode: Settings Syncで環境設定を共有する"
 date: "2019-11-01"
 category: "環境設定"
-tag: ["vscode", "git", "settings.json"]
+tag:
+  - 環境設定
+  - vscode
+  - git
+  - settings.json
 ---
 
 拡張機能: `Settings Sync`を導入することで、VSCodeの設定、スニペット、テーマ、ファイルアイコン、キーバインディング、ワークスペース、拡張機能を複数のマシンで同期できます。

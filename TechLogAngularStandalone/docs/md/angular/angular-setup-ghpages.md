@@ -2,7 +2,11 @@
 title: "angularプロジェクトをgithub pagesにdeployする"
 date: "2022-09-24"
 category: "Angular"
-tag: ["deploy", "github pages", "angular-cli-ghpages"]
+tag:
+  - angular
+  - deploy
+  - github pages
+  - angular-cli-ghpages
 ---
 
 

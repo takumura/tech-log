@@ -2,7 +2,11 @@
 title: "Windowsの環境セットアップ"
 date: "2019-11-08"
 category: "環境設定"
-tag: ["setup", "tool", "install"]
+tag:
+  - 環境設定
+  - setup
+  - tool
+  - install
 ---
 
 Windowsの環境セットアップ手順についてまとめます。Scoopを利用できるものはセットアップを自動化し、そうでないものは個別にインストールしています。
