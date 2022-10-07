@@ -247,24 +247,26 @@ UPDATE .eslintrc.json (1098 bytes)
   - 今回新たに採用。標準plugin。外部サイトへのリンクを制御。target="_blank"を付与するのに使用
 - rehype-attrs
   - remarkAttrの代わりに採用。markdownに記述したattributeを変換後のhtmlに付与。cssクラスをセットする等の用途で使用
-
-- rehype-highlight
-
-  -
+- rehypeHighlight
+  - 以前利用していたsyntax highlight用のplugin。標準で登録済み担っている言語でbundleサイズが膨らんでしまい、取り除くのが簡単ではなさそうだったので`rehypePrismPlus`に変更することに
+- rehypePrismPlus
+  - syntax highlight用のplugin。ハイライト対象の設定ファイルを柔軟に登録できるので、bundleサイズ削減が期待できる
 
 ``` ts
 const processor = unified()
-      .use(remarkParse)
-      // .use(remarkAttr)
-      .use(remarkRehype, {allowDangerousHtml: true})
-      .use(rehypeRaw)
-      .use(rehypeSlug)
-      .use(rehypeAutolinkHeadings)
-      .use(rehypeExternalLinks, {target: '_blank', rel: ['noopener']})
-      .use(rehypeAttrs, { properties: 'attr' }) //
-      // .use(highlight)
-      .use(rehypeStringify); // 標準plugin: hastをhtmlに変換
-    const html = String(processor.processSync(document.content.body));
+    .use(remarkParse)
+    // .use(remarkAttr)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings)
+    .use(rehypeExternalLinks, { target: '_blank', rel: ['noopener'] })
+    .use(rehypeAttrs, { properties: 'attr' })
+    // .use(highlight)
+    .use(rehypePrismPlus, { showLineNumbers: true })
+    .use(rehypeStringify); // 標準plugin: hastをhtmlに変換
+
+const html = String(processor.processSync(document.content.body));
 ```
 
 ## 後で調べる
