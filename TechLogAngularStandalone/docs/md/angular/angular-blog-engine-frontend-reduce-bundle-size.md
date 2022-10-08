@@ -1,7 +1,7 @@
 ---
 title: "Angularで作成したmarkdownブログサイトのbundleサイズを削減する"
 date: "2022-10-02"
-category: "angular"
+category: "Angular"
 tag:
   - angular
   - javascript

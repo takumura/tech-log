@@ -22,7 +22,7 @@ angular v8以降は`ng deploy`コマンドの統一化により、設定が簡�
 
 まずは`angular-cli-ghpages`をdependencyに追加します。
 
-```powershell
+``` powershell
 > yarn add angular-cli-ghpages
 ```
 
@@ -124,7 +124,7 @@ Angular 7でangular-cli-ghpagesライブラリを利用して、github pagesを�
 
 Prerequisitesに`Angular project created via Angular CLI v8.3.0-next.0 or greate`と書かれているのを発見。うまくいかないかもしれないが、とりあえずAngular CLI v7系のまま設定を実施しました。
 
-```bash
+``` powershell
 PS C:\Repos\github\tech-log\Website\ClientApp> ng add angular-cli-ghpages
 Installing packages for tooling via npm.
 npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.7 (node_modules\fsevents):
@@ -139,13 +139,13 @@ The package that you are trying to add does not support schematics. You can try 
 
 警告などが出ている（auditは今後の課題）が、今回は無視して進めます。
 
-```bash
+``` powershell
 PS C:\Repos\github\tech-log\Website\ClientApp> ng build --prod --base-href "https://takumura.github.io/tech-log/"
 ```
 
 dry-runによる予行でどのように動くか実験。
 
-```bash
+``` powershell
 PS C:\Repos\github\tech-log\Website\ClientApp> npx angular-cli-ghpages --dry-run
 *** Dry-run: No changes are applied at all.
 *** Dry-run / SKIPPED: cleaning of the cache directory
@@ -166,13 +166,13 @@ PS C:\Repos\github\tech-log\Website\ClientApp> npx angular-cli-ghpages --dry-run
 
 問題なさそうなので本実行。
 
-```bash
+``` powershell
 PS C:\Repos\github\tech-log\Website\ClientApp> npx angular-cli-ghpages
 ```
 
 初回は`Permission denied (publickey)`エラーが発生してpushに失敗。[Git: githubへのssh接続をSourceTreeからwindows 10標準のssh clientに切り替える](doc/env/git-ssh-configuration)<!--rehype:class=internal-link-->の対応を実施してから再チャレンジ。
 
-```bash
+``` powershell
 PS C:\Repos\github\tech-log\Website\ClientApp> npx angular-cli-ghpages
 *** Successfully published!
 ```
@@ -185,7 +185,7 @@ prodオプション付きのビルドを実行し、生成されたdistフォル
 
 **publish-to-ghpages.ps1**
 
-```bash
+``` powershell
 ng build --prod --base-href "https://takumura.github.io/tech-log/"
 npx angular-cli-ghpages
 ```
