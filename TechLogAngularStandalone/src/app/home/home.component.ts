@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+
 import { environment } from 'src/environments/environment';
-import { selectDocumentByDocRef } from '../markdown-document/store/markdown-document.selectors';
-import { DocumentRef } from '../store/models/document-ref.model';
+import { selectDocumentByDocRef } from 'src/app/store/document-index/document-index.selectors';
+import { DocumentRef } from 'src/app/store/models/document-ref.model';
 
 @Component({
   selector: 'app-home',
