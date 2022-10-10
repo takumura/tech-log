@@ -1,11 +1,13 @@
 ---
 title: "Todo リスト"
-date: "2022-09-23"
+date: "2022-10-10"
 category: "none"
 toc: "none"
 ---
 
 ## 記事ストック
+
+> しばらく記事の更新が止まっていたので、内容と作業順を精査する必要がある
 
 - [x] [angular-cli-ghpages](https://github.com/angular-schule/angular-cli-ghpages)のセットアップ
   - [x] Angular v13以降の設定の仕方について追記する
