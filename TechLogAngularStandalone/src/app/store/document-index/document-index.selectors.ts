@@ -26,6 +26,7 @@ import { selectUrl } from '../router/router.selectors';
 import { DocumentRef } from '../models/document-ref.model';
 import { initialMarkdownDocumentModel } from '../models/markdown-document.model';
 import { lowerCaseComparer } from 'src/app/shared/utils/lowerCaseComparer';
+import remarkGfm from 'remark-gfm';
 
 const selectDocumentIndexState = createFeatureSelector<fromDocumentIndex.State>(fromDocumentIndex.featureKey);
 
@@ -96,6 +97,7 @@ function convertJsonToHtml(document: DocumentRef) {
 
   const processor = unified()
     .use(remarkParse)
+    .use(remarkGfm)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
     .use(rehypeSlug)
