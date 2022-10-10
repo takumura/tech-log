@@ -12,6 +12,7 @@ import powershell from 'refractor/lang/powershell.js';
 import typescript from 'refractor/lang/typescript.js';
 import yaml from 'refractor/lang/yaml.js';
 import remarkParse from 'remark-parse';
+import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
 import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
@@ -26,7 +27,6 @@ import { selectUrl } from '../router/router.selectors';
 import { DocumentRef } from '../models/document-ref.model';
 import { initialMarkdownDocumentModel } from '../models/markdown-document.model';
 import { lowerCaseComparer } from 'src/app/shared/utils/lowerCaseComparer';
-import remarkGfm from 'remark-gfm';
 
 const selectDocumentIndexState = createFeatureSelector<fromDocumentIndex.State>(fromDocumentIndex.featureKey);
 
