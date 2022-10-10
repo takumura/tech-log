@@ -1,10 +1,13 @@
 ---
 title: ".NET6とAngular v13でSPAサイトを作る（フロントエンド）"
-date: "2022-01-07"
+date: "2022-10-10"
 category: "csharp"
 tag:
   - net6
   - angular
+  - unified
+  - remark
+  - rehype
 ---
 
 本サイトは自作のwebサイト生成エンジンで生成されています。自作エンジンは2019年に.NET Core 2.1とAngular v7で開発しました。
@@ -235,10 +238,12 @@ UPDATE .eslintrc.json (1098 bytes)
 - [remark-attr](https://github.com/arobase-che/remark-attr)
   - markdownに記述したattributeを変換後のhtmlに付与。cssクラスをセットする等の用途で使用していたが、micromarkの移行により利用不可になった。
   - <https://github.com/arobase-che/remark-attr/issues/22>
+- remark-gfm
+  - 標準plugin。GitHub Flavored Markdown(autolink literals, footnotes, strikethrough, tables, tasklists)を利用するために利用
 - remark-rehype
   - 標準plugin。mdastをhastに変換
 - rehype-raw
-  - 標準plugin: markdown内のhtmlタグをsyntax treeのnodeに含める
+  - 標準plugin:。markdown内のhtmlタグをsyntax treeのnodeに含める
 - rehype-slug
   - 標準plugin。Hタグにidを付与
 - rehype-autolink-headings
@@ -256,6 +261,7 @@ UPDATE .eslintrc.json (1098 bytes)
 const processor = unified()
     .use(remarkParse)
     // .use(remarkAttr)
+    .use(remarkGfm)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
     .use(rehypeSlug)
