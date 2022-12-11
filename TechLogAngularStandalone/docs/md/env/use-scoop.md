@@ -1,9 +1,8 @@
 ---
 title: "scoopでWindowsアプリを管理する"
-date: "2019-11-01"
+date: "2022-12-11"
 category: "環境設定"
 tag:
-  - 環境設定
   - tool
   - scoop
   - install
@@ -174,6 +173,20 @@ Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.
 ## App Manifest について
 
 公式が提供していないApp Manifestは自分で作ることも可能です。詳細な方法は[Creating an app manifest](https://github.com/lukesampson/scoop/wiki/Creating-an-app-manifest)に書かれています。
+
+## scoopを用いた環境セットアップスクリプト
+
+<div class="gist">
+  <script src="https://gist.github.com/takumura/f897ab722e0d55523243dcfe7a51d4c1.js?file=install-scoop.ps1"></script>
+</div>
+
+<div class="gist">
+  <script src="https://gist.github.com/takumura/f897ab722e0d55523243dcfe7a51d4c1.js?file=env-setup-common.ps1"></script>
+</div>
+
+<div class="gist">
+  <script src="https://gist.github.com/takumura/f897ab722e0d55523243dcfe7a51d4c1.js?file=env-setup-dev.ps1"></script>
+</div>
 
 ## 作業時に参照した情報
 

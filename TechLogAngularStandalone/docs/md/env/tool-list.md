@@ -1,51 +1,20 @@
 ---
-title: "Windowsの環境セットアップ"
-date: "2019-11-08"
+title: "Windowsで利用しているツール"
+date: "2022-12-11"
 category: "環境設定"
 tag:
-  - 環境設定
   - setup
   - tool
   - install
 ---
 
-Windowsの環境セットアップ手順についてまとめます。Scoopを利用できるものはセットアップを自動化し、そうでないものは個別にインストールしています。
+Scoopやインストーラー、ポータブルパッケージ等を用いてセットアップし、利用しているアプリを整理します。
 
-## scoopを用いた環境セットアップスクリプト
+## scoopを利用してインストールするApp
 
-**env-setup-common.ps1**
+### git
 
-``` powershell
-## plese run following command if error occured for running powershell script.
-## set-executionpolicy unrestricted -s cu
-
-# install scoop to "c:\Apps\scoop" folder
-$env:SCOOP='C:\Apps\scoop'
-[environment]::setEnvironmentVariable('SCOOP',$env:SCOOP,'User')
-Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
-
-# install git to add bucket
-scoop install git
-
-# add extras bucket
-scoop bucket add extras
-
-# utils
-scoop install 7zip keepass curl winmerge fiddler
-```
-
-**env-setup-dev.ps1**
-
-``` powershell
-# dev utils
-scoop install git fork
-
-# programming
-scoop install dotnet-sdk nodejs
-
-# editor
-scoop install vscode
-```
+開発でも使用するが、bucketの追加に利用しているためscoopを利用するなら必須。
 
 ### 7zip
 
@@ -55,17 +24,39 @@ scoop install vscode
 
 パスワード管理ツール。
 
-### curl
+### appbuster
 
-URLシンタックスを用いてファイル送受信を行うコマンドラインツール
+Windows 10/11にインストールされた不要なappを削除できる。<https://www.oo-software.com/en/ooappbuster>
 
-### git
+### avidemux
 
-バージョン管理ツール
+動画編集ツール。<https://avidemux.sourceforge.net/>
+
+### crystaldiskinfo
+
+ディスクの健康状態をチェック
+
+### crystaldiskmark
+
+ディスクのパフォーマンをチェック
+
+### geekuninstaller
+
+レジストリを含めてappを丁寧にアンインストールする
+
+## scoopを利用してインストールするApp (開発用)
+
+### nvm
+
+複数バージョンのnodeをインストール、切り替える事ができる。<https://github.com/coreybutler/nvm-windows>
 
 ### git-fork
 
 グラフィカルgitクライアント。一緒に仕事をしている人が超絶お勧めしているので試してみる予定。Scoopを利用してインストールできるか検討中。
+
+### curl
+
+URLシンタックスを用いてファイル送受信を行うコマンドラインツール
 
 ### WinMerge
 
@@ -75,35 +66,59 @@ URLシンタックスを用いてファイル送受信を行うコマンドラ�
 
 HTTPトラフィック監視ツール。Scoopを利用してインストールできるか検討中。
 
-### Simple VHD Manager
+## インストーラーを利用してインストールするApp
 
-VHD（仮想ハードディスク）ファイルの管理ツール。Scoopを利用してインストールできるか検討中。公式bucketsにはapp manifestが存在しないため、自分で作る必要がある。
+### Brave
 
-### .NET Core
-
-開発環境。Scoopを利用してインストールできるか検討中。
-
-### Nodejs
-
-開発環境。Scoopを利用してインストールできるか検討中。LTS版をインストールする予定。
+ブラウザ。iPhoneとブックマークを同期するのに利用
 
 ### Visual Studio Code
 
-軽量コードエディター。Scoopを利用してインストールできるか検討中。
+軽量コードエディター。
 
-### chrome
+### Visual Studio
 
-ブラウザ。Scoopを利用してインストールできるか検討中。公式bucketsにはapp manifestが存在しないため、自分で作る必要がある。
+開発環境
 
-## 個別にインストールするAppについて
+### .NET Core
+
+開発環境用ライブラリ
+
+### OneDrive
+
+クラウドファイル共有のクライアント
+
+### spacedesk
+
+ラップトップやiPad、Fire HD 10などのタブレットをサブディスプレイにできる
+
+## ポータブル版を利用するApp
 
 ### Synkron
 
 フォルダ同期ツール
 
-### Visual Studio
+### MagicFinder
 
-開発環境
+IOデータのWIFIルータ接続ツール
+
+### ProcessExplorer
+
+機能強化したタスクマネージャー。<https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer>
+
+### WDIDLE3 for Windows
+
+ Western Digital製HDDの省電力機能`IntelliPark`を無効にする。<http://liliumrubellum.blog10.fc2.com/blog-entry-307.html>
+
+## 以前使用していたツール
+
+### Simple VHD Manager
+
+VHD（仮想ハードディスク）ファイルの管理ツール。
+
+### chrome
+
+ブラウザ。Edgeとエンジンが同じためEdgeに移行した
 
 ## 関連項目
 

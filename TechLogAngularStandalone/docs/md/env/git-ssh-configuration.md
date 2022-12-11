@@ -3,7 +3,6 @@ title: "Git: githubへのssh接続をSourceTreeからwindows 10標準のssh clie
 date: "2022-07-23"
 category: "環境設定"
 tag:
-  - 環境設定
   - git
   - vscode
   - openssh
