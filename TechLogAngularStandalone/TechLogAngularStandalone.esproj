@@ -1,21 +1,17 @@
-<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.5.0-alpha">
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.5.62-alpha">
   <PropertyGroup Label="Globals">
     <ProjectGuid>bab8cfe4-58b1-4e20-acee-2a2596812eb4</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <StartupCommand>yarn start</StartupCommand>
     <JavaScriptTestFramework>Jasmine</JavaScriptTestFramework>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>LaunchJsonDebugger</DebuggerFlavor>
-    <LaunchJsonTarget>
-      {
-      "type": "pwa-msedge",
-      "request": "launch",
-      "name": "localhost (Edge)",
-      "url": "https://localhost:4200",
-      }
-    </LaunchJsonTarget>
+
+    <BuildCommand>
+    </BuildCommand>
+    <!-- Command to create an optimized build of the project that's ready for publishing -->
+    <ProductionBuildCommand>yarn run build</ProductionBuildCommand>
+    <!--<BuildOutputFolder>$(MSBuildProjectDirectory)\dist</BuildOutputFolder>-->
   </PropertyGroup>
   <ItemGroup>
     <Script Include="**" Exclude="*.esproj;**\node_modules\**" />

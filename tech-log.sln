@@ -4,10 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "TechLogAngularStandalone", "TechLogAngularStandalone\TechLogAngularStandalone.esproj", "{BAB8CFE4-58B1-4E20-ACEE-2A2596812EB4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A541E7B8-08B3-413A-94FB-72A7F11CAC9A} = {A541E7B8-08B3-413A-94FB-72A7F11CAC9A}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreWebApi", "AspNetCoreWebApi\AspNetCoreWebApi.csproj", "{A541E7B8-08B3-413A-94FB-72A7F11CAC9A}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net6Markdown2JsonConverter", "Net6Markdown2JsonConverter\Net6Markdown2JsonConverter.csproj", "{9302C2A3-BBFC-4F5E-A0BA-5F568ADE3C91}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ソリューション項目", "ソリューション項目", "{4799E690-7775-4CA8-9631-4404686A2481}"
 	ProjectSection(SolutionItems) = preProject
@@ -30,10 +31,6 @@ Global
 		{A541E7B8-08B3-413A-94FB-72A7F11CAC9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A541E7B8-08B3-413A-94FB-72A7F11CAC9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A541E7B8-08B3-413A-94FB-72A7F11CAC9A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9302C2A3-BBFC-4F5E-A0BA-5F568ADE3C91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9302C2A3-BBFC-4F5E-A0BA-5F568ADE3C91}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9302C2A3-BBFC-4F5E-A0BA-5F568ADE3C91}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9302C2A3-BBFC-4F5E-A0BA-5F568ADE3C91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

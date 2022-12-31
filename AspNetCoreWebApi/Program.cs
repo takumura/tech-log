@@ -1,5 +1,4 @@
-using Net6MarkdownWebEngine.Backend.Services;
-using Net6MarkdownWebEngine.Converter;
+using DocuPacker.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,16 +8,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// // Add md2json converter service
-builder.Services.AddSingleton<IMarkdownConverterService, MarkdownConverterService>();
-
-// Add Documents Watch Service
+// Add DocuPacker Service
 var contetRootPath = builder.Environment.ContentRootPath;
 var isDevelopment = builder.Environment.IsDevelopment();
-builder.Services.Configure<DocumentsWatchServiceOptions>(options =>
+builder.Services.AddDocuPacker(options =>
 {
-    options.InputDir = Path.Combine(contetRootPath, "../TechLogAngularStandalone/docs/md");
-    options.OutputDir = Path.Combine(contetRootPath, "../TechLogAngularStandalone/docs/json");
+    options.InputDir = Path.Combine(contetRootPath, "../Docs/md");
+    options.OutputDir = Path.Combine(contetRootPath, "../Docs/json");
     if (isDevelopment)
     {
         options.IndexDir = Path.Combine(contetRootPath, "../TechLogAngularStandalone/src/assets");
@@ -28,7 +24,6 @@ builder.Services.Configure<DocumentsWatchServiceOptions>(options =>
         options.IndexDir = Path.Combine(contetRootPath, "../TechLogAngularStandalone/dist/assets");
     }
 });
-builder.Services.AddSingleton<IHostedService, DocumentsWatchService>();
 
 var app = builder.Build();
 
