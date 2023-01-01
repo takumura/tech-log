@@ -28,7 +28,7 @@
     "@ngrx/router-store": "^15.1.0",
     "@ngrx/store": "^15.1.0",
     "@ngrx/store-devtools": "^15.1.0",
-    "angular-cli-ghpages": "^1.0.3",
+    "angular-cli-ghpages": "^1.0.5",
     "jest-editor-support": "*",
     "postscribe": "^2.0.8",
     "rehype-attr": "^2.0.8",
