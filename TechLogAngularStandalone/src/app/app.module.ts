@@ -21,7 +21,7 @@ import { LoadingBarComponent } from './shared/components/loading-bar/loading-bar
 import { DocumentComponent } from './shared/components/markdown/document/document.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -46,6 +46,6 @@ import { DocumentComponent } from './shared/components/markdown/document/documen
     NavComponent,
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [],
 })
 export class AppModule {}
