@@ -10,7 +10,6 @@ import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/materia
 import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
-import { MatLegacyProgressBarModule as MatProgressBarModule } from '@angular/material/legacy-progress-bar';
 import { MatLegacySelectModule as MatSelectModule } from '@angular/material/legacy-select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -28,7 +27,6 @@ const material = [
   MatIconModule,
   MatInputModule,
   MatListModule,
-  MatProgressBarModule,
   MatSelectModule,
   MatSidenavModule,
   MatToolbarModule,

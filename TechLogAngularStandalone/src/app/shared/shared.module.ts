@@ -24,14 +24,14 @@ const components = [
   DocumentListItemComponent,
   DocumentTocComponent,
   ExpansionDocumentListComponent,
-  LoadingBarComponent,
-  TagComponent,
-  TagListComponent,
+  // LoadingBarComponent,
+  // TagComponent,
+  // TagListComponent,
 ];
 
 @NgModule({
   declarations: [components],
-  imports: [CommonModule, MaterialModule, RouterModule],
+  imports: [CommonModule, MaterialModule, RouterModule, TagComponent, TagListComponent, LoadingBarComponent],
   exports: [components],
   providers: [
     BreakpointObserverService,

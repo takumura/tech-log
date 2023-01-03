@@ -17,6 +17,7 @@ import { LoadingStoreModule } from './store/loading/loading-store.module';
 import { MaterialModule } from './shared/material.module';
 import { SharedModule } from './shared/shared.module';
 import { reducers } from './store';
+import { LoadingBarComponent } from './shared/components/loading-bar/loading-bar.component';
 
 @NgModule({
   declarations: [AppComponent, NetCoreApiComponent, NavComponent],
@@ -38,6 +39,7 @@ import { reducers } from './store';
       maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode(), // Restrict extension to log-only mode
     }),
+    LoadingBarComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

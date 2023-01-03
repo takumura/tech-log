@@ -13,7 +13,7 @@
 //  If you don't need the default component typographies but still want the hierarchy styles,
 //  you can delete this line and instead use:
 //    `@include mat.legacy-typography-hierarchy($light-typograhy);`
-@include mat.all-legacy-component-typographies($light-typograhy);
+// @include mat.all-legacy-component-typographies($light-typograhy);
 @include mat.legacy-core();
 
 // // list up required components instead of using all-component-themes
@@ -29,10 +29,14 @@
 @include mat.icon-theme($light-theme);
 @include mat.legacy-input-theme($light-theme);
 @include mat.legacy-list-theme($light-theme);
-@include mat.legacy-progress-bar-theme($light-theme);
+
 @include mat.legacy-select-theme($light-theme);
 @include mat.sidenav-theme($light-theme);
 @include mat.toolbar-theme($light-theme);
+
+@include mat.core();
+@include mat.chips-theme($light-theme);
+@include mat.progress-bar-theme($light-theme);
 
 html,
 body {
