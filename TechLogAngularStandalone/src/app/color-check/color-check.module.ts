@@ -15,7 +15,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ColorCheckComponent],
+  declarations: [],
   imports: [CommonModule, MaterialModule, SharedModule, RouterModule.forChild(routes)],
 })
 export class ColorCheckModule {}

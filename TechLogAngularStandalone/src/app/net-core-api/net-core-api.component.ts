@@ -1,9 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
+  standalone: true,
   selector: 'app-net-core-api',
+  imports: [CommonModule],
   templateUrl: './net-core-api.component.html',
   styleUrls: ['./net-core-api.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
