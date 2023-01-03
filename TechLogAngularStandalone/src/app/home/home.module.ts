@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { MaterialModule } from '../shared/material.module';
 import { SharedModule } from '../shared/shared.module';
+import { DocumentComponent } from '../shared/components/markdown/document/document.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [HomeComponent],
-  imports: [CommonModule, MaterialModule, SharedModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, MaterialModule, SharedModule, DocumentComponent, RouterModule.forChild(routes)],
 })
 export class HomeModule {}

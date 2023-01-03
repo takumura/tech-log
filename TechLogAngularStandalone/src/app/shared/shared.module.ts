@@ -18,11 +18,11 @@ import { ScrollSpyService } from './services/scroll-spy.service';
 import { TocService } from './services/toc.service';
 
 const components = [
-  DocumentComponent,
-  DocumentHeaderComponent,
+  // DocumentComponent,
+  // DocumentHeaderComponent,
   DocumentListComponent,
   DocumentListItemComponent,
-  DocumentTocComponent,
+  // DocumentTocComponent,
   ExpansionDocumentListComponent,
   // LoadingBarComponent,
   // TagComponent,
@@ -31,7 +31,17 @@ const components = [
 
 @NgModule({
   declarations: [components],
-  imports: [CommonModule, MaterialModule, RouterModule, TagComponent, TagListComponent, LoadingBarComponent],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    RouterModule,
+    TagComponent,
+    TagListComponent,
+    LoadingBarComponent,
+    DocumentComponent,
+    DocumentHeaderComponent,
+    DocumentTocComponent,
+  ],
   exports: [components],
   providers: [
     BreakpointObserverService,

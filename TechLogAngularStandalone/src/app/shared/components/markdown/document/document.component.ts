@@ -8,7 +8,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { Location } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Observable, of, Subject, takeUntil } from 'rxjs';
 import postscribe from 'postscribe';
@@ -17,7 +17,9 @@ import { DocumentRef } from 'src/app/store/models/document-ref.model';
 import { TocService } from '../../../services/toc.service';
 
 @Component({
+  standalone: true,
   selector: 'app-document',
+  imports: [CommonModule],
   templateUrl: './document.component.html',
   styleUrls: ['./document.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

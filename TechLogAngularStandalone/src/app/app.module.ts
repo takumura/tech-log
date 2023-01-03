@@ -18,6 +18,7 @@ import { MaterialModule } from './shared/material.module';
 import { SharedModule } from './shared/shared.module';
 import { reducers } from './store';
 import { LoadingBarComponent } from './shared/components/loading-bar/loading-bar.component';
+import { DocumentComponent } from './shared/components/markdown/document/document.component';
 
 @NgModule({
   declarations: [AppComponent, NetCoreApiComponent, NavComponent],
@@ -40,6 +41,7 @@ import { LoadingBarComponent } from './shared/components/loading-bar/loading-bar
       logOnly: !isDevMode(), // Restrict extension to log-only mode
     }),
     LoadingBarComponent,
+    DocumentComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
