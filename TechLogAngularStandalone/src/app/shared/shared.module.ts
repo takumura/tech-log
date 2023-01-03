@@ -17,20 +17,20 @@ import { DocumentTocComponent } from './components/markdown/document-toc/documen
 import { ScrollSpyService } from './services/scroll-spy.service';
 import { TocService } from './services/toc.service';
 
-const components = [
-  // DocumentComponent,
-  // DocumentHeaderComponent,
-  DocumentListComponent,
-  DocumentListItemComponent,
-  // DocumentTocComponent,
-  ExpansionDocumentListComponent,
-  // LoadingBarComponent,
-  // TagComponent,
-  // TagListComponent,
-];
+// const components = [
+//   // DocumentComponent,
+//   // DocumentHeaderComponent,
+//   // DocumentListComponent,
+//   // DocumentListItemComponent,
+//   // DocumentTocComponent,
+//   // ExpansionDocumentListComponent,
+//   // LoadingBarComponent,
+//   // TagComponent,
+//   // TagListComponent,
+// ];
 
 @NgModule({
-  declarations: [components],
+  declarations: [],
   imports: [
     CommonModule,
     MaterialModule,
@@ -40,9 +40,12 @@ const components = [
     LoadingBarComponent,
     DocumentComponent,
     DocumentHeaderComponent,
+    DocumentListComponent,
+    DocumentListItemComponent,
     DocumentTocComponent,
+    ExpansionDocumentListComponent,
   ],
-  exports: [components],
+  exports: [],
   providers: [
     BreakpointObserverService,
     { provide: TitleStrategy, useClass: MyTitleStrategyService },
