@@ -4,19 +4,17 @@
       <mat-label>Search</mat-label>
       <input matInput type="text" placeholder="please input search keyword..." formControlName="searchInputForm" />
       <button
-        mat-button
+        mat-icon-button
         *ngIf="searchForm.controls.searchInputForm.value"
         matSuffix
-        mat-icon-button
         aria-label="Clear"
         (click)="clearSearchInput()"
       >
         <mat-icon>close</mat-icon>
       </button>
       <button
-        mat-button
-        matSuffix
         mat-icon-button
+        matSuffix
         cdkOverlayOrigin
         #trigger="cdkOverlayOrigin"
         (click)="toggleAdvancedSearchOpen()"
@@ -92,7 +90,6 @@
         </mat-option>
       </mat-autocomplete>
       <button
-        mat-button
         *ngIf="searchForm.controls.searchCategoryForm.value"
         matSuffix
         mat-icon-button
@@ -104,13 +101,13 @@
     </mat-form-field>
     <mat-form-field class="autocomplete-input" appearance="outline" [formGroup]="searchForm" [style.fontSize.px]="12">
       <mat-label class="autocomplete">Tags</mat-label>
-      <mat-chip-list #chipList [multiple]="false">
-        <mat-chip *ngFor="let tag of tags" (removed)="tagRemove(tag)">
+      <mat-chip-grid #chipList>
+        <mat-chip-row *ngFor="let tag of tags" (removed)="tagRemove(tag)">
           {{ tag }}
           <button matChipRemove>
             <mat-icon>cancel</mat-icon>
           </button>
-        </mat-chip>
+        </mat-chip-row>
         <input
           placeholder="New tag..."
           #tagInput
@@ -120,7 +117,7 @@
           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
           (matChipInputTokenEnd)="add($event)"
         />
-      </mat-chip-list>
+      </mat-chip-grid>
       <mat-autocomplete #autoTag="matAutocomplete" (optionSelected)="tagSelected($event)">
         <mat-option *ngFor="let tag of filteredTags$ | async" [value]="tag">
           {{ tag }}
