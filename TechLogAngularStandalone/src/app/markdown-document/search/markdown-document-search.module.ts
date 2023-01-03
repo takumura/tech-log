@@ -18,7 +18,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [SearchComponent],
+  declarations: [],
   imports: [
     CommonModule,
     ReactiveFormsModule,

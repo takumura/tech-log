@@ -23,7 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [DisplayComponent],
+  declarations: [],
   imports: [
     CommonModule,
     ReactiveFormsModule,
