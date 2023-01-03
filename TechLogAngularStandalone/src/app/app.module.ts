@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { isDevMode, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,7 +17,6 @@ import { LoadingStoreModule } from './store/loading/loading-store.module';
 import { MaterialModule } from './shared/material.module';
 import { SharedModule } from './shared/shared.module';
 import { reducers } from './store';
-import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [AppComponent, NetCoreApiComponent, NavComponent],
@@ -35,13 +34,10 @@ import { environment } from 'src/environments/environment';
     AppRoutingModule,
     StoreRouterConnectingModule.forRoot(),
     // Instrumentation must be imported after importing StoreModule (config is optional)
-    !environment.production
-      ? StoreDevtoolsModule.instrument({
-          maxAge: 25, // Retains last 25 states
-          logOnly: environment.production, // Restrict extension to log-only mode
-          autoPause: true, // Pauses recording actions and state changes when the extension window is not open
-        })
-      : [],
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: !isDevMode(), // Restrict extension to log-only mode
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
