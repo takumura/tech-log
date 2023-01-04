@@ -5,7 +5,7 @@
 
 $light-primary-palette: mat.define-palette(mat.$light-blue-palette, 500);
 $light-accent-palette: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$light-typograhy: mat.define-legacy-typography-config(
+$light-typograhy: mat.define-typography-config(
   $font-family: "Noto Sans JP",
 );
 
