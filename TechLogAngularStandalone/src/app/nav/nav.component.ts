@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   NavigationCancel,
   NavigationEnd,
@@ -7,23 +8,24 @@ import {
   Router,
   RouterModule,
 } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { delay, filter, Observable, Subject, takeUntil } from 'rxjs';
-
-import { environment } from 'src/environments/environment';
-import { BreakpointObserverService } from 'src/app/shared/services/breakpoint-observer.service';
-import { hideLoading, showLoading } from 'src/app/store/loading/loading.actions';
-import { CommonModule } from '@angular/common';
-import { LoadingBarComponent } from '../shared/components/loading-bar/loading-bar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
+import { Store } from '@ngrx/store';
+import { delay, filter, Observable, Subject, takeUntil } from 'rxjs';
+
+import { BreakpointObserverService } from 'src/app/shared/services/breakpoint-observer.service';
+import { hideLoading, showLoading } from 'src/app/store/loading/loading.actions';
+import { LoadingBarComponent } from '../shared/components/loading-bar/loading-bar.component';
+
+//TODO to be deleted
+import { environment } from 'src/environments/environment';
 
 @Component({
-  standalone: true,
   selector: 'app-nav',
+  standalone: true,
   imports: [
     CommonModule,
     RouterModule,

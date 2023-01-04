@@ -1,11 +1,11 @@
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
-  standalone: true,
   selector: 'app-net-core-api',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './net-core-api.component.html',
   styleUrls: ['./net-core-api.component.scss'],
@@ -16,15 +16,13 @@ export class NetCoreApiComponent {
   public forecasts$: Observable<WeatherForecast[]> = this.forecastsSub.asObservable();
 
   constructor(http: HttpClient) {
-    http.get<WeatherForecast[]>('/weatherforecast').subscribe(
-      (result) => {
-        this.forecastsSub.next(result);
-      },
-      (error) => console.error(error)
-    );
+    http.get<WeatherForecast[]>('/weatherforecast').subscribe({
+      next: (result) => this.forecastsSub.next(result),
+      error: (e) => console.error(e),
+    });
   }
 
-  title = 'net6-markdown-web-engine';
+  title = 'Test Api';
 }
 
 interface WeatherForecast {

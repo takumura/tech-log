@@ -1,19 +1,19 @@
-import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { Observable, Subject, takeUntil, delay } from 'rxjs';
+
+import { DocumentComponent } from 'src/app/shared/components/markdown/document/document.component';
 import { DocumentHeaderComponent } from 'src/app/shared/components/markdown/document-header/document-header.component';
 import { DocumentTocComponent } from 'src/app/shared/components/markdown/document-toc/document-toc.component';
-import { DocumentComponent } from 'src/app/shared/components/markdown/document/document.component';
-
 import { BreakpointObserverService } from 'src/app/shared/services/breakpoint-observer.service';
-import { selectDocument } from 'src/app/store/document-index/document-index.selectors';
 import { DocumentRef } from 'src/app/store/models/document-ref.model';
+import { selectDocument } from 'src/app/store/document-index/document-index.selectors';
 import { selectFragment } from 'src/app/store/router/router.selectors';
 
 @Component({
-  standalone: true,
   selector: 'app-display',
+  standalone: true,
   imports: [CommonModule, DocumentComponent, DocumentHeaderComponent, DocumentTocComponent],
   templateUrl: './display.component.html',
   styleUrls: ['./display.component.scss'],

@@ -1,9 +1,17 @@
 import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { Store } from '@ngrx/store';
-import { MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatButtonModule } from '@angular/material/button';
 import { MatAutocompleteModule, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { Store } from '@ngrx/store';
 import {
   Observable,
   debounceTime,
@@ -16,9 +24,12 @@ import {
   combineLatestWith,
 } from 'rxjs';
 
+import { DocumentListComponent } from 'src/app/shared/components/lists/document-list/document-list.component';
+import { ExpansionDocumentListComponent } from 'src/app/shared/components/lists/expansion-document-list/expansion-document-list.component';
 import { DocumentRef } from 'src/app/store/models/document-ref.model';
 import { searchResultSortBy, sortByOption } from 'src/app/store/models/sort-by-options.model';
 import { searchResultViewType } from 'src/app/store/models/view-type-options.model';
+import { selectCategories, selectTags } from 'src/app/store/document-index/document-index.selectors';
 import {
   searchDocuments,
   searchDocumentsByAdvancedOptions,
@@ -32,22 +43,11 @@ import {
   selectSearchWord,
   selectViewType,
 } from 'src/app/store/document-search/document-search.selectors';
-import { selectCategories, selectTags } from 'src/app/store/document-index/document-index.selectors';
 import { showLoading } from 'src/app/store/loading/loading.actions';
-import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { OverlayModule } from '@angular/cdk/overlay';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
-import { DocumentListComponent } from 'src/app/shared/components/lists/document-list/document-list.component';
-import { ExpansionDocumentListComponent } from 'src/app/shared/components/lists/expansion-document-list/expansion-document-list.component';
-import { ScrollingModule } from '@angular/cdk/scrolling';
-import { MatInputModule } from '@angular/material/input';
 
 @Component({
-  standalone: true,
   selector: 'app-search',
+  standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -104,7 +104,6 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.documents$ = this.store.select(selectFilteredDocuments);
-
     this.allCategories$ = this.store.select(selectCategories);
     this.allTags$ = this.store.select(selectTags);
     this.hasAdvancedOptions$ = this.store.select(selectHasAdvancedOptions);

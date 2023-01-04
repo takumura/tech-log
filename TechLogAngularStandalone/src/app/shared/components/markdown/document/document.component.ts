@@ -11,14 +11,14 @@ import {
 import { CommonModule, Location } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Observable, of, Subject, takeUntil } from 'rxjs';
-import postscribe from 'postscribe';
 
+import postscribe from 'postscribe';
+import { TocService } from 'src/app/shared/services/toc.service';
 import { DocumentRef } from 'src/app/store/models/document-ref.model';
-import { TocService } from '../../../services/toc.service';
 
 @Component({
-  standalone: true,
   selector: 'app-document',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './document.component.html',
   styleUrls: ['./document.component.scss'],

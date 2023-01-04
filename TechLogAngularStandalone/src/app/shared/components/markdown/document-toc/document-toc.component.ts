@@ -1,14 +1,14 @@
 import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { initialMarkdownDocumentModel, MarkdownDocument } from 'src/app/store/models/markdown-document.model';
-import { ReplaySubject, Subject, takeUntil } from 'rxjs';
-
-import { TocService, TocItem } from '../../../services/toc.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ReplaySubject, Subject, takeUntil } from 'rxjs';
+
+import { TocService, TocItem } from 'src/app/shared/services/toc.service';
+import { initialMarkdownDocumentModel, MarkdownDocument } from 'src/app/store/models/markdown-document.model';
 
 @Component({
-  standalone: true,
   selector: 'app-document-toc',
+  standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './document-toc.component.html',
   styleUrls: ['./document-toc.component.scss'],

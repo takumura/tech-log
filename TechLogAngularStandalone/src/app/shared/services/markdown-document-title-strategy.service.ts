@@ -4,6 +4,8 @@ import { Store } from '@ngrx/store';
 import { Subject, takeUntil } from 'rxjs';
 
 import { selectDocumentTitle } from 'src/app/store/document-index/document-index.selectors';
+
+//TODO to be deleted
 import { environment } from 'src/environments/environment';
 
 @Injectable({
