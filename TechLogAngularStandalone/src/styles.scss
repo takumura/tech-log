@@ -5,7 +5,7 @@
 
 // Include the common styles for Angular Material.
 // Be sure that you only ever include this mixin once!
-@include mat.core($light-typograhy);
+@include mat.core();
 
 // // list up required components instead of using all-component-themes
 // // Emit theme-dependent styles for common features used across multiple components.
@@ -24,6 +24,7 @@
 @include mat.select-theme($light-theme);
 @include mat.sidenav-theme($light-theme);
 @include mat.toolbar-theme($light-theme);
+@include mat.all-component-typographies($light-typograhy);
 
 html,
 body {

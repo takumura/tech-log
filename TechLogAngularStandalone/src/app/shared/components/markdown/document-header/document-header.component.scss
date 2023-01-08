@@ -1,14 +1,23 @@
 @use "@angular/material" as mat;
 @import "variables";
 
-.header-grid {
-  display: grid;
-  justify-content: space-between;
-  grid-template-columns: auto auto;
-}
+.document-header-container {
+  h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 8px 0;
+    line-height: 1.1em;
+  }
 
-.tag-container {
-  border-bottom: 2px ridge $gray-lighter;
-  padding: 8px 2px;
-  margin-bottom: 32px;
+  .header-grid {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: auto auto;
+  }
+
+  .tag-container {
+    border-bottom: 2px ridge $gray-lighter;
+    padding: 4px 2px;
+    margin-bottom: 24px;
+  }
 }

@@ -1,8 +1,9 @@
 @use "@angular/material" as mat;
 @import "variables";
 
-::ng-deep .mat-form-field-suffix {
-  top: 0px !important;
+::ng-deep .mat-mdc-form-field-icon-suffix {
+  min-width: 100px;
+  text-align: right;
 }
 
 .search-advanced-overlay {
@@ -24,7 +25,6 @@
 
   .autocomplete-input {
     width: 80%;
-    line-height: 1.4em;
   }
 
   .autocomplete-label {
@@ -50,10 +50,10 @@
     display: grid;
     place-items: center;
     grid-template-columns: 100%;
+    margin-top: 12px;
 
     .search-input-form {
       width: 80%;
-      line-height: 1em;
 
       .has-advanced-options {
         color: $accent-darker;
@@ -74,6 +74,7 @@
       grid-template-columns: 30px 30px;
       column-gap: 10px;
       justify-content: start;
+      align-self: flex-start;
       color: $gray-darker;
 
       .mat-icon {
@@ -90,9 +91,19 @@
       }
     }
 
+    .doc-count-container {
+      display: grid;
+      align-self: flex-start;
+      justify-self: center;
+    }
+
     .search-options-sort-form {
-      width: 250px;
+      width: 180px;
       justify-self: end;
+
+      .mat-mdc-option {
+        font-size: 12px !important;
+      }
     }
   }
 

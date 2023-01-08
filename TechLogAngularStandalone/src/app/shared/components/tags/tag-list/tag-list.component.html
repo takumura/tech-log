@@ -1,5 +1,5 @@
-<mat-chip-list *ngIf="tags">
+<mat-chip-listbox *ngIf="tags">
   <ng-container *ngFor="let tag of tags">
     <app-tag [value]="tag"></app-tag>
   </ng-container>
-</mat-chip-list>
+</mat-chip-listbox>

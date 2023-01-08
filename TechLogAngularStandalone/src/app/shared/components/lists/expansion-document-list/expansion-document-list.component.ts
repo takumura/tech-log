@@ -1,11 +1,17 @@
 import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
 import { distinctUntilChanged, Observable, of, Subject, takeUntil } from 'rxjs';
 
+import { DocumentListItemComponent } from 'src/app/shared/components/lists/document-list-item/document-list-item.component';
 import { DocumentRef } from 'src/app/store/models/document-ref.model';
 import { CategorizedSearchResult } from './categorized-search-result.model';
 
 @Component({
   selector: 'app-expansion-document-list',
+  standalone: true,
+  imports: [CommonModule, MatExpansionModule, MatListModule, DocumentListItemComponent],
   templateUrl: './expansion-document-list.component.html',
   styleUrls: ['./expansion-document-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

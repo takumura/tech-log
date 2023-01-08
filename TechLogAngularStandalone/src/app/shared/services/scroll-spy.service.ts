@@ -116,7 +116,9 @@ export class ScrollSpiedElementGroup {
   }
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class ScrollSpyService {
   topMargin: number = 80;
 

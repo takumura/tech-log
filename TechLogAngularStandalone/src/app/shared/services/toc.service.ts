@@ -1,5 +1,5 @@
-import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { ReplaySubject } from 'rxjs';
 
 import { ScrollSpyInfo, ScrollSpyService } from './scroll-spy.service';
@@ -14,7 +14,9 @@ export interface TocItem {
   title: string;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class TocService {
   tocList = new ReplaySubject<TocItem[]>(1);
   activeItemIndex = new ReplaySubject<number | null>(1);

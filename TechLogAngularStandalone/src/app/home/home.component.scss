@@ -1,6 +1,6 @@
 .content {
   display: flex;
-  margin: 82px auto 32px;
+  margin: 42px auto 32px;
   padding: 0 16px;
   height: auto;
   min-height: 960px;
@@ -61,6 +61,14 @@ svg#rocket-smoke {
   top: 10px;
   right: 180px;
   z-index: -10;
+}
+
+svg#clouds {
+  position: fixed;
+  bottom: -160px;
+  left: -230px;
+  z-index: -10;
+  width: 1920px;
 }
 
 /* Responsive Styles */
