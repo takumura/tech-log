@@ -1,19 +1,22 @@
 ---
 title: "Todo リスト"
-date: "2022-12-11"
+date: "2023-01-09"
 category: "none"
 toc: "none"
 ---
 
 ## 記事ストック
 
-> しばらく記事の更新が止まっていたので、内容と作業順を精査する必要がある
+### 2023年
 
-- [x] [angular-cli-ghpages](https://github.com/angular-schule/angular-cli-ghpages)のセットアップ
-  - [x] Angular v13以降の設定の仕方について追記する
-- [x] 開発マシンの構成を標準化
-- [x] Windows 11のセットアップ
-- [ ] .NET 6 + Angular v14でTech Logを書き換えて得た知識をまとめる
+- [ ] Angular v14からv15へのアップデート
+  - [x] standalone component
+  - [x] router adjustmentの確認(tree-shakable?)
+  - [x] new MDC-based Angular Material
+  - [ ] new image directive
+- [ ] dynamic markdown componentの調査
+- [ ] YAMLシリアライザのVYamlへの移行
+- [ ] C# List処理のパフォーマンス改善（spanの積極的利用）
 - [ ] 過去記事の移行
 - [ ] gistの管理について
 - [ ] Visual Studio Code の設定
@@ -23,8 +26,11 @@ toc: "none"
   - [ ] C#
   - [ ] Typescript
   - [ ] Angular
-- [ ] Angular v14からv15へのアップデート
-  - [ ] standalone component
-  - [ ] router adjustmentの確認(tree-shakable?)
-  - [ ] new image directive
-  - [ ] new MDC-based Angular Material
+
+### 2022年
+
+- [x] [angular-cli-ghpages](https://github.com/angular-schule/angular-cli-ghpages)のセットアップ
+  - [x] Angular v13以降の設定の仕方について追記する
+- [x] 開発マシンの構成を標準化
+- [x] Windows 11のセットアップ
+- [x] .NET 6 + Angular v14でTech Logを書き換えて得た知識をまとめる
