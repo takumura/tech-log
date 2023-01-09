@@ -232,3 +232,9 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+# debug index.json file
+**/src/assets/index.json
+
+# segment json file
+Docs/json
