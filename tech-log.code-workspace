@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "path": "./Docs"
+    },
+    {
+      "path": "./TechLogAngularStandalone"
+    },
+    {
+      "path": "../AspNetCoreWebApi"
+    }
+  ],
+  "extensions": { "recommendations": ["angular.ng-template", "fabiospampinato.vscode-terminals"] }
+}
