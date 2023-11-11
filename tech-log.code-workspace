@@ -7,7 +7,7 @@
       "path": "./TechLogAngularStandalone"
     },
     {
-      "path": "../AspNetCoreWebApi"
+      "path": "./AspNetCoreWebApi"
     }
   ],
   "extensions": { "recommendations": ["angular.ng-template", "fabiospampinato.vscode-terminals"] }
