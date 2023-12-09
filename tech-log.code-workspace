@@ -10,5 +10,13 @@
       "path": "./AspNetCoreWebApi"
     }
   ],
-  "extensions": { "recommendations": ["angular.ng-template", "fabiospampinato.vscode-terminals"] }
+  "extensions": {
+    "recommendations": [
+      "angular.ng-template",
+      "fabiospampinato.vscode-terminals"
+    ]
+  },
+  "settings": {
+    "terminal.integrated.enablePersistentSessions": false
+  }
 }

@@ -1,0 +1,20 @@
+{
+  "autorun": true,
+  "terminals": [
+    {
+      "name": "BFF",
+      "description": "AspNetCoreWebApi",
+      "focus": true,
+      "cwd": "../AspNetCoreWebApi",
+      "command": "dotnet run",
+      "execute": false
+    },
+    {
+      "name": "client",
+      "description": "AngularStandaloneClient",
+      "cwd": "./",
+      "command": "yarn start",
+      "execute": false
+    }
+  ]
+}
