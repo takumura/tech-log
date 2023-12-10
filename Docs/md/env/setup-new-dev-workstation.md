@@ -1,6 +1,6 @@
 ---
 title: "新開発マシンへの移行手順を標準化する"
-date: "2022-12-11"
+date: "2023-12-10"
 category: "環境設定"
 tag:
   - windows 11
@@ -9,6 +9,8 @@ tag:
 ---
 
 STORMのBTOパソコンを購入しました。メインマシンとしてセットアップした際の手順をまとめます。
+
+> 2023/12にブルースクリーン発生->OS起動できなくなり、Windows11を初期セットアップしました。本記事を見ながら作業を実施し、手順の入れ替えや改善点を更新しました
 
 ## 新PCのスペック確認
 
@@ -45,52 +47,27 @@ STORMのBTOパソコンを注文しました。
 - [x] ライセンス認証をアクティブ化
   - 廃棄予定のデバイスに使用していた「Microsoftアカウントにリンクされたデジタルライセンス」を移行して解決
 
-### デバイスドライバの更新
-
-- [x] [MSI Center](https://www.msi.com/Landing/MSI-Center)を利用してドライバの更新
-- [x] Radeon graphic driver Adrenalin 22.5.1
-
 ### ネットワークドライブの割り当て
 
-スクリプトは使わずに手動で実施。改善案はあるのか？
+最初は特別なツールを入れずとも内容が確認できるように、txt形式でファイルを作成
+- IPアドレス
+- DNS
+- ネットワークドライブのパスとログインユーザ情報
+
+
+### デバイスドライバの更新
+
+- まずはEdgeのお気に入りをインポート
+- MSIのページ(Edgeのお気に入りにリンクがある)から、マザーボードの各種ドライバを更新する
+  - 2023/12に発生したブルースクリーンの原因はネットワークカードのドライバだった。不定期にネットワークが切れる現象が起きていたので、事前に更新していれば。。。
+- [x] ~~[MSI Center](https://www.msi.com/Landing/MSI-Center)を利用してドライバの更新~~
+  - 不安定さを感じたので導入しないことにしました
+- [x] Radeon graphic driver Adrenalin edition
+  - Windows11が自動で導入するドライバでも問題なかったので、後回しでもok
 
 ### scoopによるappインストール
 
-[scoopを用いた環境セットアップスクリプト](doc/env/use-scoop#scoopを用いた環境セットアップスクリプト)<!--rehype:class=internal-link-->でインストールやセットアップをまとめたPowerShellスクリプトを作成していたのですが、すっかり忘れて手動でコマンドを実行していました。。
-
-scoopをWindows Terminalからインストール
-
-``` powershell
-## plese run following command if error occured for running powershell script.
-## set-executionpolicy unrestricted -s cu
-
-# install scoop to "c:\Apps\scoop" folder
-$env:SCOOP='C:\Apps\scoop'
-[environment]::setEnvironmentVariable('SCOOP',$env:SCOOP,'User')
-Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
-
-# install git to add bucket
-scoop install git
-
-# add extras bucket
-# Error happenes when adding extras bucket, need to remove and re-add main bucket first.
-# Please see https://github.com/ScoopInstaller/Scoop/issues/4917
-scoop bucket rm main
-scoop bucket add main
-scoop bucket add extras
-
-# utils
-scoop install 7zip keepass appbuster avidemux crystaldiskinfo crystaldiskmark geekuninstaller
-
-# dev tools
-scoop install nvm fork curl winmerge fiddler
-```
-
-[Apps](https://scoop.sh/#/apps)のページを使うと、どの`app`がどの`bucket`に含まれているか検索ができて便利。
-
-TODO: 今回の作業をもとに、環境設定用のPowerShell scriptをアップデートする。
-
-> しました -> [Scoop scripts](https://gist.github.com/takumura/f897ab722e0d55523243dcfe7a51d4c1)
+[scoopを用いた環境セットアップスクリプト](doc/env/use-scoop#scoopを用いた環境セットアップスクリプト)<!--rehype:class=internal-link-->にインストールやセットアップをまとめたPowerShellスクリプトを作成しているので参照する。
 
 ### scoopでインストールできないapp(インストーラー利用)
 
@@ -99,16 +76,17 @@ TODO: 今回の作業をもとに、環境設定用のPowerShell scriptをアッ
 - [x] Brave
   - Brave Syncでお気に入りを同期
 - [x] Visual Studio Code
-- [x] OneDrive
+- [x] ~~OneDrive~~
+  - Windows11に含まれるようになったので個別インストール不要
 - [x] spacedesk
 - [x] LibreOffice
 - [x] NUX Audio Driver
-- [x] ProSAFE Plus Utility(L3スイッチ設定ツール)
-- [x] K-Lite Codec Pack
-  - すぐには不要だったのでスキップ。必要になったら実施する。
-  - 2022-07-23 やっぱり必要になったので導入
-- [ ] Mouse without Borders
-  - すぐには不要だったのでスキップ。必要になったら実施する。
+- [x] ~~ProSAFE Plus Utility(L3スイッチ設定ツール)~~
+  - [サポート終了](https://www.jp.netgear.com/support/product/prosafe%20plus%20utility)になっていました。現行機種は、ツールを導入せずともWebから設定更新になっている模様
+- [x] ~~Mouse without Borders~~
+  - PowerToysに含まれるので個別インストール不要
+- [ ] ~~K-Lite Codec Pack~~
+  - コーデック周りはWindows11の標準でも問題なさそうな雰囲気なので、導入せず様子を見る。必要になったら実施する
 
 ### scoopでインストールできないapp(ポータブルapp)
 
@@ -119,15 +97,19 @@ TODO: 今回の作業をもとに、環境設定用のPowerShell scriptをアッ
 - [x] SynkronPortable
   - 同期設定もそのまま移行できていました
 - [x] WDIDLE3 for Windows
+- [x] 各種メディアプレーヤー
 
 ### windows store appのインストール
 
 - [x] HEVCビデオ拡張機能
   - heicファイルをMSPaintで開くとインストールに誘導される。それをインストールしたら動画も画像も表示できるようになっていました。
+- Amazon Prime
+- Disney Plus
+- PowerToys
 - [ ] iTunes
   - すぐには不要だったのでスキップ。必要になったら実施する。
-- [ ] （必要なら）デバイス製造元からのHEVCビデオ拡張機能
-- [ ] （必要なら）HEIF 画像拡張機能
+- [ ] ~~（必要なら）デバイス製造元からのHEVCビデオ拡張機能~~
+- [ ] ~~（必要なら）HEIF 画像拡張機能~~
   - 不要になったのでスキップ
 
 ### 　Hyper-Vの設定
