@@ -1,31 +1,40 @@
 ---
 title: "Todo リスト"
-date: "2023-01-09"
+date: "2024-01-04"
 category: "none"
 toc: "none"
 ---
 
-## 記事ストック
+## 2024年にやりたい事
 
-### 2023年
-
-- [ ] Angular v14からv15へのアップデート
-  - [x] standalone component
-  - [x] router adjustmentの確認(tree-shakable?)
-  - [x] new MDC-based Angular Material
+- [ ] Website engineのAngular v17へのアップデート
+  - [ ] container/presentational componentの分離
+  - [ ] NGRXの要否再検討とsignalの調査
+  - [ ] YAMLシリアライザのVYamlへの移行
   - [ ] new image directive
-- [ ] dynamic markdown componentの調査
-- [ ] YAMLシリアライザのVYamlへの移行
-- [ ] C# List処理のパフォーマンス改善（spanの積極的利用）
+  - [ ] dynamic markdown componentの調査
+- [ ] Website engineの.NET 8へのアップデート
+  - [ ] 新しいSPAテンプレートの確認
+  - [ ] C# List処理のパフォーマンス改善
+  - [ ] libraryの管理方法を調査(github packages?)
 - [ ] 過去記事の移行
-- [ ] gistの管理について
+- [ ] 記事のカテゴリ方法を再検討(Dir Pathからカテゴリ生成？)
 - [ ] Visual Studio Code の設定
 - [ ] Visual Studio の設定
-- [ ] VSCode の git アクセス設定
+- [ ] gistの管理についてまとめる(gistpad)
 - [ ] コード規約について調べる
   - [ ] C#
   - [ ] Typescript
   - [ ] Angular
+
+## これまでに実施した事
+
+### 2023年
+
+- [x] Angular v14からv15へのアップデート
+  - [x] standalone component
+  - [x] router adjustmentの確認(tree-shakable?)
+  - [x] new MDC-based Angular Material
 
 ### 2022年
 
