@@ -12,9 +12,11 @@ toc: "none"
   - [ ] NGRXの要否再検討とsignalの調査
   - [ ] YAMLシリアライザのVYamlへの移行
   - [ ] new image directive
+  - [ ] storybookの追加
   - [ ] dynamic markdown componentの調査
 - [ ] Website engineの.NET 8へのアップデート
   - [ ] 新しいSPAテンプレートの確認
+  - [ ] Minimal APIへの変更
   - [ ] C# List処理のパフォーマンス改善
   - [ ] libraryの管理方法を調査(github packages?)
 - [ ] 過去記事の移行
