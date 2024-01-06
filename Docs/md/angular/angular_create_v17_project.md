@@ -12,10 +12,10 @@ tag:
 以下の順番で確認していく予定です。
 
 - angular v17のapp作成と動作確認 **<- 今回はココ**
-- angular v17のlibraryを作成し、ブログページ用のcomponentをappから利用できるようにする
-- 状態管理をngrxからsignalに変更する
 - .NET 8の新しいSPAテンプレートでangular v17を利用する
+- 状態管理をngrxからsignalに変更する
 - angularのprerenderingを試す
+- ~~angular v17のlibraryを作成し、ブログページ用のcomponentをappから利用できるようにする~~
 
 ## 環境準備
 
