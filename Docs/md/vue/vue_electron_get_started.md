@@ -125,7 +125,7 @@ NuxtJSに必要なconfigファイルは`.babelrc`、`nuxt.config.js`、`tsconfig
 
 次にElectronのメイン処理を行う`index.ts`を`src/main`以下に作成しました。
 
-後でわかったことなのですが、`process.env.NODE_ENV === 'development'`の場合、electron実行時に`nuxt.ready()`で非同期処理の完了を待たないと、vuexのstoreが使用できない（webpack処理が完了していないのかstoreのjsが一切見当たらない状態でした）問題がありました。また`process.env.NODE_ENV === 'development'`の場合、`nuxt.ready()`で非同期処理の完了を待ってしまうといつまでもwindowが表示されませんでした。
+後でわかったことなのですが、`process.env.NODE_ENV_ === 'development'`の場合、electron実行時に`nuxt.ready()`で非同期処理の完了を待たないと、vuexのstoreが使用できない（webpack処理が完了していないのかstoreのjsが一切見当たらない状態でした）問題がありました。また`process_env.NODE_ENV_ === 'production'`の場合、`nuxt.ready()`で非同期処理の完了を待ってしまうといつまでもwindowが表示されませんでした。
 
 試行錯誤した結果、以下のような実装になりました
 
@@ -267,8 +267,8 @@ electronのwindow起動時に`preload.ts`を指定しているので、`index.ts
 ``` diff
 import colors from 'vuetify/es5/util/colors'
 
-+ const isProduction = process.env.NODE_ENV === 'production'
-+ const isDev = process.env.NODE_ENV === 'development'
++ const isProduction = processenv.NODE_ENV_ === 'production'
++ const isDev = process.env.NODE_ENV_ === 'development'
 +
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
