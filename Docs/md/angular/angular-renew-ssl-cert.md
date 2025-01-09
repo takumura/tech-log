@@ -1,6 +1,6 @@
 ---
 title: 'Angularでng servのssl certを更新する'
-date: '2023-10-09'
+date: '2025-01-09'
 category: 'Angular'
 tag:
 - angular
@@ -25,6 +25,8 @@ package.jsonからsslオプションの記述を確認。ASP.NET CoreのAngular 
 該当pathには`%npm_package_name%`、すなわちpackage.jsonに記載した`name`fieldを利用して、`{name}.pem`と`{name}.key`とのファイルが二つ作成されていました。これらを削除して、`yarn start`を実行すると、ssl証明書が再作成されました。
 
 有効期限は1年に設定されているので、来年になったらまた同じ手順でssl証明書の再作成が必要です。
+
+また、再作成したlocalhost ssl証明書を使用しても警告が消えない場合があります。その時は`CertMgr.msc`から`信頼されたルート証明機関`に再作成したlocalhost ssl証明書が存在しているか確認します。もし存在しない、または古いlocalhost ssl証明書しかない場合は、再作成した証明書を手動で登録する事でエラーが解消します。
 
 ## ssl証明書の再作成処理について
 
