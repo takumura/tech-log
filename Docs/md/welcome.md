@@ -25,7 +25,7 @@ Angularと.NET Coreに興味があります。あまり気負わず、暇な時�
 
 ### Currently using
 
-C# / .NET Core / ASP.NET WebForms / ASP.NET MVC / ASP.NET Core / Javascript / JQuery / Typescript / Angular / Windows Server / IIS / Microsoft SQL Server / 英語(TOEIC 845点)
+C# / .NET Core / ASP.NET WebForms / ASP.NET MVC / ASP.NET Core / Javascript / JQuery / Typescript / Angular / Windows Server / IIS / Microsoft SQL Server / 英語(TOEIC 925点@2024-09)
 
 ### Experienced before
 
