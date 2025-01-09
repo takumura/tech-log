@@ -19,10 +19,11 @@ STORMのBTOパソコンを注文しました。
 | --- | --- |
 |商品名| [ST-12C](https://www.stormst.com/products/detail/1643) |
 |CPU | Core i7-12700 |
-|MEM | Crucial CT8G4DFS632A.M4FB 8GB x2 |
+|MEM | Crucial CT8G4DFS632A.M4FB 8GB x2 (後日 Crucial CP2K16G4DFRA32A 16GBX2を追加)  |
 |m.2 ssd | Crucial P5 Plus 500GB PCIe M.2 2280SS SSD |
 |MB | MSI B660M-P DDR4 |
 |BOX | Fractal Design Define 7 Compact |
+|PSU | CWT GPX850S 850W 80PLUS GOLD (プラグイン式なので多分Gen5) |
 |Graphic | Radeon RX460 2GB(旧マシンからの流用) |
 
 ## データ移行が必要なもの
