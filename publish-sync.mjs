@@ -9,7 +9,7 @@ const VAULT = "D:/github-repos/Obsidian-Notebook/Notebook";
 const CONTENT = path.resolve("content"); // run from the tech-log repo root
 const DRY = process.argv.includes("--dry-run");
 const DO_SYNC = !process.argv.includes("--no-sync");
-const EXCLUDE_TOP = new Set(["00_Trash", "01_Rules", ".obsidian"]);
+const EXCLUDE_TOP = new Set(["00_Trash", "10_Objective", "10_Objective", "11_Journal", "22_WebClips", ".obsidian"]);
 const IMG_EXT = new Set(["png", "jpg", "jpeg", "gif", "webp", "svg", "bmp", "avif", "mp4", "pdf", "webm"]);
 
 function hasPublishFlag(text) {
@@ -82,14 +82,19 @@ for (const w of warnings) console.log(`WARN ${w}`);
 
 if (DRY) process.exit(0);
 
-// content/ must contain ONLY what this run produced: drop anything else (managed types only), then copy fresh
+// content/ must contain ONLY what this run produced: drop anything else (managed types only),
+// EXCEPT files placed directly at the content root (Quartz-managed, e.g. index.md / home page).
 const managed = new Set([".md", ...IMG_EXT].map((x) => "." + x.replace(/^\./, "")));
 const planSet = new Set(plan.map((p) => path.resolve(p.dest)));
 function walkFiles(dir) {
+  const isRoot = path.resolve(dir) === path.resolve(CONTENT);
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const f = path.join(dir, e.name);
-    if (e.isDirectory()) walkFiles(f);
-    else if (managed.has(path.extname(e.name).toLowerCase()) && !planSet.has(path.resolve(f))) fs.rmSync(f);
+    if (e.isDirectory()) {
+      walkFiles(f);
+    } else if (!isRoot && managed.has(path.extname(e.name).toLowerCase()) && !planSet.has(path.resolve(f))) {
+      fs.rmSync(f);
+    }
   }
 }
 walkFiles(CONTENT);
