@@ -11,7 +11,7 @@ publish: "true"
 ---
 # 📌 定義
 > [!NOTE] Definition
-> Obsidian vaultのnoteのうち、frontmatterに `publish: true` を持つファイルだけをQuartzの `content/` へcopyし、そのファイル集合がそのままビルド対象、つまり**repo上の内容を選んでcopyする**方式。公開すると決めたものだけがprivate repoに載り、それ以外のprivateな内容はrepoに載らない。
+> Obsidian vaultのnoteのうち、frontmatterに `publish: true` を持つファイルだけをQuartzの `content/` へcopyし、そのファイル集合がそのままビルド対象、つまり**repo上の内容を選んでcopyする**方式。公開すると決めたものだけがpublic repoに載り、それ以外のprivateな内容はrepoに載らない。
 
 ## 🧩 詳細
 
