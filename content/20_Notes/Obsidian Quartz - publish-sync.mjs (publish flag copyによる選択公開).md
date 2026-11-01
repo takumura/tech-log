@@ -65,5 +65,5 @@ Live repo（`D:\github-repos\tech-log`）では、repo上のファイルがテ�
 
 ## 🔗 関連リンク
 
-- [[🏃tech-logサイトのObsidian-Quartz移行（選択公開運用の設計）]]
-- [[publish-sync.mjs 利用リファレンス]]
+- [[🏃Obsidian-Quartzへのtech-logサイト移行（選択公開運用の設計）]]
+- [[Obsidian Quartz - publish-sync.mjs 利用リファレンス]]

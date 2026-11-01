@@ -11,7 +11,7 @@ publish: "true"
 ---
 # 🏃 活動概要
 > [!ABSTRACT] Overview
-> 自作Angular site（`takumura/tech-log`）をQuartzに置き換える。選択したNoteのみを公開する方式を採用し、そのためのツール `publish-sync.mjs` をLocalLLMで作成・テストして動作確認を行った。処理の詳細は [[publish-sync.mjs (publish flag copyによる選択公開)]]に、利用手順・テスト記録は [[publish-sync.mjs 利用リファレンス]] に分離。事実と決定だけを書く。
+> 自作Angular site（`takumura/tech-log`）をQuartzに置き換える。選択したNoteのみを公開する方式を採用し、そのためのツール `publish-sync.mjs` をLocalLLMで作成・テストして動作確認を行った。処理の詳細は [[Obsidian Quartz - publish-sync.mjs (publish flag copyによる選択公開)]]に、利用手順・テスト記録は [[Obsidian Quartz - publish-sync.mjs 利用リファレンス]] に分離。事実と決定だけを書く。
 
 ## 🧩 詳細
 
@@ -39,7 +39,7 @@ publish: "true"
 
 ## 💡 振り返り / 次回へのアクション
 
-- 判定基準（日付の信頼源、link解決の線引き、transclusionの扱い）はterm noteへ正本として一元化した > [[publish-sync.mjs (publish flag copyによる選択公開)]]
+- 判定基準（日付の信頼源、link解決の線引き、transclusionの扱い）はterm noteへ正本として一元化した > [[Obsidian Quartz - publish-sync.mjs (publish flag copyによる選択公開)]]
 - 次回へのアクション:
 	- quartzで作成されたページのレイアウトチェックとスタイル修正
 	- deploy.ymlのtriggerをmainへ修正し、first buildを走らせてからPages sourceをGitHub Actionsへ変更。順序が重要で先に切り替えると初回ビルド待ちで404になる。
@@ -49,8 +49,8 @@ publish: "true"
 
 ## 🔗 関連リンク
 
-- [[publish-sync.mjs (publish flag copyによる選択公開)]]
-- [[publish-sync.mjs 利用リファレンス]]
+- [[Obsidian Quartz - publish-sync.mjs (publish flag copyによる選択公開)]]
+- [[Obsidian Quartz - publish-sync.mjs 利用リファレンス]]
 
 ## 🔗 参考資料
 

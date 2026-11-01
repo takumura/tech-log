@@ -11,7 +11,7 @@ publish: "true"
 ---
 # 🔍 概要
 > [!ABSTRACT] Overview
->publish-sync.mjsの使い方に関する説明。処理詳細は[[publish-sync.mjs (publish flag copyによる選択公開)]]を参照。
+>publish-sync.mjsの使い方に関する説明。処理詳細は[[Obsidian Quartz - publish-sync.mjs (publish flag copyによる選択公開)]]を参照。
 
 ## 🧩 実行方法
 
@@ -34,4 +34,4 @@ WARN link to unflagged note: [[Secret]] <- 20_Notes\pub.md
 
 ## 🔗 関連リンク
 
-- [[publish-sync.mjs (publish flag copyによる選択公開)]]
+- [[Obsidian Quartz - publish-sync.mjs (publish flag copyによる選択公開)]]
