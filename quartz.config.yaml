@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Quartz 5
+  pageTitle: Free time Tech Log
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
@@ -110,6 +110,14 @@ plugins:
     order: 92
   - source: "@quartz-community/quartz-fonts"
     enabled: true
+    options:
+      fontOrigin: googleFonts
+      header:
+        name: Zen Kaku Gothic New
+        weights: [400, 700]
+      body: Noto Sans JP
+      interface: Noto Sans JP
+      code: JetBrains Mono
   - source: "@quartz-themes/core"
     enabled: true
     options:
@@ -254,7 +262,8 @@ plugins:
     options:
       includeAll: false
       includedProperties:
-        - description
+        - type
+        - category
         - tags
         - aliases
       excludedProperties: []

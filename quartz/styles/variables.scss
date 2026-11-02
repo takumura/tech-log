@@ -9,7 +9,7 @@
  */
 $breakpoints: (
   mobile: 800px,
-  desktop: 1200px,
+  desktop: 1400px, // modify original "desktop: 1200px" to adjust with extended center pane
 );
 
 $mobile: "(max-width: #{map.get($breakpoints, mobile)})";
