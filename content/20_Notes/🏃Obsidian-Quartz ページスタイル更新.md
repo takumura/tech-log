@@ -82,55 +82,57 @@ $breakpoints: (
 // Color adjustments for light/dark modes
 // ============================================================================
 :root {
+  --border-header-color: var(--lightgray);
+}
+
+.theme-light {
+
+// 案1 春日大社 — 白白木・朱鳥居・黄金・若苔
+  // --h1-color: #5f5788;
+  // --h2-color: #a4453a;
+  // --h3-color: #8a6d25;
+  // --h4-color: #47694c;
+
+  // --base-bg-color: #eaeee3;
+  // --center-bg-color: #f1f2ec;
+  // --code-bg-color: #e2e2d6;
+
+// 案2 夢白銀 — 浅香・琥珀・紫・志摩川（正倉院宝物）
+  --h1-color: #a1423f;
+  --h2-color: #85651f;
+  --h3-color: #67568c;
+  --h4-color: #3f6b62;
+
+  --base-bg-color: #ece9e2;
+  --center-bg-color: #f4f1ea;
+  --code-bg-color: #e6e2d8;
+}
+
+.theme-dark {
   --h1-color: #8a5ceb;
   --h2-color: #d19a66;
   --h3-color: #cec167;
   --h4-color: #98c379;
-  --border-header-color: var(--lightgray);
 
-
-  --base-light-bg-color: #f6f6f6;
-  --center-light-bg-color: #f8f8f8;
-  --code-light-bg-color: #e1e1e1;
-
-  --base-dark-bg-color: #1c1c1c;
-  --center-dark-bg-color: #282828;
-  --code-dark-bg-color: #030303;
+  --base-bg-color: #1c1c1c;
+  --center-bg-color: #282828;
+  --code-bg-color: #030303;
 }
 
-.theme-dark {
-  #quartz-root,
-  .page > div#quartz-body div.sidebar,
-  ul.explorer-ul {
-    background-color: var(--base-dark-bg-color);
-  }
-
-  #quartz-body,
-  .page > div#quartz-body div.center,
-  footer {
-    background-color: var(--center-dark-bg-color) !important;
-  }
-
-  & code {
-    background-color: var(--code-dark-bg-color) !important;
-  }
+#quartz-root,
+.page > div#quartz-body div.sidebar,
+ul.explorer-ul {
+  background-color: var(--base-bg-color);
 }
 
-.theme-light {
-  #quartz-root,
-  .page > div#quartz-body div.sidebar {
-    background-color: var(--base-light-bg-color);
-  }
+#quartz-body,
+.page > div#quartz-body div.center,
+footer {
+  background-color: var(--center-bg-color) !important;
+}
 
-  #quartz-body,
-  .page > div#quartz-body div.center,
-  footer {
-    background-color: var(--center-light-bg-color) !important;
-  }
-
-  & code {
-    background-color: var(--code-light-bg-color) !important;
-  }
+& code {
+  background-color: var(--code-bg-color) !important;
 }
 
 
@@ -205,6 +207,22 @@ div.center a {
   background-color: initial;
 }
 
+
+// ============================================================================
+// Bold style adjustments only for light/dark modes
+// ============================================================================
+
+.theme-dark strong {
+  // color: #e06c75; // coral red
+  // color: #4fc3d9; // cyan
+  // color: #ffd166; // amber
+  // color: #ff79c6; // magenta
+  color: #3ddc97; // mint green
+}
+
+.theme-light strong {
+  color: #147a55; // darkened mint — 5.01:1
+}
 
 
 // ============================================================================
@@ -376,11 +394,16 @@ div.backlinks {
     }
   }
 }
+
 ```
 
 ## 💡 振り返り / 次回へのアクション
 
-久しぶりのスタイル調整で、必要なパーツのスタイルをピンポイントで調整することが出来なかったりして作業に4時間位を要した。最終的には納得できるものになった。基本のダークテーマはObsidianのMinimal - atom調でこのままで良いが、ライトテーマは奈良をイメージしたテーマを用意したい。
+久しぶりのスタイル調整で、必要なパーツのスタイルをピンポイントで調整することが出来なかったりして作業に4時間位を要した。最終的には納得できるものになった。
+
+基本のダークテーマはObsidianのMinimal - atom調だったので、ほぼそのまま採用。calloutのデザイン調整に一番時間が掛かった。Obsidian Editorでは実現できなかった段落`p`の字下げができたので、Webの方が見やすいまである。
+
+ライトテーマはQwen3.8FNにお願いして奈良をイメージしたテーマを用意してもらった。結果かなり気に入った。
 
 ## 🔗 関連リンク
 
