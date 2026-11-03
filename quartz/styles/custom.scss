@@ -236,6 +236,24 @@ div.page-header {
 
 
 // ============================================================================
+// Pre / Code style adjustments
+// ============================================================================
+div.center figure {
+  & > figcaption {
+    padding: 0 16px 4px 16px;
+    margin-left: 16px;
+    background-color: var(--code-bg-color);
+    border-bottom: 1px solid var(--h2-color);
+  }
+
+  pre {
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+}
+
+
+// ============================================================================
 // Plugin style adjustments
 // ============================================================================
 // Explorer plugin
