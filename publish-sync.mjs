@@ -83,16 +83,19 @@ for (const w of warnings) console.log(`WARN ${w}`);
 if (DRY) process.exit(0);
 
 // content/ must contain ONLY what this run produced: drop anything else (managed types only),
-// EXCEPT files placed directly at the content root (Quartz-managed, e.g. index.md / home page).
+// EXCEPT files placed directly at the content root (Quartz-managed, e.g. index.md / home page)
+// and pinned files below — manually placed assets referenced from hand-authored pages
+// (e.g. <img src="..."> in content/index.md) that have no `![[...]]` to discover.
 const managed = new Set([".md", ...IMG_EXT].map((x) => "." + x.replace(/^\./, "")));
 const planSet = new Set(plan.map((p) => path.resolve(p.dest)));
+const PIN = new Set([path.resolve(CONTENT, "02_Assets/Images/profile_20140615.jpg")]);
 function walkFiles(dir) {
   const isRoot = path.resolve(dir) === path.resolve(CONTENT);
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const f = path.join(dir, e.name);
     if (e.isDirectory()) {
       walkFiles(f);
-    } else if (!isRoot && managed.has(path.extname(e.name).toLowerCase()) && !planSet.has(path.resolve(f))) {
+    } else if (!isRoot && managed.has(path.extname(e.name).toLowerCase()) && !planSet.has(path.resolve(f)) && !PIN.has(path.resolve(f))) {
       fs.rmSync(f);
     }
   }
