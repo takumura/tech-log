@@ -10,7 +10,7 @@ publish: "true"
 ---
 # 🔍 概要
 > [!ABSTRACT] Overview
-> Obsidianで利用可能なcallout構文のリファレンスです
+> Obsidianで利用可能なcallout構文のリファレンスです。
 
 ## 🧩 詳細
 

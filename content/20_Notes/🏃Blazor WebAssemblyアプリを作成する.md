@@ -10,11 +10,11 @@ publish: "true"
 ---
 # 🏃 活動概要
 > [!ABSTRACT] Overview
-> NET5でproduction readyになる予定のBlazor WebAssemblyの情報収集と、空のアプリ作成を作成してみる。
+> NET5でproduction readyになる予定のBlazor WebAssemblyの情報収集と、空のアプリを作成してみます。
 
 ## 🧩 詳細
 
-MS Docsにある[チュートリアル - 最初の Blazor アプリをビルドする](https://docs.microsoft.com/ja-jp/aspnet/core/tutorials/build-your-first-blazor-app?view=aspnetcore-3.1)を試してみる事にします。
+MS Docsにある[チュートリアル - 最初の Blazor アプリをビルドする](https://docs.microsoft.com/ja-jp/aspnet/core/tutorials/build-your-first-blazor-app?view=aspnetcore-3.1)を試します。
 
 注意書きには".NET Core 3.1ではプレビュー段階である"と書いてあるので、NET5になったら手順等改めて振り返る必要がありそうです。
 
@@ -29,9 +29,7 @@ MS Docsにある[チュートリアル - 最初の Blazor アプリをビルド�
 Blazor WebAssembly エクスペリエンス (Visual Studio 16.6 Preview 2 以降) については、 [Blazor WebAssembly アプリ] テンプレートを選択します。
 ````
 
-と記載されているので、Visual Studioで開発を行う場合は16.6以降が必要なようです。
-
-今日(2020-05-05)時点の最新は16.5.4だったので、Visual Studio 2019 Previewをインストールして開発に使用します。
+と記載されているので、Visual Studioで開発を行う場合は16.6以降が必要なようです。今日(2020-05-05)時点の最新は16.5.4でしたので、Visual Studio 2019 Previewをインストールして開発に使用します。
 
 また、以下のコマンドを実行して、テンプレートをインストールします。実行前にプロジェクトを作成してもBlazorサーバテンプレートしか表示されず、Blazor WebAssemblyプロジェクトを開始できませんでした。
 

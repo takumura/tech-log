@@ -12,10 +12,10 @@ publish: "true"
 # 🔍 概要
 > [!ABSTRACT] Overview
 > Angularでは、データバインドを利用したテキストの埋め込み時にセキュリティ上の考慮がなされています。具体的には、scriptやhtmlは自動的にエスケープ処理され、原則的にはhtmlタグを埋め込めないようになっています。
-> 
+> \
 > Angularで、markdownから生成したhtmlをタグとして画面に挿入する方法を調査しました。
 
-## 🧩 SafeHtml型のhtmlデータを[innerHTML]にバインドする
+## 🧩 SafeHtml型のhtmlデータを\[innerHTML]にバインドする
 > [!warning]
 > 開発者は、**有害なhtmlデータ**がこれらの処理を通してユーザに送信されないよう、十分に考慮する必要があります。
 

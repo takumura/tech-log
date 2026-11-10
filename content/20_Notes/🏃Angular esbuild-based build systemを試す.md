@@ -11,7 +11,7 @@ publish: "true"
 ---
 # 🏃 活動概要
 > [!ABSTRACT] Overview
-> Angular v16からesbuild-based build systemがDeveloper previewになったので、our of Heroesをイチから作成して学ぶ。
+> Angular v16からesbuild-based build systemがDeveloper previewになったので、our of Heroesをイチから作成して学びます。
 
 ## 🧩 情報収集
 
@@ -29,7 +29,9 @@ Developer previewに関する公式のアナウンスメントは[Angular v16 is
 
 ## 🧩 Project作成
 
-まず初めにangular-cliのupdateを行って、Angular v16のprojectを作成できるようにします。この作業を忘れてAngular v15のprojectを作って確認してしまい、無駄な時間を使ってしまいました。。。v15では実行時警告が"experimental"だったのが、v16では"developer preview"に進化していました。
+まず初めにangular-cliのupdateを行って、Angular v16のprojectを作成できるようにします。この作業を忘れてAngular v15のprojectを作って確認してしまい、無駄な時間を使ってしまいました。
+
+v15では実行時警告が"experimental"だったのが、v16では"developer preview"に進化していました。
 
 ```sh frame="none"
 > npm update @angular/cli -g
@@ -133,7 +135,7 @@ warning: in the working copy of 'tsconfig.spec.json', LF will be replaced by CRL
     Successfully initialized git.
 ```
 
-builderを`@angular-devkit/build-angular:browser-esbuild`に変更後、初回ビルドの実行時間は11sでした(元々の設定では26s)。
+builderを`@angular-devkit/build-angular:browser-esbuild`に変更後、初回ビルドの実行時間は11sでした（元々の設定では26s）。
 
 ```sh frame="none"
 > yarn build
@@ -221,11 +223,12 @@ Watch mode enabled. Watching for file changes...
 ```
 
 ## 💡 振り返り / 次回へのアクション
-- VSCodeのバージョンが古いとAngular Language Service Extensionの最新版がダウンロードできない。
-	- 実行しているAngular(v16)とExtensionのAngular(v15)でバージョンが合わない。
-  - `[(ngModel)]`を利用しようとすると、Angular Language Serviceが`Can’t bind to ‘ngModel’ since it isn’t a known property of ‘input’.`エラーを表示する。
-	  - よくある`FormsModule`のimport忘れのエラーかと思ったのですが、この対応では解決せずしばらく悩みました。VS Codeの更新->Angular Language Serviceの更新(v16版)でエラーが表示されないようになりました。
+
+- VSCodeのバージョンが古いとAngular Language Service Extensionの最新版がダウンロードできません。
+- 実行しているAngular(v16)とExtensionのAngular(v15)でバージョンが合いません。
+- `[(ngModel)]`を利用しようとすると、Angular Language Serviceが`Can’t bind to ‘ngModel’ since it isn’t a known property of ‘input’.`エラーを表示します。
+	- よくある`FormsModule`のimport忘れのエラーかと思ったのですが、この対応では解決せずしばらく悩みました。VS Codeの更新->Angular Language Serviceの更新（v16版）でエラーが表示されないようになりました。
 - 非nullアサーション(non-null assertion)
-	- [5. add navigation - Add HeroService.getHero()](https://angular.io/tutorial/tour-of-heroes/toh-pt5#add-heroservicegethero)にて`const hero = HEROES.find(h => h.id === id)!;`という風に最後に`!`することで、heroの型を`Hero | undefined`から`Hero`に強制できる。型問題の解決案として覚えておくと便利そう。
+	- [5. add navigation - Add HeroService.getHero()](https://angular.io/tutorial/tour-of-heroes/toh-pt5#add-heroservicegethero)にて`const hero = HEROES.find(h => h.id === id)!;`という風に最後に`!`することで、heroの型を`Hero | undefined`から`Hero`に強制できます。型問題の解決案として覚えておくと便利そうです。
 - [angular-in-memory-web-api](https://github.com/angular/in-memory-web-api#angular-in-memory-web-api)
-	- web apiのモックを簡単に作れて便利
+	- web apiのモックを簡単に作れて便利。

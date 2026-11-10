@@ -11,10 +11,10 @@ publish: "true"
 ---
 # 🔍 概要
 > [!ABSTRACT] Overview
-> VSCodeの設定保存＆同期を行う方法について。
-> 
-> VSCodeの設定保存＆同期は[July 2020 (version 1.48)](https://code.visualstudio.com/updates/v1_48)から標準機能になりました。詳細は[Settings Sync in Visual Studio Code](https://code.visualstudio.com/docs/editor/settings-sync)にて確認することができます。
-> 
+> VSCodeの設定保存＆同期を行う方法を確認します。
+> \
+> VSCodeの設定保存＆同期は[July 2020 (version 1.48)](https://code.visualstudio.com/updates/v1_48)から標準機能になりました。詳細は[Settings Sync in Visual Studio Code](https://code.visualstudio.com/docs/editor/settings-sync)にて確認できます。
+> \
 > 以前の拡張機能: `Settings Sync`を利用した共有方法は[[#旧手順 - 拡張機能を利用する（2019-11-01 作成）]]に残しておきます。
 
 ## 🧩 詳細
@@ -30,7 +30,6 @@ publish: "true"
 
 4. ブラウザ経由でGithubにSign inします。
    ![[20231223_vscode-settings-sync-7.png]]
-
    ![[20231223_vscode-settings-sync-8.png]]
 
 5. 数秒で同期完了のメッセージが表示されます。
@@ -40,17 +39,17 @@ publish: "true"
 ### 保存&同期の確認
 
 設定の同期状態を確認するには、VSCodeの左メニュ `manage` から `Settings Sync is On`を選択。
-   ![[20231223_vscode-settings-sync-10.png]]
+    ![[20231223_vscode-settings-sync-10.png]]
 
 コマンドパレットから`Settings Sync: Show Synced Data`を選択。
-   ![[20231223_vscode-settings-sync-11.png]]
+    ![[20231223_vscode-settings-sync-11.png]]
 
 Sync ActivityとSynced machineのリストが表示されます。
-   ![[20231223_vscode-settings-sync-12.png]]
+    ![[20231223_vscode-settings-sync-12.png]]
 
 以前の拡張機能を利用した設定同期ではgistを利用していましたが、公式の機能では別のどこかに格納されているようでした。
 
-## 旧手順 - 拡張機能を利用する（2019-11-01 作成） 
+## 🧩 旧手順 - 拡張機能を利用する（2019-11-01 作成） 
 
 ### 拡張機能を利用する
 
@@ -84,9 +83,9 @@ Configure Settings Sync
 ```
 
 特に気になる記述や疑問がなかったので、拡張機能: `Settings Sync`をインストール。完了すると`Welcome to Settings Sync`のタブが表示されたので、`LOGIN WITH GITHUB`を選択。
-   ![[20231223_vscode-settings-sync-1.png]]
+![[20231223_vscode-settings-sync-1.png|700]]
 
-`Authorize Settings Sync`のページがブラウザで表示されたので、`Authorize shanalikhan`する。
+`Authorize Settings Sync`のページがブラウザで表示されたので、`Authorize shanalikhan`します。
    ![[20231223_vscode-settings-sync-2.png]]
 
 設定完了の表示に切り替わり、準備が完了しました。

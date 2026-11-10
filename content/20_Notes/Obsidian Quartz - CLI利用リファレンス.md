@@ -80,18 +80,18 @@ npx quartz --version
 	- template の選択は必ず `quartz.config.yaml` を書き換え、適用後にtemplateが必要とするpluginのinstallまで自動で行います。
 - `sync`: pull、add、commit、push の順で Git を操作し、GitHub と同期します。
 	- 実際の運用ではこのcommandを直接実行しません。`publish-sync.mjs` 経由で実行します（[[Obsidian Quartz - publish-sync.mjs 利用リファレンス]]を参照）。
-	- 内部で `git pull --rebase --autostash` を使う。unstaged 変更は一時退避されるが、競合時は標準の Git 工具で解決する。
+	- 内部で `git pull --rebase --autostash` を使います。unstaged 変更は一時退避されるが、競合時は標準の Git 工具で解決します。
 - `plugin`: plugin管理の主commandです。pluginは `.quartz/plugins/` に保存され、versionは `quartz.lock.json` に記録されます。
 	- subcommand: list、add、remove、install、enable、disable、config、prune。
 	- `install --from-config` は `quartz.config.yaml` と照合し、足りないpluginをinstall、未参照のpluginをpruneします。`--dry-run` は変更なしで計画だけ見ます。
 	- 指定したbranchは lockfile に記録されるので、以降の install はそのbranchを引き続けます。local directoryから追加したpluginはsymlinkなので、変更がすぐに反映されます。
-	- 低 resource 環境で OOM や hang が出るなら `-c 1` に下げる。
+	- 低 resource 環境で OOM や hang が出るなら `-c 1` に下げます。
 - `upgrade`: upstream（`upstream/v5`）から framework を更新します。まずcontentをcacheにbackupしてからpullし、`npm install` とpluginの互換性確認まで行います。lockfileの競合は自動的に処理されますが、他のfileは自分で解決する必要があります。
 - `restore`: content folder だけを local cache から復旧し、pluginや設定は対象になりません。upgradeの失敗、誤削除、merge競合を取り消したいときに使います。
 - `tui`: terminal上のinteractiveな操作画面です。Bun runtime と TUI pluginが必要で、`npx quartz plugin add github:quartz-community/tui` で追加します。変更が `quartz.config.yaml` に直接書かれるため、使う前にGitの状態をcleanにしておくと安心です。
 
-## 🔗 参考資料
+## 🔗 関連リンク
 
-- [[Obsidian Quartz - publish-sync.mjs 利用リファレンス]]（実行方法と出力例）
-- [[Obsidian Quartz - publish-sync.mjs (publish flag copyによる選択公開)]]（処理詳細）
+- [[Obsidian Quartz - publish-sync.mjs 利用リファレンス]]
+- [[Obsidian Quartz - publish-sync.mjs（publish flag copyによる選択公開）]]
 - 参照元: `D:\github-repos\tech-log\docs\cli`（vault外にはリンクできないためpath表記です。Quartz公式docsのローカルコピー）

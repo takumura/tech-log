@@ -12,18 +12,18 @@ publish: "true"
 ---
 # 🏃 活動概要
 > [!ABSTRACT] Overview
-> Obsidian Quartzで作成したtech-logサイトのスタイル調整を行い、公開の準備をする。
+> Obsidian Quartzで作成したtech-logサイトのスタイル調整を行い、公開の準備をします。
 
 ## 🧩 詳細
 
-サイトの基本設定やplugin表示位置の管理は`quartz.config.yaml`で行う。サイトのデザインはcore pluginが内部で用意しているcssとscssファイルにて管理されている。
+サイトの基本設定やpluginの表示位置は`quartz.config.yaml`で設定します。サイトのデザインはcore pluginが内部で用意しているcssとscssファイルにて管理されています。
 
 ### quartz.config.yamlの修正
 
-以下3点の修正を行った
-- Webサイトのタイトル
-- `header`, `body`, `interface`, `code`のフォント
-- frontmatterの表示項目変更
+以下3点の修正を行いました。
+- Webサイトのタイトル。
+- `header`, `body`, `interface`, `code`のフォント。
+- frontmatterの表示項目変更。
 
 ```yaml
 # Webサイトのタイトルを変更
@@ -59,9 +59,9 @@ configuration:
 
 ### scssファイルの修正
 
-`base.scss`、`callouts.scss`、`custom.scss`、`syntax.scss`、`variables.scss`の5ファイルが用意されているが、基本的には`custom.scss`にてスタイルを上書きする方法でスタイルの修正を実施。
+`base.scss`、`callouts.scss`、`custom.scss`、`syntax.scss`、`variables.scss`の5ファイルが用意されています。最後に読み込まれる`custom.scss`で、既存スタイルを上書きしました。
 
-レスポンシブデザインのbreakipoint調整のため、`variables.scss`の一行だけ修正を実施
+レスポンシブデザインのbreakpoint調整のため、`variables.scss`の一行だけ修正しました。
 
 ```scss title="variables.scss"
 // <抜粋>
@@ -73,6 +73,7 @@ $breakpoints: (
 ```
 
 ベースとなっているスタイルをclearせずに必要な部分だけ`custom.scss`で調整を実施。
+
 ```scss  title="custom.scss"
 @use "./variables.scss" as *;
 
@@ -399,11 +400,11 @@ div.backlinks {
 
 ## 💡 振り返り / 次回へのアクション
 
-久しぶりのスタイル調整で、必要なパーツのスタイルをピンポイントで調整することが出来なかったりして作業に4時間位を要した。最終的には納得できるものになった。
+久しぶりのスタイル調整で、必要なパーツのスタイルをピンポイントで調整することが出来なかったりして作業に4時間位を要しました。最終的には納得できるものになりました。
 
-基本のダークテーマはObsidianのMinimal - atom調だったので、ほぼそのまま採用。calloutのデザイン調整に一番時間が掛かった。Obsidian Editorでは実現できなかった段落`p`の字下げができたので、Webの方が見やすいまである。
+基本のダークテーマはObsidianのMinimal - atom調だったので、ほぼそのまま採用。calloutのデザイン調整に一番時間が掛かりました。Obsidian Editorでは実現できなかった段落`p`の字下げができたので、Webの方がむしろ見やすいです。
 
-ライトテーマはQwen3.8FNにお願いして奈良をイメージしたテーマを用意してもらった。結果かなり気に入った。
+ライトテーマはQwen3.8FNにお願いして奈良をイメージしたテーマを用意してもらいました。結果かなり気に入りました。
 
 ## 🔗 関連リンク
 

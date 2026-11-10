@@ -10,7 +10,9 @@ tags:
   - tech/scoop
 publish: "true"
 ---
-Scoopやインストーラー、ポータブルパッケージ等を用いてセットアップし、利用しているアプリを整理します。
+# 🔍 概要
+> [!ABSTRACT] Overview
+> Scoopやインストーラー、ポータブルパッケージ等を用いてセットアップし、利用しているアプリを整理します。
 
 ## 🧩 scoopを利用してインストールするApp
 
@@ -28,7 +30,7 @@ Scoopやインストーラー、ポータブルパッケージ等を用いてセ
 
 ### appbuster
 
-Windows 10/11にインストールされた不要なappを削除できる。<https://www.oo-software.com/en/ooappbuster>
+Windows 10/11にインストールされた不要なappを削除できます。<https://www.oo-software.com/en/ooappbuster>
 
 ### avidemux
 
@@ -36,21 +38,21 @@ Windows 10/11にインストールされた不要なappを削除できる。<htt
 
 ### crystaldiskinfo
 
-ディスクの健康状態をチェック
+ディスクの健康状態をチェック。
 
 ### crystaldiskmark
 
-ディスクのパフォーマンをチェック
+ディスクのパフォーマンをチェック。
 
 ### geekuninstaller
 
-レジストリを含めてappを丁寧にアンインストールする
+レジストリを含めてappを丁寧にアンインストールします。
 
-## 🧩 scoopを利用してインストールするApp (開発用)
+## 🧩 scoopを利用してインストールするApp （開発用）
 
 ### nvm
 
-複数バージョンのnodeをインストール、切り替える事ができる。<https://github.com/coreybutler/nvm-windows>
+複数バージョンのnodeをインストール、切り替える事ができます。<https://github.com/coreybutler/nvm-windows>
 
 ### git-fork
 
@@ -58,7 +60,7 @@ Windows 10/11にインストールされた不要なappを削除できる。<htt
 
 ### curl
 
-URLシンタックスを用いてファイル送受信を行うコマンドラインツール
+URLシンタックスを用いてファイル送受信を行うコマンドラインツール。
 
 ### WinMerge
 
@@ -72,7 +74,7 @@ HTTPトラフィック監視ツール。Scoopを利用してインストール�
 
 ### Brave
 
-ブラウザ。iPhoneとブックマークを同期するのに利用
+ブラウザ。iPhoneとブックマークを同期するのに利用。
 
 ### Visual Studio Code
 
@@ -80,25 +82,25 @@ HTTPトラフィック監視ツール。Scoopを利用してインストール�
 
 ### Visual Studio
 
-開発環境
+開発環境。
 
 ### .NET Core
 
-開発環境用ライブラリ
+開発環境用ライブラリ。
 
 ### spacedesk
 
-ラップトップやiPad、Fire HD 10などのタブレットをサブディスプレイにできる
+ラップトップやiPad、Fire HD 10などのタブレットをサブディスプレイにできます。
 
 ## 🧩 ポータブル版を利用するApp
 
 ### Synkron
 
-フォルダ同期ツール
+フォルダ同期ツール。
 
 ### MagicFinder
 
-IOデータのWIFIルータ接続ツール
+IOデータのWIFIルータ接続ツール。
 
 ### ProcessExplorer
 
@@ -106,7 +108,7 @@ IOデータのWIFIルータ接続ツール
 
 ### WDIDLE3 for Windows
 
- Western Digital製HDDの省電力機能`IntelliPark`を無効にする。<http://liliumrubellum.blog10.fc2.com/blog-entry-307.html>
+ Western Digital製HDDの省電力機能`IntelliPark`を無効にします。<http://liliumrubellum.blog10.fc2.com/blog-entry-307.html>
 
 ## 🧩 以前使用していたツール
 
@@ -116,7 +118,7 @@ VHD（仮想ハードディスク）ファイルの管理ツール。
 
 ### chrome
 
-ブラウザ。Edgeとエンジンが同じためEdgeに移行した
+ブラウザ。Edgeとエンジンが同じためEdgeに移行しました。
 
 ## 🔗 関連リンク
 

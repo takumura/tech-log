@@ -249,7 +249,7 @@ export default Vue.extend({
 
 this.$store.subscribeで作成したsubscriptionをunsubscribeするための記述が色々トリッキーでした。インテリセンスに頼って書いたため、正直完璧には理解できませんでした。
 
-さらに、contextBridgeでexposeした`getInitialState`と`syncStore`は`window.api`以下に注入されるのですが、このままでは型がanyのため存在しないと怒られてしまいます。
+さらにcontextBridgeでexposeした`getInitialState`と`syncStore`は、`window.api`以下に注入されるのですが、このままでは型がanyのため`存在しない`エラーが発生します。
 
 エラーを抑制するために、型定義ファイルを追加しました。
 
@@ -269,7 +269,7 @@ export interface Sandbox {
 }
 ```
 
-これで実装は完了です。`todos/add`または`todos/remove`のmutationが行われるとconfig.jsonファイルが`[ユーザのドキュメントフォルダ]\electron-app`以下に作成されました（削除を実装してなかったのでaddしか試していませんが。。。）
+これで実装は完了です。`todos/add`または`todos/remove`のmutationが行われるとconfig.jsonファイルが`[ユーザのドキュメントフォルダ]\electron-app`以下に作成されました（削除を実装してなかったのでaddしか試せませんでした）
 
 そしてTodo画面を再度開いた時には、前回作成したタスクが読み込まれてタスク一覧に表示されます。
 
@@ -283,7 +283,7 @@ renderer側のdebugに関して特に難しいことはありません。electro
 
 ### main側のdebug
 
-.vscode\launch.jsonを用意することで、vscodeからdebug実行が可能です。注意点として、renderer側はbuild済みのモジュールが使われるようなので、事前に`nuxt-ts generate`しておく必要があります。そうしないとrenderer側が古い状態で尚且つrenderer側のコードがdebugできないため、状況が全く掴めずハマります。（ハマりました）
+.vscode\launch.jsonを用意することで、vscodeからdebug実行が可能です。注意点として、renderer側はbuild済みのモジュールが使われるようなので、事前に`nuxt-ts generate`しておく必要があります。そうしないとrenderer側が古い状態で尚且つrenderer側のコードがdebugできないため、状況が全く掴めずハマります（ハマりました）。
 
 ``` json
 {

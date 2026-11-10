@@ -21,7 +21,7 @@ publish: "true"
 
 ### node version
 
-`16.15.0`をinstallしていたので、2023-01-01時点のlts(`18.12.1`)に更新。。。したのですが大間違いでした。
+`16.15.0`をinstallしていたので、2023-01-01時点のlts(`18.12.1`)に更新…したのですが大間違いでした。
 
 後になってVisual Studio2022のデバッグが出来なくなっていることに気が付きました。かなりハマって、最終的にはStackOverflowの記事:[Visual Studio blocks on deploying a Standalone Angular project](https://stackoverflow.com/questions/73005681/visual-studio-blocks-on-deploying-a-standalone-angular-project)に救われました。
 
@@ -80,7 +80,7 @@ UPDATE src/test.ts (520 bytes)
 
 > Update TypeScript compiler `target` and set `useDefineForClassFields`.
   These changes are for IDE purposes as TypeScript compiler options `target` and `useDefineForClassFields` are set to `ES2022` and `false` respectively by the Angular CLI.
-  To control ECMA version and features use the Browerslist configuration.
+  To control ECMA version and features use the Browserslist configuration.
 UPDATE tsconfig.json (1018 bytes)
   Migration completed.
 
@@ -522,15 +522,15 @@ npxだと更新されるのが`package-lock.json`になるのですが、yarnを
 
 試行錯誤しつつ、手順としては以下のようになりました。
 
-- パーツとなる子・孫componentを一つづつstandalone component化する
-	- standalone componentを利用している親componentがビルドエラーになるので、ビルドが通るようにfeature moduleやapp moduleのimportに一時的に参照を追加する
-- 親componentを一つづつstandalone component化する
-	- 都度ビルドチェックを行い、エラーが発生したらmoduleの参照調整を行う
-  - shared moduleなどでまとめて参照していたcomponent群を、component毎に個別に必要な分だけimportする必要がある
-- app.component以外のすべてのcomponentをstandalone component化したら、最後にapp.componentをstandalone component化し、`main.ts`でのbootstrap処理を変更する
-	- `platformBrowserDynamic().bootstrapModule(AppModule)`というmodule呼び出しの形式から、`bootstrapApplication(AppComponent)`というcomponent呼び出しの形式への変更。これによりapp.moduleが不要になる
-  - 3rd partyのmoduleやroutingの設定など、どうしても必要になるmoduleは`bootstrapApplication`の第二引数（provider配列）の中で指定する
-- 不要となったすべてのmoduleを削除する
+- パーツとなる子・孫componentを一つづつstandalone component化します。
+	- standalone componentを利用している親componentがビルドエラーになるので、ビルドが通るようにfeature moduleやapp moduleのimportに一時的に参照を追加します。
+- 親componentを一つづつstandalone component化します。
+	- 都度ビルドチェックを行い、エラーが発生したらmoduleの参照調整を行う。
+	- shared moduleなどでまとめて参照していたcomponent群を、component毎に個別に必要な分だけimportする必要があります。
+- app.component以外のすべてのcomponentをstandalone component化したら、最後にapp.componentをstandalone component化し、`main.ts`でのbootstrap処理を変更します。
+	- `platformBrowserDynamic().bootstrapModule(AppModule)`というmodule呼び出しの形式から、`bootstrapApplication(AppComponent)`というcomponent呼び出しの形式への変更。これによりapp.moduleが不要になります。
+	- 3rd partyのmoduleやroutingの設定など、どうしても必要になるmoduleは`bootstrapApplication`の第二引数（provider配列）の中で指定します。
+- 不要となったすべてのmoduleを削除します。
 
 standalone componentの利点として「Angular の学ぶべき項目が減り、またアプリケーションをよりシンプルに開発できるようになります。」というのが挙げられていますが、そこまでシンプルになる感じはしませんでした。各componentがより疎になり、個々のcomponentで完結・再利用しやすくなるのは良い点だと感じました。
 
@@ -538,9 +538,9 @@ standalone componentの利点として「Angular の学ぶべき項目が減り�
 
 ## 💡 振り返り / 次回へのアクション
 
-- Standalone componentは、新規appの作成でイチから作成するなら使って損はなさそう。既存のappをfull standalone component化するのは小規模でもかなり大変だったので大規模appではやりきれなそう
-- MDC-based Angular Materialへの移行も、なかなかに手間がかかる。スタイルの見直しも必要になるのでレビューの良い機会になる
-- esprojが謎すぎる。どこかで動作原理をしっかり把握しないといけない
+- Standalone componentは、新規appの作成でイチから作成するなら使って損はなさそうです。既存のappをfull standalone component化するのは小規模でもかなり大変だったので大規模appではやりきれなさそうです。
+- MDC-based Angular Materialへの移行も、なかなかに手間がかかります。スタイルの見直しも必要になるのでレビューの良い機会になります。
+- esprojが謎すぎます。どこかで動作原理をしっかり把握しないといけません。
 - 変更内容の詳細: [PR42 Upgrade to angular v15](https://github.com/takumura/tech-log/pull/42/files)
 
 ## 🔗 参考資料

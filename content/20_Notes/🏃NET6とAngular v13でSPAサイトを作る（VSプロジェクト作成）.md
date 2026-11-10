@@ -11,8 +11,7 @@ publish: "true"
 ---
 # 🏃 活動概要
 > [!ABSTRACT] Overview
-> 旧サイトは自作のwebサイト生成エンジンで生成されています。自作エンジンは2019年に.NET Core 2.1とAngular v7で開発しました。それから時は流れ、2021年末時点でバックエンド側は.NET6に、フロントエンド側はAngular v13にそれぞれバージョンアップされています。
-> 進化の波に取り残されないように、最新バージョンのモジュールを使ってwebサイト生成エンジンを再開発してみようと思います。
+> 旧サイトは自作のwebサイト生成エンジンで生成されています。自作エンジンは2019年に.NET Core 2.1とAngular v7で開発しました。それから時は流れ、2021年末時点でバックエンド側は.NET6に、フロントエンド側はAngular v13にそれぞれバージョンアップされています。進化の波に取り残されないように、最新バージョンのモジュールを使ってwebサイト生成エンジンを再開発してみようと思います。
 > \
 > 本Noteでは、VSプロジェクト作成編ということで.NET6のASP.NET Core SPAプロジェクトと、Angularプロジェクトをそれぞれ作成していきます。Microsoft Docsに[チュートリアル記事](https://docs.microsoft.com/en-gb/visualstudio/javascript/tutorial-asp-net-core-with-angular?view=vs-2022)を見つけたので、それを参考にしつつ作業を進めていきます。
 
@@ -23,9 +22,9 @@ publish: "true"
 新規プロジェクトを新しいAngular Templateから作成時に、globalにinstallしているAngular CLIがv9.1.12では古すぎるのかエラーが発生しました。なのでnodejsとAngular CLIをアップグレードしました。
 
 - nodejs: nodejs-lts: 14.16.1 -> 16.13.1
-	- scoopで管理しているので`scoop update *`コマンドにて更新
+	- scoopで管理しているので`scoop update *`コマンドにて更新。
 - Angular CLI: 9.1.12 -> 12.2.14
-	- 最新はv13.1.2ですが、このバージョンだと[プロジェクト作成時にエラーが発生](https://developercommunity.visualstudio.com/t/standalone-typescript-angular-merge-confilct/1611006)したため、まずはv12を使用
+	- 最新はv13.1.2ですが、このバージョンだと[プロジェクト作成時にエラーが発生](https://developercommunity.visualstudio.com/t/standalone-typescript-angular-merge-confilct/1611006)したため、まずはv12を使用。
 
 ## 🧩 新規ソリューションとフロントエンドプロジェクトの作成
 
@@ -39,9 +38,7 @@ VS2022で`新しいプロジェクト`を選択し、`Standalone Angular Templat
 
 先に作成したソリューションに追加する形で、ASP.NET Core Web APIプロジェクトを作成しました。
 
-フレームワークには`.NET 6.0`を選択、承認は不要なので`なし`にしました。
-
-C# 9.0の新機能 [最上位レベルのステートメント](https://docs.microsoft.com/ja-jp/dotnet/csharp/whats-new/csharp-9#top-level-statements)のおかげで、Program.csが驚くほどシンプル担っているのに驚きました。
+フレームワークには`.NET 6.0`を選択、承認は不要なので`なし`にしました。C# 9.0の新機能 [最上位レベルのステートメント](https://docs.microsoft.com/ja-jp/dotnet/csharp/whats-new/csharp-9#top-level-statements)のおかげで、Program.csが驚くほどシンプル担っているのに驚きました。
 
 C# 10からglobal namespaceが使えるようになったとのことですが、生成されたASP.NET Core APIのコードは以前のままだったので、global namespaceに変更してみました。また、esprojのnpmを使うように指示している部分をyarnを使うように変更しました。
 
@@ -67,7 +64,7 @@ C# 10からglobal namespaceが使えるようになったとのことですが�
 
 [プロジェクトのプロパティ設定](https://docs.microsoft.com/en-gb/visualstudio/javascript/tutorial-asp-net-core-with-angular?view=vs-2022#set-the-project-properties)と[スタートアップ プロジェクトの設定](https://docs.microsoft.com/en-gb/visualstudio/javascript/tutorial-asp-net-core-with-angular?view=vs-2022#set-the-startup-project)は書かれている通りに実施しました。
 
-最初はフロントエンドプロジェクトのプロパティ設定（起動するdebuggerに`launch.json`を指定）の画面がうまく表示されず、３０分ほどハマりました。
+最初はフロントエンドプロジェクトのプロパティ設定（起動するdebuggerに`launch.json`を指定）の画面がうまく表示されず、30分ほどハマりました。
 
 esprojファイルの先頭行が`<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.4.0-alpha">`で始まっており、[nugetのサイト](https://www.nuget.org/packages/Microsoft.VisualStudio.JavaScript.SDK/)を確認すると、最新バージョン2021-12-01頃`0.5.0-alpha`に更新されていました。VS2022 previewでは`0.4.0-alpha`を利用しており、リリースのタイミングで`0.5.0-alpha`へ更新されたのにテンプレートが生成するesprojのバージョンが古いためにうまく動かなかったようです。
 

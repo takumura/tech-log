@@ -13,6 +13,7 @@ publish: "true"
 # 🔍 概要
 > [!ABSTRACT] Overview
 > Angular CLIの[deployコマンド](https://angular.io/guide/deployment)を使用すると、Angularアプリケーションをワンコマンドで様々なプラットフォームに配信できます。Github pages用のmodule: [angular-cli-ghpages](https://github.com/angular-schule/angular-cli-ghpages)を利用してdeployする設定についてまとめます。
+> \
 > angular v8以降は`ng deploy`コマンドの統一化により、設定が簡単になっています。それ以前の設定方法については[[## 🧩 Angular v7以前の設定方法（2019-11-14 作成）]]を参照してください。
 
 ## 🧩 angular v8以降の設定方法
@@ -25,7 +26,7 @@ publish: "true"
 > yarn add angular-cli-ghpages
 ```
 
-次に`package.json`にdeployコマンドを登録します。
+その後、`package.json`にdeployコマンドを登録します。
 
 ``` diff
 {
@@ -106,7 +107,7 @@ Warning: bundle initial exceeded maximum budget. Budget 500.00 kB was not met by
 Done in 38.89s.
 ```
 
-PCを新調したので、以前は3分ほど掛かっていた処理が40秒で終わるようになりました。素晴らしい！
+PCを新調したので、以前は3分ほど掛かっていた処理が40秒で終わるようになりました。素晴らしいです！
 
 ## 🧩 Angular v7以前の設定方法（2019-11-14 作成）
 
@@ -160,13 +161,13 @@ PS C:\Repos\github\tech-log\Website\ClientApp> npx angular-cli-ghpages --dry-run
 
 問題なさそうなので本実行。
 
-```sh frame"none"
+```sh frame="none"
 PS C:\Repos\github\tech-log\Website\ClientApp> npx angular-cli-ghpages
 ```
 
 初回は`Permission denied (publickey)`エラーが発生してpushに失敗。[[🏃Gitのssh接続をWindows標準OpenSSHへ切り替える]]の対応を実施してから再チャレンジ。
 
-```sh frame"=none"
+```sh frame="none"
 PS C:\Repos\github\tech-log\Website\ClientApp> npx angular-cli-ghpages
 *** Successfully published!
 ```

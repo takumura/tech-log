@@ -121,16 +121,16 @@ NuxtJSに必要なconfigファイルは`.babelrc`、`nuxt.config.js`、`tsconfig
 > yarn add --dev cross-env
 ```
 
-- [electron](https://github.com/electron/electron#readme) = Electron本体
-- [electron-builder](https://github.com/electron-userland/electron-builder#readme) = Electronのpackage & buildツール
-- [electron-devtools-installer](https://github.com/MarshallOfSound/electron-devtools-installer) = Electron用のDevTool拡張機能インストーラー
-- [cross-env](https://github.com/kentcdodds/cross-env#readme) = node script実行時の環境変数を設定するツール
+- [electron](https://github.com/electron/electron#readme) = Electron本体。
+- [electron-builder](https://github.com/electron-userland/electron-builder#readme) = Electronのpackage & buildツール。
+- [electron-devtools-installer](https://github.com/MarshallOfSound/electron-devtools-installer) = Electron用のDevTool拡張機能インストーラー。
+- [cross-env](https://github.com/kentcdodds/cross-env#readme) = node script実行時の環境変数を設定するツール。
 
 次にElectronのメイン処理を行う`index.ts`を`src/main`以下に作成しました。
 
 後でわかったことなのですが、`process.env.NODE_ENV_ === 'development'`の場合、electron実行時に`nuxt.ready()`で非同期処理の完了を待たないと、vuexのstoreが使用できない（webpack処理が完了していないのかstoreのjsが一切見当たらない状態でした）問題がありました。また`process_env.NODE_ENV_ === 'production'`の場合、`nuxt.ready()`で非同期処理の完了を待ってしまうといつまでもwindowが表示されませんでした。
 
-試行錯誤した結果、以下のような実装になりました
+試行錯誤した結果、以下のような実装になりました。
 
 ``` ts
 // index.ts
@@ -221,9 +221,9 @@ function createElectronApp() {
 
 記述中いくつかのエラーが発生したため、`.eslintrc.js`を修正しました。
 
-1. windows環境特有の改行に関するエラー: [このissue](https://github.com/prettier/eslint-plugin-prettier/issues/211)を参照
-1. `console`の利用不可エラー: [no-console](https://eslint.org/docs/rules/no-console)エラーを無視するように変更
-1. 一行の長さを120文字に変更。
+1. windows環境特有の改行に関するエラー: [このissue](https://github.com/prettier/eslint-plugin-prettier/issues/211)を参照。
+2. `console`の利用不可エラー: [no-console](https://eslint.org/docs/rules/no-console)エラーを無視するように変更。
+3. 一行の長さを120文字に変更。
 
 ``` diff
 // .eslintrc.js
@@ -589,7 +589,7 @@ Done in 337.16s.
 
 約5分でbuildが完了しました。distフォルダに`build:main`、`build:renderer`で生成されたビルドモジュールが配置され、それらを使って`build:electron`が各環境用の実行ファイルを生成する、という流れのようです。
 
-今回はwindowsのビルド設定を`target: portable`にしているので、単独実行可能な`nuxt-electron-example 1.0.0.exe`(約60MB)が生成されました。
+今回はwindowsのビルド設定を`target: portable`にしているので、単独実行可能な`nuxt-electron-example 1.0.0.exe`（約60MB）が生成されました。
 
 ```sh frame="none"
 Mode                 LastWriteTime         Length Name

@@ -12,13 +12,13 @@ publish: "true"
 ---
 # 🔍 概要
 > [!ABSTRACT] Overview
-> scoopのセットアップ、利用方法に関するreference note。
+> scoopのセットアップ、利用方法を確認します。
 
 ## 🧩 インストール
 
 ### 環境変数の設定
 
-環境変数: `SCOOP`を設定することで、scoopのインストール先フォルダを指定することができます。
+環境変数: `SCOOP`を設定することで、scoopのインストール先フォルダを指定できます。
 - `SCOOP = "c:\apps\scoop"`
 
 ### powershellによるscoopインストール
@@ -43,7 +43,7 @@ scoopで管理されるAppはこのフォルダ以下に配置されます。
 
 ## 🧩 Bucket の設定
 
-デフォルトではmain backetが利用可能です。`bucket add`コマンドにより、bucketを追加することができます。追加可能な bucketは`scoop\apps\scoop\current\buckets.json`で設定されており、`bucket known`コマンドで見る事もできます。
+デフォルトではmain bucketが利用可能です。`bucket add`コマンドにより、bucketを追加できます。追加可能な bucketは`scoop\apps\scoop\current\buckets.json`で設定されており、`bucket known`コマンドで見る事もできます。
 
 ```sh frame="none"
 > scoop bucket known
@@ -77,7 +77,7 @@ scoop install git
 
 ### scoop search
 
-指定したAppがBucket(collections of apps)にあるか検索する。
+指定したAppがBucket(collections of apps)にあるか検索します。
 
 ```sh frame="none"
 > scoop search nodejs
@@ -100,7 +100,7 @@ scoop install git
 
 ### 🧩 scoop install
 
-指定したAppをインストールする。
+指定したAppをインストールします。
 
 ```sh frame="none"
 > scoop install 7zip
@@ -121,7 +121,7 @@ Creating shortcut for 7-Zip (7zFM.exe)
 
 ### scoop update
 
-`scoop udpate`コマンドでscoop自体とインストール可能なAppの情報（app manifest）を更新できます。セミコロンで続けて`scoop update *`とすることで、インストール済みのすべてのAppに対して、バージョンアップのチェックおよびAppの更新ができます。
+`scoop update`コマンドでscoop自体とインストール可能なAppの情報（app manifest）を更新できます。セミコロンで続けて`scoop update *`とすることで、インストール済みのすべてのAppに対して、バージョンアップのチェックおよびAppの更新ができます。
 
 ```sh frame="none"
 > scoop update; scoop update *

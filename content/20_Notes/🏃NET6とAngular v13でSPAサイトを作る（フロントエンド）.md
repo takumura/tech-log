@@ -12,10 +12,9 @@ publish: "true"
 ---
 # 🏃 活動概要
 > [!ABSTRACT] Overview
-> 旧サイトは自作のwebサイト生成エンジンで生成されています。自作エンジンは2019年に.NET Core 2.1とAngular v7で開発しました。それから時は流れ、2021年末時点でバックエンド側は.NET6に、フロントエンド側はAngular v13にそれぞれバージョンアップされています。
-> 進化の波に取り残されないように、最新バージョンのモジュールを使ってwebサイト生成エンジンを再開発してみようと思います。
+> 旧サイトは自作のwebサイト生成エンジンで生成されています。自作エンジンは2019年に.NET Core 2.1とAngular v7で開発しました。それから時は流れ、2021年末時点でバックエンド側は.NET6に、フロントエンド側はAngular v13にそれぞれバージョンアップされています。進化の波に取り残されないように、最新バージョンのモジュールを使ってwebサイト生成エンジンを再開発してみようと思います。
 > \
-> 本Noteでは、フロントエンド編ということでAngularのSPAサイトをを実装していきます。
+> 本Noteでは、フロントエンド編ということでAngularのSPAサイトを実装していきます。
 
 ## 🧩 開発準備
 
@@ -175,7 +174,7 @@ isSmall$: Observable<boolean> = this.breakpointObserver
 
 ## 🧩 NGRXの導入
 
-markdownからコンバートしたjsonファイルを`ngrx store`に読み込んだら、どのcomponetからでも好きに呼び出せてイイ感じにならないかな？という発想から、今回はNGRXを利用してみることにします。
+markdownからコンバートしたjsonファイルを`ngrx store`に読み込んだら、どのcomponetからでも好きに呼び出せてイイ感じにならないか？という発想から、今回はNGRXを利用してみることにします。
 
 ```sh frame="none"
 > ng add @ngrx/store@latest
@@ -210,51 +209,51 @@ Skipping installation: Package already installed
 UPDATE .eslintrc.json (1098 bytes)
 ```
 
-## markdownのhtml変換処理
+## 🔍 markdownのhtml変換処理
 
 以前からmarkdown⇒htmlへの変換処理はクライアント(angular)側で行っていました。
 
-- バックエンド側でfrontmatter付きmarkdownをmarkdown記法のままjsonに変換
-  - 変換元mdファイルと1対1対応するjsonファイル
-  - すべてのjsonファイルをまとめたindex.json
-- 検索画面ではindex.jsonを利用してサーチを実施
-- 個々のドキュメントページはurlから対象のjsonファイルを取得
-- clientはmarkdown部分をjsonから抜き出して、[unified(remark, rehype)](https://unifiedjs.com/)を利用してhtmlに変換
+- バックエンド側でfrontmatter付きmarkdownをmarkdown記法のままjsonに変換。
+	- 変換元mdファイルと1対1対応するjsonファイル。
+	- すべてのjsonファイルをまとめたindex.json。
+- 検索画面ではindex.jsonを利用してサーチを実施。
+- 個々のドキュメントページはurlから対象のjsonファイルを取得。
+- clientはmarkdown部分をjsonから抜き出して、[unified(remark, rehype)](https://unifiedjs.com/)を利用してhtmlに変換。
 
 ### jsonファイル読み込み処理の変更点
 
-前半のjsonファイルの読み込み部分について、index.jsonを直接importする記述に変更しました
+前半のjsonファイルの読み込み部分について、index.jsonを直接importする記述に変更しました。
 
-- ngrxのactionでindex.jsonを読み込み、個々のドキュメントも探すようにしたので個々のドキュメントファイルをfetchする必要がなくなった
-- debug実行時、index.jsonに変更が発生すると自動でreloadが掛かるので、markdownの更新が画面に自動反映されるようになった。（嬉しい副産物）
+- ngrxのactionでindex.jsonを読み込み、個々のドキュメントも探すようにしたので個々のドキュメントファイルをfetchする必要がなくなりました。
+- debug実行時、index.jsonに変更が発生すると自動でreloadが掛かるので、markdownの更新が画面に自動反映されるようになりました（嬉しい副産物）。
 
 ### unifiedのプラグインチェック
 
 後半のunifiedによる変換処理について、remarkのmarkdownパーサーエンジンが[micromark](https://github.com/micromark/micromark)に置き換わるという大きな変更が起きていたようです。その影響で、以前使っていたプラグインが使えなくなるといった影響が出ていました。この機会に使用するプラグインの厳選を行いました。
 
 - remark-parse
-  - 標準plugin。markdownをmdast(syntax tree)に変換
+	- 標準plugin。markdownをmdast(syntax tree)に変換。
 - [remark-attr](https://github.com/arobase-che/remark-attr)
-  - markdownに記述したattributeを変換後のhtmlに付与。cssクラスをセットする等の用途で使用していたが、micromarkの移行により利用不可になった。
-  - <https://github.com/arobase-che/remark-attr/issues/22>
+	- markdownに記述したattributeを変換後のhtmlに付与。cssクラスをセットする等の用途で使用していたが、micromarkの移行により利用不可になりました。
+	- <https://github.com/arobase-che/remark-attr/issues/22>
 - remark-gfm
-  - 標準plugin。GitHub Flavored Markdown(autolink literals, footnotes, strikethrough, tables, tasklists)を利用するために利用
+	- 標準plugin。GitHub Flavored Markdown(autolink literals, footnotes, strikethrough, tables, tasklists)を利用するために利用。
 - remark-rehype
-  - 標準plugin。mdastをhastに変換
+	- 標準plugin。mdastをhastに変換。
 - rehype-raw
-  - 標準plugin:。markdown内のhtmlタグをsyntax treeのnodeに含める
+	- 標準plugin:。markdown内のhtmlタグをsyntax treeのnodeに含めるために使用。
 - rehype-slug
-  - 標準plugin。Hタグにidを付与
+	- 標準plugin。Hタグにidを付与。
 - rehype-autolink-headings
-  - 標準plugin。Hタグへのlinkを作成
+	- 標準plugin。Hタグへのlinkを作成。
 - rehype-External-Links
-  - 今回新たに採用。標準plugin。外部サイトへのリンクを制御。target="_blank"を付与するのに使用
+	- 今回新たに採用。標準plugin。外部サイトへのリンクを制御。`target="_blank"`を付与するのに使用。
 - rehype-attrs
-  - remarkAttrの代わりに採用。markdownに記述したattributeを変換後のhtmlに付与。cssクラスをセットする等の用途で使用
+	- remarkAttrの代わりに採用。markdownに記述したattributeを変換後のhtmlに付与。cssクラスをセットする等の用途で使用。
 - rehypeHighlight
-  - 以前利用していたsyntax highlight用のplugin。標準で登録済み担っている言語でbundleサイズが膨らんでしまい、取り除くのが簡単ではなさそうだったので`rehypePrismPlus`に変更することに
+	- 以前利用していたsyntax highlight用のplugin。標準で登録済み担っている言語でbundleサイズが膨らんでしまい、取り除くのが簡単ではなさそうだったので`rehypePrismPlus`に変更することにしました。
 - rehypePrismPlus
-  - syntax highlight用のplugin。ハイライト対象の設定ファイルを柔軟に登録できるので、bundleサイズ削減が期待できる
+	- syntax highlight用のplugin。ハイライト対象の設定ファイルを柔軟に登録できるので、bundleサイズ削減が期待できます。
 
 ``` ts
 const processor = unified()
@@ -276,15 +275,15 @@ const html = String(processor.processSync(document.content.body));
 
 ## 💡 振り返り / 次回へのアクション
 
-- prettierの[bracket line](https://prettier.io/docs/en/options.html#bracket-line)をtrueにする
-- loading barのshow/hideにアニメーションを付ける
+- prettierの[bracket line](https://prettier.io/docs/en/options.html#bracket-line)をtrueに変更する予定です。
+- loading barのshow/hideにアニメーション付与したいです。
 
 ## 🔗 関連リンク
 
 - [[🏃NET6とAngular v13でSPAサイトを作る（VSプロジェクト作成）]]
 - [[🏃NET6とAngular v13でSPAサイトを作る（バックエンド）]]
 
-## 参考資料
+## 🔗 参考資料
 
 - [How to upgrade Angular CLI to the latest version](https://stackoverflow.com/questions/43931986/how-to-upgrade-angular-cli-to-the-latest-version)
 - [angular-eslint](https://github.com/angular-eslint/angular-eslint)

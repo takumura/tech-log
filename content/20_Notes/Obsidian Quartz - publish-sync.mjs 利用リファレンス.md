@@ -11,11 +11,11 @@ publish: "true"
 ---
 # 🔍 概要
 > [!ABSTRACT] Overview
->publish-sync.mjsの使い方に関する説明。処理詳細は[[Obsidian Quartz - publish-sync.mjs (publish flag copyによる選択公開)]]を参照。
+>publish-sync.mjsの使い方に関する説明。処理詳細は[[Obsidian Quartz - publish-sync.mjs（publish flag copyによる選択公開）]]を参照してください。
 
 ## 🧩 実行方法
 
-script`publish-sync.mjs`はtech-log repo直下に配置し、repo rootから実行する。`VAULT`（Obsidian vault path）と `CONTENT`（copy先）はスクリプト冒頭の定数。個人運用を前提に、スクリプト冒頭で固定値として書いている。
+script`publish-sync.mjs`はtech-log repo直下に配置し、repo rootから実行します。`VAULT`（Obsidian vault path）と `CONTENT`（copy先）はスクリプト冒頭の定数。個人運用を前提に、スクリプト冒頭で固定値として書いています。
 
 ```sh frame="none"
 node publish-sync.mjs --dry-run   # 計画とWarningのみ（copy・syncしない）
@@ -34,4 +34,4 @@ WARN link to unflagged note: [[Secret]] <- 20_Notes\pub.md
 
 ## 🔗 関連リンク
 
-- [[Obsidian Quartz - publish-sync.mjs (publish flag copyによる選択公開)]]
+- [[Obsidian Quartz - publish-sync.mjs（publish flag copyによる選択公開）]]

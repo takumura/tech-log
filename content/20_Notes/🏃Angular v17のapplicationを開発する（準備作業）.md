@@ -10,15 +10,17 @@ publish: "true"
 ---
 # 🏃 活動概要
 > [!ABSTRACT] Overview
-> 2023/11/8に[angular v17のリリース](https://blog.angular.io/introducing-angular-v17-4d7033312e4b)がアナウンスされました。v15以降にどんどん導入されている新機能を一つひとつ試していきたいので、v17でブログappをイチから作成してみる。
+> 2023/11/8に[angular v17のリリース](https://blog.angular.io/introducing-angular-v17-4d7033312e4b)がアナウンスされました。v15以降にどんどん導入されている新機能を一つひとつ試していきたいので、v17でブログappをイチから作成してみます。
 
 以下の順番で確認していく予定です。
 
-- angular v17のapp作成と動作確認 **<- 今回はココ**
-- .NET 8の新しいSPAテンプレートでangular v17を利用する
-- 状態管理をngrxからsignalに変更する
-- angularのprerenderingを試す
-- angular v17のlibraryを作成し、ブログページ用のcomponentをappから利用できるようにする
+- angular v17のapp作成と動作確認。
+- .NET 8の新しいSPAテンプレートでangular v17を利用。
+- 状態管理をngrxからsignalに変更。
+- angularのprerenderingを調査。
+- angular v17のlibraryを作成し、ブログページ用のcomponentをappから利用できるように変更。
+
+まずは**angular v17のapp作成と動作確認**を実施します。
 
 ## 🧩 環境準備
 
@@ -77,7 +79,7 @@ Now using node v20.9.0 (64-bit)
     12.22.12
 ```
 
-Nodejsおよびnpmが切り替わったので、angular cliも入れ直しです。cacheフォルダーの開発ドライブへの変更も、[[Windows11の開発ドライブを利用する]]を参考にして設定し直す必要がありました。
+Nodejsおよびnpmが切り替わったので、angular cliも入れ直しです。cacheフォルダーの開発ドライブへの変更も、[[Windows11のDev Driveを利用する]]を参考にして設定し直す必要がありました。
 
 ```sh frame="none"
 > npm install -g yarn

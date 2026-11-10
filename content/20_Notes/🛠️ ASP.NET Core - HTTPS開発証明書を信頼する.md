@@ -12,11 +12,11 @@ publish: "true"
 ---
 # 🔍 概要
 > [!ABSTRACT] Overview
-> ASP.NET CoreでHTTPSを利用したAppを開発し始めた際、初見のエラーが発生したので対応方法を記録。
+> ASP.NET CoreでHTTPSを利用したAppを開発し始めた際、初見のエラーが発生したので対応方法を記録します。
 
 ## ❓ 問題 / 背景
 
-ASP.NET CoreのWebAppプロジェクトを作成しデバッグ起動する。
+ASP.NET CoreのWebAppプロジェクトを作成し、デバッグ起動します。
 
 ```sh frame="none"
 PS C:\\Repos\\github\\tech-log\\Website> dotnet run
@@ -70,11 +70,11 @@ info: Karen.Web.DocWatchService[0]
       Start conversion for updated file.
 ```
 
-## 🧩 追加で確認したこと
+## 💡 振り返り / 次回へのアクション
 
 開発専用のSSL証明書を作成する必要があったということのようですが、`app.UseHsts`が何をしているのかよくわかっていませんでした。[HSTS - wikipedia](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security)によると、初回のhttpアクセス時のレスポンスヘッダに`"Strict-Transport-Security`を付与することで、次回以降httpsでの接続を強制するというルールの事でした。
 
-また、今回の対応では`dotnet dev-certs https`で、証明書の作成をしていましたが、最初に挙げた記事など色々な参考文献をあたっても`dotnet dev-certs https --trust`という風にtrustオプションをつけていました。開発時証明書を（無ければ作成し）信頼する事になるのでしょう。
+また今回の対応では、証明書の作成に`dotnet dev-certs https`コマンドを使用しましたが、最初に挙げた記事など色々な参考文献では`dotnet dev-certs https --trust`という風に`--trust`オプションをつけていました。開発時証明書を（無ければ作成し）信頼する事になるのでしょう。
 
 作業マシンで一度このコマンドを実行すればよいものなので、なかなか発生せず忘れてしまいそうです。`dotnet dev-certs`という文言を見かけたら、この記事を思い出すことにしようと思います。
 

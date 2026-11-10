@@ -75,7 +75,7 @@ Vuex store自体はtypescriptで書けるのですが、component等から利用
 
 Typed VuexのNuxt用モジュールを[公式サイトの手順](https://typed-vuex.roe.dev/getting-started-nuxt)に従い導入しました。
 
-``` powershell
+```sh frame="none"
 > yarn add --dev nuxt-typed-vuex
 ```
 
@@ -112,7 +112,7 @@ declare module '@nuxt/types' {
 
 その後は[実装サンプル](https://github.com/danielroe/typed-vuex/blob/main/examples/nuxt/store/index.ts)や[参考記事](https://qiita.com/shindex/items/a90217b9e4c03c5b5215#vuex-%E3%81%AE-typescript-%E5%8C%96)などを見ながらstoreスクリプトをTyped Vuex仕様にしていきます。
 
-store側が完了してしまえば、呼び出しているcomponent側の更新は非常に簡単です。getter/mutation/actionへのアクセスは`this.$accessor`がイイ感じに行ってくれます。例えば`dispatch('アクション名')`としていた部分は`this.$accessor.{submodules}.アクション名()`とリテラルではなく直接呼出しになり、インテリセンスも効いています。素晴らしい！
+store側が完了してしまえば、呼び出しているcomponent側の更新は非常に簡単です。getter/mutation/actionへのアクセスは`this.$accessor`がイイ感じに行ってくれます。例えば`dispatch('アクション名')`としていた部分は`this.$accessor.{submodules}.アクション名()`とリテラルではなく直接呼出しになり、インテリセンスも効いています。素晴らしいです！
 
 ## 🧩 Storybook with Typed Vuex
 
@@ -211,7 +211,7 @@ export const parameters = {
 }
 ```
 
-story側ではstoreのモックを作成する代わりに、`preview.js`でexportしたstoreをそのまま利用できることに気が付きました。とっても便利！！
+story側ではstoreのモックを作成する代わりに、`preview.js`でexportしたstoreをそのまま利用できることに気が付きました。とっても便利！
 
 ``` diff
 -import Vuex from 'vuex'

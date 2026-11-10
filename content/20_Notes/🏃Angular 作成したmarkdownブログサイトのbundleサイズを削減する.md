@@ -11,11 +11,11 @@ publish: "true"
 ---
 # 🏃 活動概要
 > [!ABSTRACT] Overview
-> Angularでmarkdownデータを表示するブログサイトのようなものを作成しました。ドラフト版が完成しリリースビルドを生成したところ約2MBのサイズになり、生成処理中にサイズが大きいと怒られてしまいました。リリースモジュールのbundle内訳を確認し、削減する方法を考えます。
+> Angularでmarkdownデータを表示するブログサイトのようなものを作成しました。ドラフト版が完成しリリースビルドを生成したところ約2MBのサイズになり、生成処理中にサイズが大きいと警告が出ました。リリースモジュールのbundle内訳を確認し、削減する方法を考えます。
 
 ## 🧩 詳細
 
-生成したリリースbundleを分析するツールとしては`webpack-bundle-analyzer`が有名で、以前作成した旧バージョンのmarkdownブログサイトもこのツールで分析しました。ですが、Angularのbuildプロセスでは独自の最適化が施されており、`webpack-bundle-analyzer`では正しい分析ができなくなっているとのこと。
+生成したリリースbundleを分析するツールとしては`webpack-bundle-analyzer`が有名で、以前作成した旧バージョンのmarkdownブログサイトもこのツールで分析しました。ですが、Angularのbuildプロセスでは独自の最適化が施されており、`webpack-bundle-analyzer`では正しい分析ができなくなっているとのことです。
 
 Angularチームではbundleの分析に[source-map-explorer](https://github.com/danvk/source-map-explorer)の使用を推奨しているようなので、今回はこの`source-map-explorer`ツールを使って分析してみます。
 
@@ -60,7 +60,7 @@ source-map-explorerをdev dependencyに追加します。
 
 ## 🧩 rehype-prism-plusで利用するファイルフォーマットを限定する
 
-[refactor](https://github.com/wooorm/refractor)モジュールは[rehype-prism-plus](https://github.com/timlrx/rehype-prism-plus)で利用されているcode highlightingのコアモジュールです。
+[refractor](https://github.com/wooorm/refractor)モジュールは[rehype-prism-plus](https://github.com/timlrx/rehype-prism-plus)で利用されているcode highlightingのコアモジュールです。
 
 angular側で`import rehypePrismPlus from 'rehype-prism-plus';`のように`rehype-prism-plus`を参照するとrefactorが参照するすべての言語定義が読み込まれます。そのため非常に巨大なbundleになっていました。当然すべての言語定義は必要ないので、利用している分だけを登録するように変更します。
 
@@ -127,7 +127,9 @@ export const lunrIndex = lunr((builder) => {
 });
 ```
 
-色々頑張って実装した割には、日本語と英語が混ざった検索などは思ったような結果が返ってきませんでした。。。ちょっとした文章管理で使う分には全文検索にこだわらず、`includes`や`indexOf`による検索でも十分なのかもしれません。
+## 💡 振り返り / 次回へのアクション
+
+色々頑張って実装した割には、日本語と英語が混ざった検索などは思ったような結果が返ってきませんでした。ちょっとした文章管理で使う分には全文検索にこだわらず、`includes`や`indexOf`による検索でも十分なのかもしれません。
 
 ということで、色々頑張ってみましたがLunr.jsの実装は全部削除して、javascriptの単純な文字列検索に切り替えます。googleでの検索では、結局`indexOf`が一番有名でパフォーマンスも安定しているようなので、これを採用することにしました。
 

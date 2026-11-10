@@ -51,9 +51,9 @@ Done in 40.64s.
 ```
 
 その後も説明に従いmain.tsに以下の一行を追加したところ、build errorが発生するようになってしまいました。
-`provideFluentDesignSystem().register(fluentDesignSystemProvider());`
+- `provideFluentDesignSystem().register(fluentDesignSystemProvider());`
 
-[FAST designのissue](https://github.com/microsoft/fast/issues/5198)によると、typescriptのversionが4.3.5以上だとこのエラーが発生するとのこと。暫定の回避手段は`skipLibCheck: true`を`tsconfig.json`に追加することでした。
+[FAST designのissue](https://github.com/microsoft/fast/issues/5198)によると、typescriptのversionが4.3.5以上だとこのエラーが発生するとのことです。暫定の回避手段は`skipLibCheck: true`を`tsconfig.json`に追加することでした。
 
 ``` diff
 /* To learn more about this file see: https://angular.io/config/tsconfig. */

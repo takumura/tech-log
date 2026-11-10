@@ -15,14 +15,14 @@ publish: "true"
 ---
 # 🏃 活動概要
 > [!ABSTRACT] Overview
-> Windows10以降の、標準機能によるSSH接続の設定調査。
+> Windows10以降の、標準機能によるSSH接続の設定を確認します。
 
 ## 🧩 作業の背景
 
-- これまではSourceTreeを利用してGithub, Bitbucketのリモートリポジトリを操作していました
-- 接続にはsshを利用し、SourceTreeに付属のPuttyおよびPageantで鍵の運用をしていました
-- [[AngularプロジェクトをGithub Pagesへdeployする設定]]の作業で、origin/gh-pagesにpushする処理でエラーが発生
-- VSCodeをPutty(Pageant)を連携する方法を調べたが見つからず、ssh clientの利用方法を見直す必要がありました
+- これまではSourceTreeを利用してGithub, Bitbucketのリモートリポジトリを操作していました。
+- 接続にはsshを利用し、SourceTreeに付属のPuttyおよびPageantで鍵の運用をしていました。
+- [[AngularプロジェクトをGithub Pagesへdeployする設定]]の作業で、origin/gh-pagesにpushする処理でエラーが発生。
+- VSCodeをPutty(Pageant)を連携する方法を調べたが見つからず、ssh clientの利用方法を見直す必要がありました。
 
 ## 🧩 環境
 
@@ -43,14 +43,14 @@ OpenSSH Authentication Agentサービスは無効状態でした。サービス�
 
 ### ppkファイルからOpenSSH形式の秘密鍵を生成
 > [!info]
-> GithubのSSHキーに関するルールが変更されたため、キー作成の手順が変更されました。詳細は[[GithubのSSHキー作成]]を参照。
+> GithubのSSHキーに関するルールが変更されたため、キー作成の手順が変更されました。詳細は[[GithubのSSHキー作成]]を参照してください。
 
 Putty(Pageant)が利用している秘密鍵(.ppk)はOpenSSHと互換性のない独自形式です。ssh clientで利用するためにはOpenSSH形式に変換してあげる必要があります。
 
-1. SourceTreeのメニューから`SSH キーの生成/インポート`を選択
+1. SourceTreeのメニューから`SSH キーの生成/インポート`を選択。
    ![[20220723_git-ssh-configuration-1.png]]
-2. Loadボタンを押して、githubの秘密鍵(.ppk)を読み込み、メニュの`Conversions` > `Export OpenSSH key`を選択。OpenSSh形式の秘密鍵: `id_rsa`を生成
-3. 作成した`id_ras`ファイルを`c:\Users\<username>\.ssh`フォルダに配置
+2. Loadボタンを押して、githubの秘密鍵(.ppk)を読み込み、メニュの`Conversions` > `Export OpenSSH key`を選択。OpenSSh形式の秘密鍵: `id_rsa`を生成。
+3. 作成した`id_ras`ファイルを`c:\Users\<username>\.ssh`フォルダに配置。
 
 1.で実行されるツール(puttygen.exe)は、私の環境では`c:\Users\<username>\AppData\Local\SourceTree\app-3.1.3\tools\putty\puttygen.exe`にありました。`c:\Users\<username>\.ssh`も存在していましたが、中身は空でした。
 

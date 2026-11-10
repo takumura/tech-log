@@ -13,8 +13,7 @@ publish: "true"
 ---
 # 🏃 活動概要
 > [!ABSTRACT] Overview
-> 旧サイトは自作のwebサイト生成エンジンで生成されています。自作エンジンは2019年に.NET Core 2.1とAngular v7で開発しました。それから時は流れ、2021年末時点でバックエンド側は.NET6に、フロントエンド側はAngular v13にそれぞれバージョンアップされています。
-> 進化の波に取り残されないように、最新バージョンのモジュールを使ってwebサイト生成エンジンを再開発してみようと思います。
+> 旧サイトは自作のwebサイト生成エンジンで生成されています。自作エンジンは2019年に.NET Core 2.1とAngular v7で開発しました。それから時は流れ、2021年末時点でバックエンド側は.NET6に、フロントエンド側はAngular v13にそれぞれバージョンアップされています。進化の波に取り残されないように、最新バージョンのモジュールを使ってwebサイト生成エンジンを再開発してみようと思います。
 > \
 > 本Noteでは、バックエンド編ということで.NET6のASP.NET Core SPAプロジェクト側のBackground Serviceと、Markdownを記事ファイルをJsonへ変換する機構を実装していきます。
 
@@ -72,10 +71,10 @@ var app = builder.Build();
 
 せっかくのリライトなので、以前の実装で気になっていた部分について書き直してみました。
 
-- 再帰してフォルダとファイルを探索する際、folder構成が深い場合に速度低下が発生していた。再帰を使わずに対象ファイルをリストアップするように変更。
-- ファイルの読み込み/書き込みは並列処理可能なので、.NET 6で追加されたParallel.ForEachAsycを利用した非同期並列処理を実装
-- JSON serializer/deserializerをJson.NETからDynaJsonに変更
-	- [DynaJsonではJSONデータをRFCに則り厳密にparseする](https://dev.to/fujieda/how-to-make-json-parser-strict-4a85)とのことで、escape characterの差分が現れました。フロントエンド側での表示に影響が出る懸念あり（後で要確認）
+- 再帰してフォルダとファイルを探索する際、folder構成が深い場合に速度低下が発生していました。再帰を使わずに対象ファイルをリストアップするように変更。
+- ファイルの読み込み/書き込みは並列処理可能なので、.NET 6で追加されたParallel.ForEachAsycを利用した非同期並列処理を実装。
+- JSON serializer/deserializerをJson.NETからDynaJsonに変更。
+	- [DynaJsonではJSONデータをRFCに則り厳密にparseする](https://dev.to/fujieda/how-to-make-json-parser-strict-4a85)とのことで、escape characterの差分が現れました。フロントエンド側での表示に影響が出る懸念あり（後で要確認）。
 
 パフォーマンスの測定も時間ができたら試してみたいと思います。
 
