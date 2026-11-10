@@ -1,6 +1,6 @@
 ---
 created: 2026-11-01
-updated: 2026-11-01
+updated: 2026-11-10
 type: snapshot
 category: article
 tags:
@@ -188,7 +188,8 @@ h6 {
 // ============================================================================
 // Link style adjustments
 // ============================================================================
-div.center a {
+div.center a,
+div.preview-container a {
     text-decoration: underline !important;
 
   &.internal-link {
@@ -252,7 +253,8 @@ div.center a {
 // ============================================================================
 // Indent adjustments
 // ============================================================================
-div.center {
+div.center,
+div.preview-container {
   & h4,
   & p:not(.callout-title-inner),
   & ul,
@@ -310,6 +312,25 @@ div.page-header {
   margin-top: 56px;
 }
 
+
+
+// ============================================================================
+// Pre / Code style adjustments
+// ============================================================================
+div.center figure,
+div.preview-container figure {
+  & > figcaption {
+    padding: 0 16px 4px 16px;
+    margin-left: 16px;
+    background-color: var(--code-bg-color);
+    border-bottom: 1px solid var(--h2-color);
+  }
+
+  pre {
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+}
 
 
 // ============================================================================
@@ -396,6 +417,40 @@ div.backlinks {
   }
 }
 
+// ============================================================================
+// Search style adjustments
+// ============================================================================
+.search > .search-container 
+{
+  & > .search-space > :not(.ghost-text):not(.tag-suggestions) {
+    background: var(--light);
+    border-radius: 7px;
+    width: 100%;
+    margin-bottom: 2em;
+    box-shadow: 0 14px 50px #1b21301f,0 10px 30px #1b213029
+  }
+
+  & .search-layout {
+    border: 1px solid var(--lightgray);
+  }
+
+  & .results-container {
+    & a {
+      padding-left: 16px;
+      border-bottom: 1px solid var(--lightgray);
+
+      &:hover {
+        background-color: var(--nav-item-background-hover);
+      }
+
+      & > h3 {
+        font-size: 1rem;
+        color: var(--nav-item-color);
+        border-bottom: initial;
+      }
+    }
+  }
+}
 ```
 
 ## 💡 振り返り / 次回へのアクション
