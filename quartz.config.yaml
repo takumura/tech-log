@@ -7,7 +7,7 @@ configuration:
   analytics:
     provider: plausible
   locale: en-US
-  baseUrl: tech-log
+  baseUrl: takumura.github.io/tech-log
   ignorePatterns:
     - private
     - templates
