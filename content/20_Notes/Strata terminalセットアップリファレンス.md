@@ -1,6 +1,6 @@
 ---
 created: 2026-11-04
-updated: 2026-11-04
+updated: 2026-11-10
 type: evergreen
 category: article
 tags:
@@ -66,19 +66,23 @@ jsonファイルを修正し、RTX5060 8GB、SYS RAM 48GBに最適なパラメ�
   "extra": {
 +    "--adapt-async": "1",
 +    "--control-vector-layer-range": "4 44",
-+    "--control-vector-scaled": "C:\\Users\\picas\\AppData\\Local\\Strata\\terminal\\current\\data\\experimental-speed-projection\\Qwen3.8-Flash-Next-experimental-speed-projection.gguf:1.0",
-+    "--conversation-cache-mib": "4096",
++    "--control-vector-scaled": "%LOCALAPPDATA%\\Strata\\terminal\\current\\data\\experimental-speed-projection\\Qwen3.8-Flash-Next-experimental-speed-projection.gguf:1.0",
++    "--conversation-cache-mib": "1024",
 +    "--conversation-cache-slots": "2",
 +    "--cvec-dir": "per-layer",
 +    "--cvec-mode": "project",
 +    "--draft": "dflash2",
-+    "--kv": "k8v4",
-+    "--kv-resident": "16384",
++    "--kv": "q4_0",
++    "--kv-grow": "on",
++    "--kv-resident": "112648",
 +    "--mtp": "off",
 +    "--pool-workers": "6",
-+    "--prefill": "8192",
-+    "--short-read": "0",
++    "--prefill": "auto:32768",
 +    "--spec-min-p": "0.70",
++    "--spec-min-p": "0.70",
++    "--temperature": "1.0",
++    "--top-k": "20",
++    "--top-p": "0.95",
 +    "--vram-reserve-mib": "300",
 +    "STRATA_PIN_BY_NEED": "on",
 +    "STRATA_ROUTE_PRIOR": "0",
@@ -112,21 +116,24 @@ jsonファイルを修正し、RTX5060 8GB、SYS RAM 48GBに最適なパラメ�
 - `%localappdata%\Strata\install\strata-iq2_xs.json`
 - `%localappdata%\Strata\launch\iq2_xs-128k.json`
 
-sampling値はargに設定しても効果が無いため、生成された上記2ファイルに追記を行います。
+sampling値はargに設定していますが、念のため`sampling`セクションにも追記しています。生成された上記2ファイルに追記を行います。
 
 ```diff title="strata-iq2_xs.json"
 ...中略
  "gpus_asked": true,
-+ "sampling": {
-+  "temperature": 0.6,
++  "sampling": {
++  "temperature": 1.0,
 +  "top_p": 0.95,
 +  "top_k": 20,
-+  "min_p": 0.05
-+ },
++  "repetition_penalty": 1.1,
++  "penalty_last_n": 256
++ },,
  "args_written": [
  ],
 ...
 ```
+
+dflash2がdefault draftになってからrepetition loopの発生頻度が高くなりました。Qwen3.8FNと相談し、対策として`repetition_penalty`と`penalty_last_n`をセットしました。さらに、APIフロントエンドのHermes Desktop側ではreasoningを`medium`に設定しました。
 
 ### パフォーマンス検証
 
